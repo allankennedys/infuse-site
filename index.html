@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>INFUSE — Tecnologia que se infunde no seu negócio</title>
+<meta name="description" content="INFUSE: software house especializada em sites, e-commerces, automações, CRM, chatbots e IA no WhatsApp para negócios que querem vender mais e operar com menos esforço.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 56'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%233b82f6'/%3E%3Cstop offset='1' stop-color='%238b5cf6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='56' rx='10' fill='%230a1628'/%3E%3Ccircle cx='15' cy='14' r='3.4' fill='url(%23g)'/%3E%3Cpath d='M15,22 C15,16 25,16 25,22 C25,30 11,32 11,40 C11,48 27,49 31,42' stroke='url(%23g)' stroke-width='5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+
+<style>
+/* ============ RESET & TOKENS ============ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --navy-950:#060a13;
+  --navy-900:#0a1628;
+  --navy-850:#0c1a2e;
+  --navy-800:#102036;
+  --navy-700:#152844;
+  --navy-650:#1a2f4f;
+  --line:#1e3252;
+  --line-soft:#162741;
+  --blue:#3b82f6;
+  --violet:#8b5cf6;
+  --grad:linear-gradient(135deg,#3b82f6 0%,#7c6bf2 55%,#8b5cf6 100%);
+  --grad-soft:linear-gradient(135deg,rgba(59,130,246,.16),rgba(139,92,246,.16));
+  --ink:#f3f6fc;
+  --muted:#9aabce;
+  --muted-2:#6c7da3;
+  --radius-lg:22px;
+  --radius-md:14px;
+  --radius-sm:10px;
+  --maxw:1200px;
+  --ease:cubic-bezier(.16,.84,.44,1);
+}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--navy-900);
+  color:var(--ink);
+  font-family:'Inter',system-ui,-apple-system,sans-serif;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img,svg{display:block;max-width:100%;}
+a{color:inherit;text-decoration:none;}
+ul{list-style:none;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit;}
+input,textarea,select{font-family:inherit;}
+.mono{font-family:'JetBrains Mono',monospace;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;}
+section{position:relative;}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:4px;}
+
+/* background texture: faint dot grid + radial vignette, used on dark sections */
+.grid-bg{
+  position:absolute;inset:0;
+  background-image:radial-gradient(circle at 1px 1px, rgba(154,171,206,.14) 1px, transparent 0);
+  background-size:26px 26px;
+  mask-image:radial-gradient(ellipse 70% 60% at 50% 0%, black 0%, transparent 75%);
+  pointer-events:none;
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;scroll-behavior:auto !important;}
+}
+
+/* ============ TYPE SCALE ============ */
+h1,h2,h3{font-weight:800;letter-spacing:-.02em;line-height:1.08;}
+h1{font-size:clamp(2.3rem,4.6vw,3.8rem);}
+h2{font-size:clamp(1.8rem,3.2vw,2.6rem);}
+h3{font-size:1.15rem;font-weight:700;}
+.eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.72rem;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--blue);
+  display:inline-flex;align-items:center;gap:8px;
+  font-weight:600;
+}
+.eyebrow::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--grad);box-shadow:0 0 10px rgba(99,118,246,.9);}
+.lede{color:var(--muted);font-size:1.08rem;max-width:46ch;}
+
+/* ============ REVEAL ============ */
+[data-reveal]{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease);}
+[data-reveal].in-view{opacity:1;transform:translateY(0);}
+[data-reveal-delay="1"]{transition-delay:.08s;}
+[data-reveal-delay="2"]{transition-delay:.16s;}
+[data-reveal-delay="3"]{transition-delay:.24s;}
+[data-reveal-delay="4"]{transition-delay:.32s;}
+[data-reveal-delay="5"]{transition-delay:.4s;}
+
+/* ============ TOP INFUSION LINE ============ */
+.infusion-line{
+  position:fixed;top:0;left:0;right:0;height:2px;z-index:60;
+  background:var(--grad);
+  background-size:200% 100%;
+  animation:flow 6s linear infinite;
+}
+@keyframes flow{0%{background-position:0% 0;}100%{background-position:200% 0;}}
+
+/* ============ LOGO MARK ============ */
+.mark{display:inline-flex;align-items:center;justify-content:center;}
+.mark svg{width:30px;height:35px;}
+.mark .stroke{
+  stroke-dasharray:120;
+  stroke-dashoffset:120;
+  animation:draw 1.4s var(--ease) .2s forwards;
+}
+@keyframes draw{to{stroke-dashoffset:0;}}
+.brand{display:inline-flex;align-items:center;gap:10px;font-weight:800;font-size:1.18rem;letter-spacing:-.01em;}
+
+/* ============ HEADER ============ */
+.site-header{
+  position:fixed;top:2px;left:0;right:0;z-index:50;
+  padding:18px 0;
+  transition:background .35s var(--ease),border-color .35s var(--ease),padding .35s var(--ease);
+  border-bottom:1px solid transparent;
+}
+.site-header.scrolled{
+  background:rgba(8,15,28,.78);
+  backdrop-filter:blur(14px) saturate(140%);
+  border-bottom-color:var(--line-soft);
+  padding:13px 0;
+}
+.header-row{display:flex;align-items:center;justify-content:space-between;gap:24px;}
+.nav-links{display:flex;align-items:center;gap:34px;}
+.nav-links a{font-size:.92rem;color:var(--muted);font-weight:500;transition:color .25s;position:relative;}
+.nav-links a:hover,.nav-links a.active{color:var(--ink);}
+.nav-links a.active::after{content:'';position:absolute;left:0;right:0;bottom:-9px;height:2px;background:var(--grad);border-radius:2px;}
+.header-actions{display:flex;align-items:center;gap:18px;}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  padding:12px 22px;border-radius:100px;font-weight:600;font-size:.92rem;
+  transition:transform .25s var(--ease),box-shadow .25s var(--ease),background .25s,border-color .25s;
+  white-space:nowrap;
+}
+.btn-primary{background:var(--grad);color:#fff;box-shadow:0 8px 24px -8px rgba(89,99,246,.55);}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 30px -10px rgba(89,99,246,.7);}
+.btn-ghost{border:1px solid var(--line);color:var(--ink);background:rgba(255,255,255,.02);}
+.btn-ghost:hover{border-color:var(--muted-2);background:rgba(255,255,255,.05);}
+.btn svg{width:17px;height:17px;}
+.burger{display:none;width:34px;height:34px;align-items:center;justify-content:center;}
+.burger span,.burger span::before,.burger span::after{
+  content:'';display:block;width:20px;height:2px;background:var(--ink);border-radius:2px;position:relative;transition:.25s;
+}
+.burger span::before{position:absolute;top:-6px;}
+.burger span::after{position:absolute;top:6px;}
+.mobile-panel{
+  position:fixed;inset:0;top:64px;background:rgba(6,10,19,.97);backdrop-filter:blur(10px);
+  z-index:45;display:flex;flex-direction:column;padding:36px 32px;gap:26px;
+  transform:translateY(-12px);opacity:0;pointer-events:none;transition:.3s var(--ease);
+}
+.mobile-panel.open{transform:translateY(0);opacity:1;pointer-events:auto;}
+.mobile-panel a{font-size:1.3rem;font-weight:600;}
+
+/* ============ HERO ============ */
+.hero{padding:168px 0 110px;overflow:hidden;}
+.orb{position:absolute;border-radius:50%;filter:blur(60px);opacity:.45;pointer-events:none;}
+.orb-1{width:420px;height:420px;background:radial-gradient(circle,var(--blue),transparent 70%);top:-120px;right:-80px;animation:float1 14s ease-in-out infinite;}
+.orb-2{width:340px;height:340px;background:radial-gradient(circle,var(--violet),transparent 70%);bottom:-100px;left:30%;animation:float2 16s ease-in-out infinite;}
+@keyframes float1{0%,100%{transform:translate(0,0);}50%{transform:translate(-30px,30px);}}
+@keyframes float2{0%,100%{transform:translate(0,0);}50%{transform:translate(20px,-26px);}}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center;position:relative;z-index:1;}
+.hero h1{margin:20px 0 22px;}
+.hero h1 .accent{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.hero-ctas{display:flex;gap:14px;margin:34px 0 30px;flex-wrap:wrap;}
+.cap-tags{display:flex;gap:10px;flex-wrap:wrap;}
+.cap-tag{
+  font-size:.78rem;color:var(--muted);border:1px solid var(--line);border-radius:100px;
+  padding:7px 14px;display:flex;align-items:center;gap:7px;background:rgba(255,255,255,.02);
+}
+.cap-tag .dot{width:5px;height:5px;border-radius:50%;background:var(--grad);}
+
+/* phone / chat demo */
+.device-stage{position:relative;display:flex;justify-content:center;}
+.floatie{
+  position:absolute;width:56px;height:56px;border-radius:16px;background:var(--navy-800);
+  border:1px solid var(--line);display:flex;align-items:center;justify-content:center;
+  box-shadow:0 18px 40px -14px rgba(0,0,0,.55);animation:bob 5s ease-in-out infinite;
+}
+.floatie svg{width:24px;height:24px;}
+.floatie-1{top:6%;left:-6%;animation-delay:.2s;}
+.floatie-2{bottom:10%;right:-8%;animation-delay:1.1s;}
+.floatie-3{top:46%;right:-12%;animation-delay:2s;width:46px;height:46px;}
+@keyframes bob{0%,100%{transform:translateY(0);}50%{transform:translateY(-12px);}}
+
+.phone{
+  width:310px;border-radius:34px;background:linear-gradient(180deg,var(--navy-800),var(--navy-850));
+  border:1px solid var(--line);padding:14px;box-shadow:0 40px 80px -30px rgba(0,0,0,.7),0 0 0 1px rgba(255,255,255,.02) inset;
+  position:relative;z-index:1;
+}
+.phone-notch{width:90px;height:18px;background:var(--navy-950);border-radius:0 0 14px 14px;margin:0 auto 10px;}
+.phone-screen{
+  background:#0b1322;border-radius:22px;padding:18px 14px 14px;height:430px;
+  display:flex;flex-direction:column;position:relative;overflow:hidden;
+}
+.chat-head{display:flex;align-items:center;gap:10px;padding-bottom:14px;border-bottom:1px solid var(--line-soft);margin-bottom:14px;}
+.chat-avatar{width:34px;height:34px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;}
+.chat-avatar svg{width:17px;height:17px;}
+.chat-name{font-size:.85rem;font-weight:700;}
+.chat-status{font-size:.7rem;color:#5fe3a3;display:flex;align-items:center;gap:5px;}
+.chat-status::before{content:'';width:6px;height:6px;border-radius:50%;background:#5fe3a3;}
+.chat-body{flex:1;display:flex;flex-direction:column;gap:10px;overflow:hidden;}
+.bubble{max-width:84%;padding:10px 13px;border-radius:14px;font-size:.82rem;line-height:1.4;opacity:0;transform:translateY(8px);animation:bubbleIn .45s var(--ease) forwards;}
+@keyframes bubbleIn{to{opacity:1;transform:translateY(0);}}
+.bubble.them{align-self:flex-start;background:var(--navy-700);border:1px solid var(--line-soft);border-bottom-left-radius:4px;}
+.bubble.me{align-self:flex-end;background:var(--grad);color:#fff;border-bottom-right-radius:4px;}
+.typing{align-self:flex-start;display:flex;gap:4px;padding:11px 14px;background:var(--navy-700);border-radius:14px;border-bottom-left-radius:4px;opacity:0;animation:bubbleIn .3s var(--ease) forwards;}
+.typing span{width:6px;height:6px;border-radius:50%;background:var(--muted-2);animation:dotPulse 1.1s ease-in-out infinite;}
+.typing span:nth-child(2){animation-delay:.15s;}
+.typing span:nth-child(3){animation-delay:.3s;}
+@keyframes dotPulse{0%,80%,100%{opacity:.3;transform:scale(.8);}40%{opacity:1;transform:scale(1);}}
+.chat-input{display:flex;align-items:center;gap:8px;background:var(--navy-700);border-radius:100px;padding:8px 8px 8px 14px;margin-top:auto;}
+.chat-input span{font-size:.74rem;color:var(--muted-2);flex:1;}
+.chat-send{width:28px;height:28px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.chat-send svg{width:13px;height:13px;}
+
+/* ============ SECTION HEADS ============ */
+.section-head{max-width:640px;margin-bottom:56px;}
+.section-head h2{margin-top:16px;}
+.section-pad{padding:108px 0;}
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent);}
+
+/* ============ SOLUTIONS GRID ============ */
+.solutions-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+.s-card{
+  background:linear-gradient(160deg,var(--navy-800),var(--navy-850));
+  border:1px solid var(--line-soft);border-radius:var(--radius-lg);
+  padding:30px 26px;transition:transform .35s var(--ease),border-color .35s,background .35s;
+  position:relative;overflow:hidden;
+}
+.s-card::before{
+  content:'';position:absolute;inset:0;border-radius:inherit;padding:1px;
+  background:var(--grad);opacity:0;transition:opacity .35s;
+  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;
+}
+.s-card:hover{transform:translateY(-6px);}
+.s-card:hover::before{opacity:1;}
+.s-icon{
+  width:48px;height:48px;border-radius:13px;background:var(--grad-soft);
+  display:flex;align-items:center;justify-content:center;margin-bottom:18px;
+  border:1px solid rgba(139,92,246,.25);
+}
+.s-icon svg{width:23px;height:23px;stroke:var(--ink);}
+.s-card h3{margin-bottom:8px;}
+.s-card p{color:var(--muted);font-size:.92rem;}
+.s-tag{position:absolute;top:24px;right:24px;font-size:.68rem;color:var(--muted-2);}
+
+/* ============ PROCESS ============ */
+.process{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;}
+.process::before{
+  content:'';position:absolute;top:23px;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,var(--blue),var(--violet));opacity:.35;
+}
+.p-step{padding:0 22px;position:relative;}
+.p-num{
+  width:46px;height:46px;border-radius:50%;background:var(--navy-900);border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;
+  font-size:.85rem;font-weight:600;margin-bottom:22px;position:relative;z-index:1;color:var(--blue);
+}
+.p-step:first-child{padding-left:0;}
+.p-step h3{margin-bottom:8px;font-size:1.02rem;}
+.p-step p{color:var(--muted);font-size:.88rem;}
+
+/* ============ WHY ============ */
+.why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+.why-card{display:flex;gap:18px;padding:26px;border-radius:var(--radius-md);background:var(--navy-800);border:1px solid var(--line-soft);}
+.why-icon{width:42px;height:42px;border-radius:11px;background:var(--grad);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.why-icon svg{width:20px;height:20px;stroke:#fff;}
+.why-card h3{font-size:1rem;margin-bottom:6px;}
+.why-card p{font-size:.88rem;color:var(--muted);}
+
+/* ============ CASES / SOCIAL PROOF ============ */
+.tape{overflow:hidden;border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);padding:26px 0;background:var(--navy-850);}
+.tape-track{display:flex;gap:64px;white-space:nowrap;animation:scrollTape 26s linear infinite;}
+@keyframes scrollTape{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+.tape-item{font-family:'JetBrains Mono',monospace;font-size:.82rem;color:var(--muted-2);letter-spacing:.05em;text-transform:uppercase;display:flex;align-items:center;gap:64px;}
+.tape-item .sep{color:var(--blue);}
+
+/* ============ CTA BANNER ============ */
+.cta-banner{
+  border-radius:28px;padding:64px 56px;position:relative;overflow:hidden;
+  background:linear-gradient(135deg,var(--navy-800),var(--navy-700));
+  border:1px solid var(--line-soft);
+  display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;
+}
+.cta-banner::after{
+  content:'';position:absolute;width:300px;height:300px;border-radius:50%;
+  background:radial-gradient(circle,rgba(139,92,246,.4),transparent 70%);
+  top:-100px;right:-60px;filter:blur(10px);
+}
+.cta-banner h2{margin-bottom:10px;max-width:480px;}
+.cta-banner p{color:var(--muted);max-width:420px;}
+.cta-banner .btn-primary{position:relative;z-index:1;}
+
+/* ============ CONTACT ============ */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start;}
+.contact-info-item{display:flex;gap:14px;padding:18px 0;border-bottom:1px solid var(--line-soft);}
+.contact-info-item:first-child{padding-top:0;}
+.contact-info-item svg{width:19px;height:19px;stroke:var(--blue);flex-shrink:0;margin-top:2px;}
+.contact-info-item strong{display:block;font-size:.9rem;margin-bottom:2px;}
+.contact-info-item span{font-size:.85rem;color:var(--muted);}
+.form-card{background:var(--navy-800);border:1px solid var(--line-soft);border-radius:var(--radius-lg);padding:32px;}
+.field{margin-bottom:18px;}
+.field label{display:block;font-size:.8rem;color:var(--muted);margin-bottom:7px;}
+.field input,.field textarea,.field select{
+  width:100%;background:var(--navy-900);border:1px solid var(--line);border-radius:var(--radius-sm);
+  padding:12px 14px;color:var(--ink);font-size:.9rem;transition:border-color .25s;
+}
+.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--blue);outline:none;}
+.field textarea{resize:vertical;min-height:90px;}
+.form-note{font-size:.78rem;color:var(--muted-2);margin-top:14px;}
+.form-success{display:none;align-items:center;gap:10px;background:rgba(95,227,163,.1);border:1px solid rgba(95,227,163,.3);color:#5fe3a3;padding:12px 16px;border-radius:var(--radius-sm);font-size:.85rem;margin-bottom:16px;}
+.form-success.show{display:flex;}
+
+/* ============ FOOTER ============ */
+.site-footer{padding:64px 0 30px;border-top:1px solid var(--line-soft);}
+.footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;padding-bottom:46px;}
+.footer-brand p{color:var(--muted);font-size:.88rem;margin-top:14px;max-width:30ch;}
+.footer-col h4{font-size:.8rem;color:var(--muted-2);text-transform:uppercase;letter-spacing:.08em;margin-bottom:16px;font-weight:600;}
+.footer-col a{display:block;font-size:.88rem;color:var(--muted);padding:6px 0;transition:color .2s;}
+.footer-col a:hover{color:var(--ink);}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:26px;border-top:1px solid var(--line-soft);flex-wrap:wrap;gap:12px;}
+.footer-bottom p{font-size:.8rem;color:var(--muted-2);}
+.social-row{display:flex;gap:12px;}
+.social-row a{width:36px;height:36px;border-radius:50%;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;transition:.25s;}
+.social-row a:hover{border-color:var(--blue);background:rgba(59,130,246,.08);}
+.social-row svg{width:16px;height:16px;}
+
+/* whatsapp floating button */
+.float-wa{
+  position:fixed;bottom:26px;right:26px;width:58px;height:58px;border-radius:50%;
+  background:var(--grad);display:flex;align-items:center;justify-content:center;z-index:40;
+  box-shadow:0 14px 30px -10px rgba(89,99,246,.6);animation:pulseWa 2.6s ease-in-out infinite;
+}
+.float-wa svg{width:26px;height:26px;}
+@keyframes pulseWa{0%,100%{box-shadow:0 14px 30px -10px rgba(89,99,246,.6);}50%{box-shadow:0 14px 30px -6px rgba(89,99,246,.9),0 0 0 8px rgba(89,99,246,.08);}}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:980px){
+  .hero-grid{grid-template-columns:1fr;}
+  .device-stage{margin-top:40px;}
+  .solutions-grid{grid-template-columns:repeat(2,1fr);}
+  .process{grid-template-columns:repeat(2,1fr);row-gap:40px;}
+  .process::before{display:none;}
+  .why-grid{grid-template-columns:1fr;}
+  .contact-grid{grid-template-columns:1fr;}
+  .footer-top{grid-template-columns:1fr 1fr;}
+}
+@media (max-width:720px){
+  .wrap{padding:0 22px;}
+  .nav-links{display:none;}
+  .header-actions .btn-ghost{display:none;}
+  .burger{display:flex;}
+  .hero{padding:128px 0 70px;}
+  .solutions-grid{grid-template-columns:1fr;}
+  .process{grid-template-columns:1fr;}
+  .cta-banner{padding:40px 28px;flex-direction:column;text-align:left;}
+  .footer-top{grid-template-columns:1fr;gap:30px;}
+  .phone{width:100%;max-width:300px;}
+  .floatie{display:none;}
+}
+</style>
+</head>
+<body>
+
+<div class="infusion-line" aria-hidden="true"></div>
+
+<!-- shared logo mark -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3b82f6"/>
+      <stop offset="1" stop-color="#8b5cf6"/>
+    </linearGradient>
+  </defs>
+</svg>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header" id="siteHeader">
+  <div class="wrap header-row">
+    <a href="#top" class="brand">
+      <span class="mark">
+        <svg viewBox="0 0 48 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="15" cy="10" r="4" fill="url(#logoGrad)"/>
+          <path class="stroke" d="M15,20 C15,14 27,14 27,20 C27,28 11,30 11,40 C11,48 29,50 33,42" stroke="url(#logoGrad)" stroke-width="6" fill="none" stroke-linecap="round"/>
+        </svg>
+      </span>
+      INFUSE
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#solucoes" class="nav-link">Soluções</a>
+      <a href="#como-funciona" class="nav-link">Como funciona</a>
+      <a href="#cases" class="nav-link">Empresa</a>
+      <a href="#contato" class="nav-link">Contato</a>
+    </nav>
+
+    <div class="header-actions">
+      <a href="#contato" class="btn btn-ghost">Falar agora</a>
+      <a href="https://wa.me/5500000000000?text=Ol%C3%A1!%20Quero%20conversar%20sobre%20solu%C3%A7%C3%B5es%20da%20INFUSE." target="_blank" rel="noopener" class="btn btn-primary">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.84.5 3.56 1.45 5.04L2 22l5.25-1.38a9.86 9.86 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm0 18.05h-.01c-1.5 0-2.97-.4-4.25-1.16l-.3-.18-3.12.82.83-3.04-.2-.31a8.15 8.15 0 0 1-1.26-4.36c0-4.5 3.66-8.16 8.18-8.16 2.18 0 4.23.85 5.77 2.4a8.07 8.07 0 0 1 2.4 5.77c-.01 4.51-3.67 8.22-8.04 8.22zm4.48-6.16c-.25-.12-1.46-.72-1.68-.8-.23-.08-.39-.12-.56.12-.16.25-.63.8-.78.96-.14.16-.29.18-.53.06-1.45-.72-2.4-1.29-3.35-2.93-.25-.43.25-.4.72-1.33.08-.16.04-.3-.03-.42-.08-.12-.6-1.44-.82-1.97-.21-.52-.43-.45-.6-.46h-.5c-.16 0-.43.06-.66.3-.23.25-.87.85-.87 2.06 0 1.22.89 2.4 1.01 2.57.13.16 1.76 2.69 4.27 3.66 2.12.83 2.55.66 3.01.62.47-.04 1.46-.6 1.66-1.18.21-.58.21-1.07.15-1.18-.06-.1-.23-.16-.48-.28z"/></svg>
+        WhatsApp
+      </a>
+      <button class="burger" id="burgerBtn" aria-label="Abrir menu" aria-expanded="false"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-panel" id="mobilePanel">
+  <a href="#solucoes" class="m-link">Soluções</a>
+  <a href="#como-funciona" class="m-link">Como funciona</a>
+  <a href="#cases" class="m-link">Empresa</a>
+  <a href="#contato" class="m-link">Contato</a>
+  <a href="https://wa.me/5500000000000" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:10px;align-self:flex-start;">Falar no WhatsApp</a>
+</div>
+
+<!-- ============ HERO ============ -->
+<main id="top">
+<section class="hero">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="wrap hero-grid">
+    <div data-reveal>
+      <span class="eyebrow">Software house para negócios</span>
+      <h1>Transformamos ideias em <span class="accent">soluções eficientes.</span></h1>
+      <p class="lede">A INFUSE cria sites, e-commerces, automações, CRM, chatbots e IA no WhatsApp para empresas que querem vender mais e operar com menos esforço manual.</p>
+      <div class="hero-ctas">
+        <a href="https://wa.me/5500000000000?text=Ol%C3%A1!%20Quero%20conversar%20sobre%20solu%C3%A7%C3%B5es%20da%20INFUSE." target="_blank" rel="noopener" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.84.5 3.56 1.45 5.04L2 22l5.25-1.38a9.86 9.86 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm0 18.05h-.01c-1.5 0-2.97-.4-4.25-1.16l-.3-.18-3.12.82.83-3.04-.2-.31a8.15 8.15 0 0 1-1.26-4.36c0-4.5 3.66-8.16 8.18-8.16 2.18 0 4.23.85 5.77 2.4a8.07 8.07 0 0 1 2.4 5.77c-.01 4.51-3.67 8.22-8.04 8.22zm4.48-6.16c-.25-.12-1.46-.72-1.68-.8-.23-.08-.39-.12-.56.12-.16.25-.63.8-.78.96-.14.16-.29.18-.53.06-1.45-.72-2.4-1.29-3.35-2.93-.25-.43.25-.4.72-1.33.08-.16.04-.3-.03-.42-.08-.12-.6-1.44-.82-1.97-.21-.52-.43-.45-.6-.46h-.5c-.16 0-.43.06-.66.3-.23.25-.87.85-.87 2.06 0 1.22.89 2.4 1.01 2.57.13.16 1.76 2.69 4.27 3.66 2.12.83 2.55.66 3.01.62.47-.04 1.46-.6 1.66-1.18.21-.58.21-1.07.15-1.18-.06-.1-.23-.16-.48-.28z"/></svg>
+          Falar com um especialista
+        </a>
+        <a href="#solucoes" class="btn btn-ghost">Ver soluções ↓</a>
+      </div>
+      <div class="cap-tags">
+        <span class="cap-tag"><span class="dot"></span>Sites &amp; E-commerce</span>
+        <span class="cap-tag"><span class="dot"></span>Automações</span>
+        <span class="cap-tag"><span class="dot"></span>CRM</span>
+        <span class="cap-tag"><span class="dot"></span>Chatbots</span>
+        <span class="cap-tag"><span class="dot"></span>IA no WhatsApp</span>
+      </div>
+    </div>
+
+    <div class="device-stage" data-reveal data-reveal-delay="2">
+      <div class="floatie floatie-1"><svg viewBox="0 0 24 24" fill="none" stroke="url(#logoGrad)" stroke-width="2"><path d="M3 17l5-5 4 4 9-9"/><path d="M14 7h7v7"/></svg></div>
+      <div class="floatie floatie-2"><svg viewBox="0 0 24 24" fill="none" stroke="url(#logoGrad)" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
+      <div class="floatie floatie-3"><svg viewBox="0 0 24 24" fill="none" stroke="url(#logoGrad)" stroke-width="2"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-4"/></svg></div>
+
+      <div class="phone">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <div class="chat-head">
+            <div class="chat-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/><path d="M9 10h.01M15 10h.01M8 15c1 1 2.5 1.5 4 1.5s3-.5 4-1.5"/></svg></div>
+            <div>
+              <div class="chat-name">Assistente INFUSE</div>
+              <div class="chat-status">on-line agora</div>
+            </div>
+          </div>
+          <div class="chat-body" id="chatBody"></div>
+          <div class="chat-input">
+            <span>Atendimento automático 24h</span>
+            <div class="chat-send"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="divider"></div></div>
+
+<!-- ============ SOLUTIONS ============ -->
+<section class="section-pad" id="solucoes">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">O que fazemos</span>
+      <h2>Tecnologia sob medida para cada etapa do seu negócio.</h2>
+      <p class="lede" style="margin-top:14px;">Da primeira página ao pós-venda automatizado: construímos a infraestrutura digital completa para você vender mais e perder menos tempo com tarefas repetitivas.</p>
+    </div>
+
+    <div class="solutions-grid">
+      <div class="s-card" data-reveal data-reveal-delay="1">
+        <div class="s-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg></div>
+        <h3>Sites &amp; landing pages</h3>
+        <p>Páginas rápidas, responsivas e desenhadas para converter visita em cliente.</p>
+      </div>
+      <div class="s-card" data-reveal data-reveal-delay="2">
+        <div class="s-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></div>
+        <h3>E-commerce</h3>
+        <p>Lojas virtuais completas, integradas a pagamento, frete e controle de estoque.</p>
+      </div>
+      <div class="s-card" data-reveal data-reveal-delay="3">
+        <div class="s-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 12a9 9 0 1 1-9-9"/><path d="M21 3v6h-6"/></svg></div>
+        <h3>Automações</h3>
+        <p>Fluxos que conectam suas ferramentas e eliminam tarefas manuais repetitivas.</p>
+      </div>
+      <div class="s-card" data-reveal data-reveal-delay="1">
+        <div class="s-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 3v18h18"/><rect x="7" y="13" width="3" height="5"/><rect x="12" y="9" width="3" height="9"/><rect x="17" y="5" width="3" height="13"/></svg></div>
+        <h3>CRM</h3>
+        <p>Gestão de clientes e vendas em um painel único, do primeiro contato ao pós-venda.</p>
+      </div>
+      <div class="s-card" data-reveal data-reveal-delay="2">
+        <div class="s-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
+        <h3>Chatbots</h3>
+        <p>Atendimento automatizado 24 horas, em múltiplos canais e sempre no seu tom de voz.</p>
+      </div>
+      <div class="s-card" data-reveal data-reveal-delay="3">
+        <div class="s-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/><path d="M9.5 9.5c0-1.5 1-2.5 2.5-2.5s2.5 1 2.5 2.5c0 1.4-1.2 2-2 2.6-.7.5-1 1-1 1.9M12 17h.01"/></svg></div>
+        <h3>IA no WhatsApp</h3>
+        <p>Inteligência artificial qualificando, respondendo e vendendo direto no canal que seu cliente já usa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TAPE ============ -->
+<div class="tape">
+  <div class="tape-track">
+    <div class="tape-item"><span>Sites</span><span class="sep">·</span><span>E-commerce</span><span class="sep">·</span><span>Automações</span><span class="sep">·</span><span>CRM</span><span class="sep">·</span><span>Chatbots</span><span class="sep">·</span><span>IA no WhatsApp</span><span class="sep">·</span></div>
+    <div class="tape-item"><span>Sites</span><span class="sep">·</span><span>E-commerce</span><span class="sep">·</span><span>Automações</span><span class="sep">·</span><span>CRM</span><span class="sep">·</span><span>Chatbots</span><span class="sep">·</span><span>IA no WhatsApp</span><span class="sep">·</span></div>
+  </div>
+</div>
+
+<!-- ============ PROCESS ============ -->
+<section class="section-pad" id="como-funciona">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Como funciona</span>
+      <h2>Um processo claro, do diagnóstico ao resultado.</h2>
+    </div>
+
+    <div class="process">
+      <div class="p-step" data-reveal data-reveal-delay="1">
+        <div class="p-num">01</div>
+        <h3>Diagnóstico</h3>
+        <p>Entendemos seu negócio, seu fluxo atual e onde a tecnologia gera mais ganho.</p>
+      </div>
+      <div class="p-step" data-reveal data-reveal-delay="2">
+        <div class="p-num">02</div>
+        <h3>Plano</h3>
+        <p>Desenhamos a solução certa: site, automação, CRM, chatbot ou a combinação ideal.</p>
+      </div>
+      <div class="p-step" data-reveal data-reveal-delay="3">
+        <div class="p-num">03</div>
+        <h3>Construção</h3>
+        <p>Desenvolvemos, testamos e ajustamos com você acompanhando cada etapa.</p>
+      </div>
+      <div class="p-step" data-reveal data-reveal-delay="4">
+        <div class="p-num">04</div>
+        <h3>Evolução</h3>
+        <p>Lançamos, medimos resultado e evoluímos a solução junto com o seu negócio.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="divider"></div></div>
+
+<!-- ============ WHY / CASES ============ -->
+<section class="section-pad" id="cases">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Por que a INFUSE</span>
+      <h2>Tecnologia com propósito, não só código bonito.</h2>
+    </div>
+
+    <div class="why-grid">
+      <div class="why-card" data-reveal data-reveal-delay="1">
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <div><h3>Time multidisciplinar</h3><p>Design, desenvolvimento e automação trabalhando juntos em cada projeto.</p></div>
+      </div>
+      <div class="why-card" data-reveal data-reveal-delay="2">
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+        <div><h3>Soluções sob medida</h3><p>Nada de pacote fechado: cada entrega parte da realidade do seu negócio.</p></div>
+      </div>
+      <div class="why-card" data-reveal data-reveal-delay="3">
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+        <div><h3>Suporte contínuo</h3><p>Acompanhamos depois do lançamento, ajustando o que o negócio pede.</p></div>
+      </div>
+      <div class="why-card" data-reveal data-reveal-delay="4">
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+        <div><h3>Foco em resultado</h3><p>Cada solução existe para gerar venda, economia de tempo ou retenção.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA BANNER ============ -->
+<section class="section-pad" style="padding-top:0;">
+  <div class="wrap">
+    <div class="cta-banner" data-reveal>
+      <div>
+        <h2>Pronto para infundir tecnologia no seu negócio?</h2>
+        <p>Fale com a gente agora mesmo e descubra qual solução faz sentido para a sua operação.</p>
+      </div>
+      <a href="https://wa.me/5500000000000?text=Ol%C3%A1!%20Quero%20conversar%20sobre%20solu%C3%A7%C3%B5es%20da%20INFUSE." target="_blank" rel="noopener" class="btn btn-primary">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.84.5 3.56 1.45 5.04L2 22l5.25-1.38a9.86 9.86 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm0 18.05h-.01c-1.5 0-2.97-.4-4.25-1.16l-.3-.18-3.12.82.83-3.04-.2-.31a8.15 8.15 0 0 1-1.26-4.36c0-4.5 3.66-8.16 8.18-8.16 2.18 0 4.23.85 5.77 2.4a8.07 8.07 0 0 1 2.4 5.77c-.01 4.51-3.67 8.22-8.04 8.22zm4.48-6.16c-.25-.12-1.46-.72-1.68-.8-.23-.08-.39-.12-.56.12-.16.25-.63.8-.78.96-.14.16-.29.18-.53.06-1.45-.72-2.4-1.29-3.35-2.93-.25-.43.25-.4.72-1.33.08-.16.04-.3-.03-.42-.08-.12-.6-1.44-.82-1.97-.21-.52-.43-.45-.6-.46h-.5c-.16 0-.43.06-.66.3-.23.25-.87.85-.87 2.06 0 1.22.89 2.4 1.01 2.57.13.16 1.76 2.69 4.27 3.66 2.12.83 2.55.66 3.01.62.47-.04 1.46-.6 1.66-1.18.21-.58.21-1.07.15-1.18-.06-.1-.23-.16-.48-.28z"/></svg>
+        Falar no WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="section-pad" id="contato">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Contato</span>
+      <h2>Vamos conversar sobre o seu projeto.</h2>
+    </div>
+
+    <div class="contact-grid">
+      <div data-reveal data-reveal-delay="1">
+        <div class="contact-info-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.84.5 3.56 1.45 5.04L2 22l5.25-1.38a9.86 9.86 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2z"/></svg>
+          <div><strong>WhatsApp</strong><span>Resposta em poucos minutos, em horário comercial.</span></div>
+        </div>
+        <div class="contact-info-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6L12 13 2 6"/><path d="M2 6h20v12H2z"/></svg>
+          <div><strong>E-mail</strong><span>contato@infusesoftware.com.br</span></div>
+        </div>
+        <div class="contact-info-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div><strong>Atendimento</strong><span>Projetos para todo o Brasil, 100% remoto.</span></div>
+        </div>
+        <div class="contact-info-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          <div><strong>Horário</strong><span>Segunda a sexta, das 9h às 18h — IA disponível 24h.</span></div>
+        </div>
+      </div>
+
+      <div class="form-card" data-reveal data-reveal-delay="2">
+        <div class="form-success" id="formSuccess">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+          Pronto! Vamos abrir o WhatsApp com sua mensagem.
+        </div>
+        <form id="contactForm">
+          <div class="field">
+            <label for="f-name">Nome</label>
+            <input type="text" id="f-name" placeholder="Seu nome" required>
+          </div>
+          <div class="field">
+            <label for="f-type">Tipo de negócio</label>
+            <select id="f-type">
+              <option>Loja física</option>
+              <option>E-commerce</option>
+              <option>Prestação de serviço</option>
+              <option>Indústria</option>
+              <option>Outro</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-interest">O que você precisa?</label>
+            <select id="f-interest">
+              <option>Site ou landing page</option>
+              <option>E-commerce</option>
+              <option>Automação</option>
+              <option>CRM</option>
+              <option>Chatbot</option>
+              <option>IA no WhatsApp</option>
+              <option>Ainda não sei</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-msg">Mensagem</label>
+            <textarea id="f-msg" placeholder="Conte rapidamente o que você precisa..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;">Enviar para o WhatsApp</button>
+          <p class="form-note">Ao enviar, abriremos o WhatsApp com sua mensagem já preenchida — nada é enviado sem sua confirmação.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#top" class="brand">
+          <span class="mark">
+            <svg viewBox="0 0 48 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="15" cy="10" r="4" fill="url(#logoGrad)"/>
+              <path d="M15,20 C15,14 27,14 27,20 C27,28 11,30 11,40 C11,48 29,50 33,42" stroke="url(#logoGrad)" stroke-width="6" fill="none" stroke-linecap="round"/>
+            </svg>
+          </span>
+          INFUSE
+        </a>
+        <p>Tecnologia que se infunde no seu negócio: sites, automações, CRM, chatbots e IA no WhatsApp.</p>
+        <div class="social-row" style="margin-top:18px;">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a href="https://wa.me/5500000000000" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.84.5 3.56 1.45 5.04L2 22l5.25-1.38a9.86 9.86 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Soluções</h4>
+        <a href="#solucoes">Sites &amp; landing pages</a>
+        <a href="#solucoes">E-commerce</a>
+        <a href="#solucoes">Automações</a>
+        <a href="#solucoes">CRM</a>
+        <a href="#solucoes">Chatbots</a>
+        <a href="#solucoes">IA no WhatsApp</a>
+      </div>
+      <div class="footer-col">
+        <h4>Empresa</h4>
+        <a href="#cases">Por que a INFUSE</a>
+        <a href="#como-funciona">Como funciona</a>
+        <a href="#contato">Contato</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <a href="mailto:contato@infusesoftware.com.br">contato@infusesoftware.com.br</a>
+        <a href="https://wa.me/5500000000000">WhatsApp</a>
+        <a href="#contato">Enviar mensagem</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© <span id="year"></span> INFUSE Software. Todos os direitos reservados.</p>
+      <p>Feito com tecnologia própria, do jeito que pregamos.</p>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/5500000000000?text=Ol%C3%A1!%20Quero%20conversar%20sobre%20solu%C3%A7%C3%B5es%20da%20INFUSE." target="_blank" rel="noopener" class="float-wa" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" fill="#fff"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.84.5 3.56 1.45 5.04L2 22l5.25-1.38a9.86 9.86 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm0 18.05h-.01c-1.5 0-2.97-.4-4.25-1.16l-.3-.18-3.12.82.83-3.04-.2-.31a8.15 8.15 0 0 1-1.26-4.36c0-4.5 3.66-8.16 8.18-8.16 2.18 0 4.23.85 5.77 2.4a8.07 8.07 0 0 1 2.4 5.77c-.01 4.51-3.67 8.22-8.04 8.22zm4.48-6.16c-.25-.12-1.46-.72-1.68-.8-.23-.08-.39-.12-.56.12-.16.25-.63.8-.78.96-.14.16-.29.18-.53.06-1.45-.72-2.4-1.29-3.35-2.93-.25-.43.25-.4.72-1.33.08-.16.04-.3-.03-.42-.08-.12-.6-1.44-.82-1.97-.21-.52-.43-.45-.6-.46h-.5c-.16 0-.43.06-.66.3-.23.25-.87.85-.87 2.06 0 1.22.89 2.4 1.01 2.57.13.16 1.76 2.69 4.27 3.66 2.12.83 2.55.66 3.01.62.47-.04 1.46-.6 1.66-1.18.21-.58.21-1.07.15-1.18-.06-.1-.23-.16-.48-.28z"/></svg>
+</a>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+/* header scroll state */
+const header = document.getElementById('siteHeader');
+window.addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', window.scrollY > 14);
+}, { passive: true });
+
+/* mobile menu */
+const burger = document.getElementById('burgerBtn');
+const panel = document.getElementById('mobilePanel');
+burger.addEventListener('click', () => {
+  const open = panel.classList.toggle('open');
+  burger.setAttribute('aria-expanded', open);
+});
+panel.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  panel.classList.remove('open');
+  burger.setAttribute('aria-expanded', false);
+}));
+
+/* scroll reveal */
+const revealEls = document.querySelectorAll('[data-reveal]');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('in-view');
+      io.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+revealEls.forEach(el => io.observe(el));
+
+/* active nav link on scroll */
+const sections = ['solucoes','como-funciona','cases','contato'].map(id => document.getElementById(id));
+const navLinks = document.querySelectorAll('.nav-link');
+const navIo = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + entry.target.id));
+    }
+  });
+}, { threshold: 0.4, rootMargin: '-15% 0px -55% 0px' });
+sections.forEach(s => s && navIo.observe(s));
+
+/* whatsapp chat demo loop */
+const chatBody = document.getElementById('chatBody');
+const script = [
+  { from: 'them', text: 'Oi! Vocês fazem entrega hoje ainda?' },
+  { from: 'typing' },
+  { from: 'me', text: 'Oi 😊 Sim! Entregamos até as 18h. Quer que eu já separe seu pedido?' },
+  { from: 'them', text: 'Quero sim, pode separar!' },
+  { from: 'typing' },
+  { from: 'me', text: 'Perfeito, pedido registrado ✅ Te aviso assim que saiir para entrega.' },
+];
+let i = 0;
+function renderChat(){
+  chatBody.innerHTML = '';
+  i = 0;
+  step();
+}
+function step(){
+  if (i >= script.length){
+    setTimeout(renderChat, 2200);
+    return;
+  }
+  const item = script[i];
+  if (item.from === 'typing'){
+    const t = document.createElement('div');
+    t.className = 'typing';
+    t.innerHTML = '<span></span><span></span><span></span>';
+    chatBody.appendChild(t);
+    setTimeout(() => { t.remove(); i++; step(); }, 950);
+  } else {
+    const b = document.createElement('div');
+    b.className = 'bubble ' + item.from;
+    b.textContent = item.text;
+    chatBody.appendChild(b);
+    i++;
+    setTimeout(step, 1500);
+  }
+}
+renderChat();
+
+/* contact form -> whatsapp */
+const form = document.getElementById('contactForm');
+const successBox = document.getElementById('formSuccess');
+form.addEventListener('submit', function(e){
+  e.preventDefault();
+  const name = document.getElementById('f-name').value.trim();
+  const type = document.getElementById('f-type').value;
+  const interest = document.getElementById('f-interest').value;
+  const msg = document.getElementById('f-msg').value.trim();
+
+  let text = 'Olá! Meu nome é ' + name + '.';
+  text += ' Tenho um negócio do tipo ' + type + ' e quero saber mais sobre ' + interest + '.';
+  if (msg) text += ' Detalhes: ' + msg;
+
+  successBox.classList.add('show');
+  const url = 'https://wa.me/5500000000000?text=' + encodeURIComponent(text);
+  setTimeout(() => window.open(url, '_blank'), 500);
+});
+</script>
+</body>
+</html>
