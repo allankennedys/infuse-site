@@ -3,15 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Infuse — Tecnologia que faz a diferença no seu negócio</title>
-<meta name="description" content="Infuse: software house especializada em sites, e-commerces, automações, CRM, chatbots e IA no WhatsApp para negócios que querem vender mais e operar com menos esforço.">
+<title>Infuse - Tecnologia que faz a diferença no seu negócio</title>
+<meta name="description" content="Infuse: Especializados em sites, e-commerces, automações, CRM, chatbots e IA no WhatsApp para negócios que querem vender mais.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
 <link rel="icon" href="favicon.png">
 
 <style>
-/* ============ RESET & TOKENS ============ */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 :root{
   --navy-950:#060a13;
@@ -277,9 +276,8 @@ h3{font-size:1.15rem;font-weight:700;}
 
 /* ============ CASES / SOCIAL PROOF ============ */
 .tape{overflow:hidden;border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);padding:26px 0;background:var(--navy-850);}
-.tape-track{display:flex;gap:64px;white-space:nowrap;animation:scrollTape 26s linear infinite;}
-@keyframes scrollTape{from{transform:translateX(0);}to{transform:translateX(-50%);}}
-.tape-item{font-family:'JetBrains Mono',monospace;font-size:.82rem;color:var(--muted-2);letter-spacing:.05em;text-transform:uppercase;display:flex;align-items:center;gap:64px;}
+.tape-track{display:flex;gap:0;white-space:nowrap;width:max-content;will-change:transform;}
+.tape-item{font-family:'JetBrains Mono',monospace;font-size:.82rem;color:var(--muted-2);letter-spacing:.05em;text-transform:uppercase;display:flex;align-items:center;gap:64px;padding-right:64px;}
 .tape-item .sep{color:var(--blue);}
 
 /* ============ CTA BANNER ============ */
@@ -719,7 +717,7 @@ h3{font-size:1.15rem;font-weight:700;}
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© <span id="year"></span> Infuse Software. Todos os direitos reservados.</p>
+      <p>© <span id="year"></span> Infuse Software. Todos os direitos reservados.<br>Feira de Santana, Bahia</p>
       <p>Feito com tecnologia própria, do jeito que pregamos.</p>
     </div>
   </div>
@@ -812,6 +810,29 @@ function step(){
   }
 }
 renderChat();
+
+/* tape scroll */
+(function(){
+  const track = document.querySelector('.tape-track');
+  if (!track || window.matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+  const first = track.querySelector('.tape-item');
+  const itemW = first.offsetWidth;
+  const needed = Math.ceil(window.innerWidth / itemW) + 2;
+  const have = track.querySelectorAll('.tape-item').length;
+  for (let i = have; i < needed; i++) track.appendChild(first.cloneNode(true));
+  let x = 0, prev = null;
+  const speed = itemW / 26;
+  function tick(t) {
+    if (prev !== null) {
+      x -= speed * (t - prev) / 1000;
+      if (x <= -itemW) x += itemW;
+      track.style.transform = 'translateX(' + x.toFixed(2) + 'px)';
+    }
+    prev = t;
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+})();
 
 /* contact form -> whatsapp */
 const form = document.getElementById('contactForm');
