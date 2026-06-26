@@ -554,8 +554,8 @@ h3{font-size:1.05rem;font-weight:700;letter-spacing:-.01em;}
     <div class="hero-visual" data-r data-d="2">
       <div class="phone-mock">
         <div class="phone-mock-screen">
-          <video autoplay muted loop playsinline preload="auto">
-            <source src="assets/agendamento barbearia.mp4" type="video/mp4">
+          <video autoplay muted loop playsinline preload="metadata">
+            <source src="assets/agendamento-barbearia.mp4" type="video/mp4">
           </video>
         </div>
       </div>
@@ -659,8 +659,8 @@ h3{font-size:1.05rem;font-weight:700;letter-spacing:-.01em;}
       <div class="phone-group" data-r data-d="1">
         <div class="phone-mock">
           <div class="phone-mock-screen">
-            <video autoplay muted loop playsinline preload="auto">
-              <source src="assets/agendamento barbearia.mp4" type="video/mp4">
+            <video muted loop playsinline preload="none" data-lazy>
+              <source src="assets/agendamento-barbearia.mp4" type="video/mp4">
             </video>
           </div>
         </div>
@@ -669,8 +669,8 @@ h3{font-size:1.05rem;font-weight:700;letter-spacing:-.01em;}
       <div class="phone-group" data-r data-d="2">
         <div class="phone-mock">
           <div class="phone-mock-screen">
-            <video autoplay muted loop playsinline preload="auto">
-              <source src="assets/agendamentosalao feminino.mp4" type="video/mp4">
+            <video muted loop playsinline preload="none" data-lazy>
+              <source src="assets/agendamento-salao-feminino.mp4" type="video/mp4">
             </video>
           </div>
         </div>
@@ -712,7 +712,10 @@ h3{font-size:1.05rem;font-weight:700;letter-spacing:-.01em;}
       <div class="phone-mock-wrap">
         <div class="phone-mock">
           <div class="phone-mock-screen">
-            <img src="assets/site-barbeiro.png" alt="Site de agendamento Luiz Barber - Infuse Agenda" loading="lazy">
+            <picture>
+              <source srcset="assets/site-barbeiro.webp" type="image/webp">
+              <img src="assets/site-barbeiro.png" alt="Site de agendamento Luiz Barber - Infuse Agenda" loading="lazy" decoding="async">
+            </picture>
           </div>
         </div>
       </div>
@@ -752,7 +755,10 @@ h3{font-size:1.05rem;font-weight:700;letter-spacing:-.01em;}
       <div class="phone-mock-wrap">
         <div class="phone-mock" style="width:290px;">
           <div class="phone-mock-screen no-top">
-            <img src="assets/painel-admin-barber.png" alt="Painel administrativo Barber Admin - Infuse Agenda" loading="lazy">
+            <picture>
+              <source srcset="assets/painel-admin-barber.webp" type="image/webp">
+              <img src="assets/painel-admin-barber.png" alt="Painel administrativo Barber Admin - Infuse Agenda" loading="lazy" decoding="async">
+            </picture>
           </div>
         </div>
       </div>
@@ -1082,11 +1088,23 @@ const ro = new IntersectionObserver(entries => {
 }, {threshold:.1});
 document.querySelectorAll('[data-r]').forEach(el => ro.observe(el));
 
-// Garantir que vídeos começam do segundo 0
-document.querySelectorAll('video').forEach(v => {
+// Hero video: garante início do segundo 0
+document.querySelectorAll('video:not([data-lazy])').forEach(v => {
   v.addEventListener('loadedmetadata', () => { v.currentTime = 0; });
-  v.currentTime = 0;
 });
+
+// Vídeos fora do fold: só carrega quando entra na tela
+const lazyVo = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const v = e.target;
+      v.load();
+      v.play();
+      lazyVo.unobserve(v);
+    }
+  });
+}, { threshold: 0.2 });
+document.querySelectorAll('video[data-lazy]').forEach(v => lazyVo.observe(v));
 
 // Step numbers animate on view
 const stepFill = document.getElementById('stepFill');
