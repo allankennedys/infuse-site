@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Infuse Agenda – Sistema de Agendamento Online para Barbearias e Salões</title>
+<meta name="description" content="Sistema completo de agendamento online para barbearias, salões de beleza, manicures, nail designers e clínicas de estética. Site profissional incluso. Lembretes automáticos no WhatsApp. Apenas R$ 39,90/mês.">
+<meta name="keywords" content="agenda online para barbearia, agenda para salão de beleza, agendamento online, sistema para barbearia, sistema para salão, agenda para manicure, agenda para nail designer, sistema de agendamento">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.infusesoftware.com/agenda/">
+<link rel="icon" href="./assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Infuse Agenda – Agendamento Online para Barbearias e Salões">
+<meta property="og:description" content="Site profissional + sistema de agendamento completo. Seu cliente marca sozinho, 24h. R$ 39,90/mês.">
+<meta property="og:url" content="https://www.infusesoftware.com/agenda/">
+<meta property="og:locale" content="pt_BR">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"SoftwareApplication",
+  "name":"Infuse Agenda",
+  "applicationCategory":"BusinessApplication",
+  "description":"Sistema de agendamento online para barbearias, salões de beleza, nail designers, manicures e profissionais de estética.",
+  "offers":{"@type":"Offer","price":"39.90","priceCurrency":"BRL"},
+  "operatingSystem":"Web"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"O que é o Infuse Agenda?","acceptedAnswer":{"@type":"Answer","text":"Sistema completo de agendamento online com site profissional e painel administrativo para profissionais da beleza e estética."}},
+    {"@type":"Question","name":"Para quem é o Infuse Agenda?","acceptedAnswer":{"@type":"Answer","text":"Barbearias, salões de beleza, nail designers, manicures, cabeleireiras, designers de sobrancelha, lash designers e clínicas de estética."}},
+    {"@type":"Question","name":"Preciso instalar algum programa?","acceptedAnswer":{"@type":"Answer","text":"Não. O Infuse Agenda é 100% online, funciona no navegador do celular ou computador."}},
+    {"@type":"Question","name":"Posso cancelar quando quiser?","acceptedAnswer":{"@type":"Answer","text":"Sim. Sem fidelidade, sem multa, sem burocracia."}}
+  ]
+}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --amber:#f59e0b;
+  --amber-light:#fbbf24;
+  --amber-dark:#d97706;
+  --amber-50:#fffbeb;
+  --amber-100:#fef3c7;
+  --green:#16a34a;
+  --green-bg:#f0fdf4;
+  --red-bg:#fef2f2;
+  --red:#dc2626;
+  --text:#111827;
+  --text-2:#374151;
+  --muted:#6b7280;
+  --subtle:#9ca3af;
+  --border:#e5e7eb;
+  --border-2:#f3f4f6;
+  --bg:#ffffff;
+  --bg-alt:#f9f8f6;
+  --bg-dark:#0f172a;
+  --bg-dark-2:#1e293b;
+  --shadow-sm:0 1px 3px rgba(0,0,0,.08),0 1px 2px rgba(0,0,0,.06);
+  --shadow:0 4px 16px rgba(0,0,0,.08),0 1px 4px rgba(0,0,0,.05);
+  --shadow-lg:0 20px 48px rgba(0,0,0,.1),0 4px 12px rgba(0,0,0,.05);
+  --radius-xl:24px;
+  --radius-lg:16px;
+  --radius-md:10px;
+  --radius-sm:7px;
+  --maxw:1160px;
+  --ease:cubic-bezier(.16,.84,.44,1);
+}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);color:var(--text);
+  font-family:'Inter',system-ui,-apple-system,sans-serif;
+  line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+img,video{display:block;max-width:100%;}
+a{color:inherit;text-decoration:none;}
+ul{list-style:none;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit;}
+:focus-visible{outline:2px solid var(--amber);outline-offset:3px;border-radius:4px;}
+
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.001ms!important;transition-duration:.001ms!important;scroll-behavior:auto!important;}
+}
+
+/* TYPE */
+h1{font-size:clamp(2.2rem,4.5vw,3.6rem);font-weight:800;letter-spacing:-.03em;line-height:1.07;}
+h2{font-size:clamp(1.7rem,3vw,2.4rem);font-weight:800;letter-spacing:-.025em;line-height:1.1;}
+h3{font-size:1.05rem;font-weight:700;letter-spacing:-.01em;}
+.label{
+  display:inline-flex;align-items:center;gap:7px;
+  font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--amber-dark);
+}
+.label::before{content:'';width:18px;height:2px;background:var(--amber);border-radius:2px;}
+.accent{color:var(--amber);}
+.lede{font-size:1.05rem;color:var(--muted);line-height:1.7;max-width:46ch;}
+
+/* LAYOUT */
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+.section-pad{padding:100px 0;}
+.section-pad-sm{padding:68px 0;}
+.section-head{margin-bottom:56px;}
+.section-head h2{margin:12px 0 16px;}
+.section-head p{color:var(--muted);font-size:1rem;max-width:44ch;}
+.center{text-align:center;}
+.center .section-head,.center .lede{margin-left:auto;margin-right:auto;}
+.divider{height:1px;background:var(--border);}
+
+/* REVEAL */
+[data-r]{opacity:0;transform:translateY(20px);transition:opacity .65s var(--ease),transform .65s var(--ease);}
+[data-r].on{opacity:1;transform:none;}
+[data-r][data-d="1"]{transition-delay:.07s;}
+[data-r][data-d="2"]{transition-delay:.14s;}
+[data-r][data-d="3"]{transition-delay:.21s;}
+[data-r][data-d="4"]{transition-delay:.28s;}
+[data-r][data-d="5"]{transition-delay:.35s;}
+[data-r][data-d="6"]{transition-delay:.42s;}
+
+/* BUTTONS */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:13px 24px;border-radius:100px;font-weight:600;font-size:.95rem;
+  transition:transform .2s var(--ease),box-shadow .2s var(--ease),background .2s;
+  white-space:nowrap;cursor:pointer;
+}
+.btn-amber{background:var(--amber);color:#fff;box-shadow:0 4px 14px rgba(245,158,11,.35);}
+.btn-amber:hover{background:var(--amber-dark);transform:translateY(-1px);box-shadow:0 8px 20px rgba(245,158,11,.4);}
+.btn-outline{border:1.5px solid var(--border);color:var(--text-2);background:var(--bg);}
+.btn-outline:hover{border-color:var(--text-2);}
+.btn-white{background:#fff;color:var(--text);box-shadow:var(--shadow);}
+.btn-white:hover{transform:translateY(-1px);box-shadow:var(--shadow-lg);}
+.btn-lg{padding:16px 32px;font-size:1.02rem;}
+.btn svg{width:18px;height:18px;flex-shrink:0;}
+
+/* ========================
+   HEADER
+======================== */
+.site-header{
+  position:fixed;top:0;left:0;right:0;z-index:60;
+  background:rgba(255,255,255,.92);backdrop-filter:blur(16px);
+  border-bottom:1px solid transparent;padding:16px 0;
+  transition:border-color .3s,padding .3s;
+}
+.site-header.scrolled{border-bottom-color:var(--border);padding:12px 0;}
+.header-row{display:flex;align-items:center;justify-content:space-between;gap:20px;}
+.brand{display:inline-flex;align-items:center;gap:9px;font-weight:800;font-size:1.1rem;letter-spacing:-.02em;color:var(--text);}
+.brand-logo{width:32px;height:32px;}
+.brand-badge{
+  font-size:.6rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
+  background:var(--amber);color:#fff;padding:3px 7px;border-radius:5px;
+}
+.nav{display:flex;align-items:center;gap:28px;}
+.nav a{font-size:.9rem;color:var(--muted);font-weight:500;transition:color .2s;}
+.nav a:hover{color:var(--text);}
+.header-actions{display:flex;align-items:center;gap:10px;}
+.burger{display:none;flex-direction:column;gap:5px;padding:6px;cursor:pointer;}
+.burger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:.25s;}
+.mobile-nav{
+  position:fixed;inset:0;top:65px;background:rgba(255,255,255,.98);backdrop-filter:blur(10px);
+  z-index:55;display:flex;flex-direction:column;padding:32px 28px;gap:20px;
+  transform:translateY(-10px);opacity:0;pointer-events:none;transition:.25s var(--ease);
+  border-top:1px solid var(--border);
+}
+.mobile-nav.open{transform:none;opacity:1;pointer-events:auto;}
+.mobile-nav a{font-size:1.15rem;font-weight:600;color:var(--text);}
+
+/* ========================
+   HERO
+======================== */
+.hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:100px 0 56px;position:relative;overflow:hidden;}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--amber-50);border:1px solid var(--amber-100);
+  color:var(--amber-dark);font-size:.8rem;font-weight:600;
+  padding:6px 14px;border-radius:100px;margin-bottom:22px;
+}
+.hero-badge::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--amber);animation:pulse 2s ease-in-out infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.4;}}
+.hero h1{margin-bottom:20px;}
+.hero .lede{margin-bottom:34px;}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;}
+.hero-proof{display:flex;align-items:center;gap:12px;margin-top:26px;}
+.stars{display:flex;gap:2px;}
+.stars svg{width:16px;height:16px;fill:var(--amber);}
+.hero-proof-text{font-size:.82rem;color:var(--muted);}
+.hero-proof-text strong{color:var(--text);}
+
+/* Phone mockup */
+.hero-visual{display:flex;justify-content:center;position:relative;}
+.phone-mock-wrap{display:flex;justify-content:center;}
+.phone-mock{
+  width:240px;flex-shrink:0;border-radius:40px;background:#18181b;
+  padding:10px;position:relative;
+  box-shadow:0 0 0 1px rgba(255,255,255,.06) inset,0 28px 56px rgba(0,0,0,.18),0 4px 14px rgba(0,0,0,.1);
+}
+.phone-mock::before{
+  content:'';position:absolute;top:16px;left:50%;transform:translateX(-50%);
+  width:68px;height:20px;background:#18181b;border-radius:12px;z-index:2;
+}
+.phone-mock-screen{border-radius:30px;overflow:hidden;background:#18181b;position:relative;padding-top:36px;}
+.phone-mock-screen.no-top{padding-top:0;}
+.phone-mock-screen img,.phone-mock-screen video{width:100%;display:block;}
+
+/* videos side by side */
+.phones-row{display:flex;gap:48px;justify-content:center;align-items:flex-start;margin-top:56px;flex-wrap:wrap;}
+.phone-group{display:flex;flex-direction:column;align-items:center;gap:14px;}
+.phone-group-label{font-size:.82rem;font-weight:600;color:var(--muted);}
+
+.hero-float{
+  position:absolute;background:#fff;border-radius:var(--radius-md);
+  box-shadow:var(--shadow-lg);padding:13px 16px;
+  display:flex;align-items:center;gap:11px;
+  border:1px solid var(--border);animation:float 5s ease-in-out infinite;
+}
+@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
+.hero-float-icon{width:36px;height:36px;border-radius:9px;background:var(--green-bg);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.hero-float-icon svg{width:18px;height:18px;stroke:var(--green);}
+.hero-float-text{font-size:.78rem;}
+.hero-float-text strong{display:block;font-weight:700;color:var(--text);}
+.hero-float-text span{color:var(--muted);}
+.float-a{bottom:-16px;left:-20px;animation-delay:.4s;}
+.float-b{top:24px;right:-20px;animation-delay:1.2s;}
+
+/* ========================
+   TICKER
+======================== */
+.ticker{
+  position:absolute;bottom:0;left:0;right:0;
+  padding:18px 0;background:var(--amber-50);
+  border-top:1px solid var(--amber-100);border-bottom:1px solid var(--amber-100);
+  overflow:hidden;
+}
+.ticker-track{display:flex;width:max-content;animation:ticker 22s linear infinite;}
+.ticker-item{
+  display:flex;align-items:center;gap:48px;padding-right:48px;
+  font-size:.8rem;font-weight:500;color:var(--amber-dark);white-space:nowrap;
+}
+.ticker-item .sep{color:var(--amber);}
+@keyframes ticker{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+
+/* ========================
+   PAIN SECTION
+======================== */
+.pain-section{background:var(--bg-alt);}
+.pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.pain-card{
+  background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);
+  padding:24px;transition:border-color .25s,box-shadow .25s;
+}
+.pain-card:hover{border-color:var(--amber-light);box-shadow:var(--shadow);}
+.pain-emoji{font-size:1.5rem;margin-bottom:12px;}
+.pain-card h3{font-size:.95rem;margin-bottom:6px;color:var(--text);}
+.pain-card p{font-size:.86rem;color:var(--muted);line-height:1.55;}
+
+/* ========================
+   SCREENSHOT SECTIONS
+======================== */
+.split-section{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center;}
+.split-section.reverse{direction:rtl;}
+.split-section.reverse > *{direction:ltr;}
+
+.check-list{display:flex;flex-direction:column;gap:16px;margin-top:28px;}
+.check-item{display:flex;gap:13px;align-items:flex-start;}
+.check-icon{
+  width:24px;height:24px;border-radius:6px;background:var(--green-bg);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;
+}
+.check-icon svg{width:13px;height:13px;stroke:var(--green);}
+.check-item p{font-size:.9rem;color:var(--muted);}
+.check-item strong{display:block;font-size:.95rem;color:var(--text);margin-bottom:2px;}
+
+/* ========================
+   HOW IT WORKS
+======================== */
+.how-section{background:var(--bg-alt);}
+.steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;position:relative;}
+.step-connector{position:absolute;top:28px;left:0;right:0;height:1px;background:var(--border);z-index:0;}
+.step-connector-fill{position:absolute;top:0;left:0;width:0;height:100%;background:var(--amber);transition:width 1s var(--ease);}
+.step-connector-fill.done{width:100%;}
+.step{padding:0 24px;position:relative;z-index:1;}
+.step:first-child{padding-left:0;}
+.step-num{
+  width:56px;height:56px;border-radius:50%;background:#fff;border:2px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.1rem;font-weight:800;color:var(--subtle);margin-bottom:20px;
+  transition:border-color .3s,color .3s,background .3s;position:relative;
+}
+.step-num.active{border-color:var(--amber);color:var(--amber);background:var(--amber-50);}
+.step h3{font-size:.97rem;margin-bottom:7px;}
+.step p{font-size:.85rem;color:var(--muted);line-height:1.55;}
+
+/* ========================
+   FEATURES
+======================== */
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.feat-card{
+  padding:28px 24px;border:1.5px solid var(--border);border-radius:var(--radius-lg);
+  background:#fff;transition:border-color .25s,box-shadow .25s,transform .25s var(--ease);
+}
+.feat-card:hover{border-color:var(--amber-light);box-shadow:var(--shadow);transform:translateY(-3px);}
+.feat-icon{
+  width:46px;height:46px;border-radius:12px;background:var(--amber-50);
+  border:1px solid var(--amber-100);display:flex;align-items:center;
+  justify-content:center;margin-bottom:16px;
+}
+.feat-icon svg{width:22px;height:22px;stroke:var(--amber-dark);}
+.feat-card h3{margin-bottom:6px;}
+.feat-card p{font-size:.86rem;color:var(--muted);}
+
+/* ========================
+   BENEFITS ROW
+======================== */
+.benefits-row{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.benefit-item{text-align:center;padding:32px 20px;}
+.benefit-num{
+  font-size:2.6rem;font-weight:800;color:var(--amber);letter-spacing:-.04em;
+  line-height:1;margin-bottom:10px;
+}
+.benefit-item h3{margin-bottom:7px;}
+.benefit-item p{font-size:.88rem;color:var(--muted);}
+
+/* ========================
+   PRICING
+======================== */
+.pricing-section{background:var(--bg-alt);}
+.pricing-card{
+  max-width:640px;margin:0 auto;
+  background:#fff;border-radius:var(--radius-xl);
+  border:2px solid var(--amber);
+  padding:52px 48px;
+  box-shadow:0 0 0 6px rgba(245,158,11,.08),var(--shadow-lg);
+  position:relative;
+}
+.pricing-top-badge{
+  position:absolute;top:-16px;left:50%;transform:translateX(-50%);
+  background:var(--amber);color:#fff;font-size:.74rem;font-weight:700;
+  padding:6px 18px;border-radius:100px;white-space:nowrap;letter-spacing:.04em;
+}
+.pricing-title{font-size:1.15rem;font-weight:700;margin-bottom:4px;}
+.pricing-sub{font-size:.9rem;color:var(--muted);margin-bottom:24px;}
+.pricing-price-row{display:flex;align-items:flex-end;gap:8px;margin-bottom:6px;}
+.pricing-price-old{font-size:.9rem;color:var(--subtle);text-decoration:line-through;}
+.pricing-price{display:flex;align-items:flex-start;line-height:1;margin-bottom:6px;}
+.pp-currency{font-size:1.3rem;font-weight:700;color:var(--text);margin-top:7px;}
+.pp-int{font-size:3.4rem;font-weight:800;color:var(--text);letter-spacing:-.04em;}
+.pp-dec{font-size:1.1rem;font-weight:600;color:var(--muted);align-self:flex-end;padding-bottom:5px;}
+.pricing-note{font-size:.82rem;color:var(--muted);margin-bottom:16px;}
+.pricing-insight{
+  display:flex;align-items:flex-start;gap:10px;
+  background:var(--amber-50);border:1px solid var(--amber-100);
+  border-radius:var(--radius-md);padding:13px 16px;
+  font-size:.88rem;color:var(--amber-dark);margin-bottom:28px;line-height:1.5;
+}
+.pricing-insight svg{width:17px;height:17px;stroke:var(--amber);flex-shrink:0;margin-top:1px;}
+.pricing-insight strong{color:var(--amber-dark);}
+.pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:36px;}
+.p-item{display:flex;align-items:center;gap:9px;font-size:.88rem;color:var(--text-2);}
+.p-check{width:20px;height:20px;border-radius:6px;background:var(--green-bg);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.p-check svg{width:12px;height:12px;stroke:var(--green);}
+.pricing-ctas{display:flex;flex-direction:column;gap:10px;}
+.pricing-seals{display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;}
+.pricing-seal{display:flex;align-items:center;gap:5px;font-size:.78rem;color:var(--muted);}
+.pricing-seal svg{width:14px;height:14px;stroke:var(--green);}
+
+/* ========================
+   TRIAL CTA (dark)
+======================== */
+.trial-section{
+  background:var(--bg-dark);color:#fff;
+  padding:100px 0;text-align:center;
+}
+.trial-section h2{color:#fff;margin:14px 0 18px;}
+.trial-section p{color:rgba(255,255,255,.6);max-width:42ch;margin:0 auto 36px;}
+.trial-ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.trial-label{color:rgba(255,255,255,.5);}
+.trial-label::before{background:rgba(255,255,255,.4);}
+
+/* ========================
+   FAQ
+======================== */
+.faq-layout{display:grid;grid-template-columns:1fr 1.7fr;gap:80px;align-items:start;}
+.faq-sticky{position:sticky;top:96px;}
+.faq-list{display:flex;flex-direction:column;}
+.faq-item{border-bottom:1px solid var(--border);}
+.faq-item:first-child{border-top:1px solid var(--border);}
+.faq-item summary{
+  padding:20px 0;cursor:pointer;font-weight:600;font-size:.97rem;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  list-style:none;user-select:none;color:var(--text);
+}
+.faq-item summary::-webkit-details-marker{display:none;}
+.faq-chevron{width:20px;height:20px;flex-shrink:0;transition:transform .3s;stroke:var(--muted);}
+.faq-item[open] .faq-chevron{transform:rotate(-180deg);stroke:var(--amber);}
+.faq-item[open] summary{color:var(--amber-dark);}
+.faq-answer{padding:0 0 20px;font-size:.92rem;color:var(--muted);line-height:1.7;}
+
+/* ========================
+   FINAL CTA
+======================== */
+.final-cta-section{background:var(--bg-alt);}
+.final-cta-card{
+  background:linear-gradient(135deg,var(--amber) 0%,var(--amber-dark) 100%);
+  border-radius:var(--radius-xl);padding:72px 60px;text-align:center;
+  position:relative;overflow:hidden;
+}
+.final-cta-card::before{
+  content:'';position:absolute;inset:0;
+  background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23fff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events:none;
+}
+.final-cta-card h2{color:#fff;margin:12px 0 18px;}
+.final-cta-card p{color:rgba(255,255,255,.85);max-width:44ch;margin:0 auto 36px;font-size:1.05rem;}
+.final-cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.final-label{color:rgba(255,255,255,.7);}
+.final-label::before{background:rgba(255,255,255,.6);}
+
+/* ========================
+   FOOTER
+======================== */
+.site-footer{padding:56px 0 28px;border-top:1px solid var(--border);}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:48px;padding-bottom:40px;}
+.footer-brand p{font-size:.88rem;color:var(--muted);margin-top:14px;max-width:28ch;line-height:1.6;}
+.footer-col h4{font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--subtle);margin-bottom:14px;}
+.footer-col a{display:block;font-size:.88rem;color:var(--muted);padding:5px 0;transition:color .2s;}
+.footer-col a:hover{color:var(--text);}
+.footer-bottom{
+  display:flex;justify-content:space-between;align-items:center;
+  padding-top:24px;border-top:1px solid var(--border);flex-wrap:wrap;gap:10px;
+}
+.footer-bottom p{font-size:.78rem;color:var(--subtle);}
+.footer-social{display:flex;gap:8px;}
+.footer-social a{
+  width:34px;height:34px;border-radius:50%;border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;transition:.2s;
+}
+.footer-social a:hover{border-color:var(--amber);background:var(--amber-50);}
+.footer-social svg{width:15px;height:15px;stroke:var(--muted);}
+
+/* WhatsApp float */
+.float-wa{
+  position:fixed;bottom:24px;right:24px;width:54px;height:54px;border-radius:50%;
+  background:var(--amber);display:flex;align-items:center;justify-content:center;
+  z-index:50;box-shadow:0 8px 24px rgba(245,158,11,.45);
+  transition:transform .2s,box-shadow .2s;
+}
+.float-wa:hover{transform:scale(1.08);box-shadow:0 12px 30px rgba(245,158,11,.55);}
+.float-wa svg{width:26px;height:26px;fill:#fff;}
+
+/* ========================
+   RESPONSIVE
+======================== */
+@media(max-width:980px){
+  .hero-grid{grid-template-columns:1fr;gap:48px;}
+  .hero{padding:120px 0 60px;}
+  .pain-grid{grid-template-columns:repeat(2,1fr);}
+  .videos-grid{grid-template-columns:1fr;}
+  .split-section{grid-template-columns:1fr;gap:40px;}
+  .split-section.reverse{direction:ltr;}
+  .steps-grid{grid-template-columns:repeat(2,1fr);gap:36px;}
+  .step-connector{display:none;}
+  .step:first-child{padding-left:24px;}
+  .feat-grid{grid-template-columns:repeat(2,1fr);}
+  .benefits-row{grid-template-columns:repeat(2,1fr);}
+  .faq-layout{grid-template-columns:1fr;}
+  .faq-sticky{position:static;}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:680px){
+  .wrap{padding:0 18px;}
+  .nav{display:none;}
+  .header-actions .btn-outline{display:none;}
+  .burger{display:flex;}
+  .hero{padding:110px 0 96px;}
+  .section-pad{padding:70px 0;}
+  .pain-grid{grid-template-columns:1fr;}
+  .steps-grid{grid-template-columns:1fr;}
+  .feat-grid{grid-template-columns:1fr;}
+  .benefits-row{grid-template-columns:1fr;}
+  .pricing-card{padding:36px 24px;}
+  .pricing-grid{grid-template-columns:1fr;}
+  .final-cta-card{padding:52px 24px;}
+  .footer-grid{grid-template-columns:1fr;}
+  .hero-float{display:none;}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header" id="siteHeader">
+  <div class="wrap header-row">
+    <a href="#top" class="brand">
+      <img src="../icon.png" alt="Infuse" class="brand-logo">
+      Infuse
+      <span class="brand-badge">Agenda</span>
+    </a>
+    <nav class="nav" aria-label="Navegação">
+      <a href="#dores">Por que usar</a>
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#recursos">Recursos</a>
+      <a href="#plano">Plano</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="header-actions">
+      <a href="#plano" class="btn btn-outline">Ver plano</a>
+      <a href="https://wa.me/5575982938031?text=Ol%C3%A1!%20Quero%20come%C3%A7ar%20com%20o%20Infuse%20Agenda." target="_blank" rel="noopener" class="btn btn-amber">Começar agora</a>
+      <button class="burger" id="burgerBtn" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobileNav" aria-hidden="true">
+  <a href="#dores">Por que usar</a>
+  <a href="#como-funciona">Como funciona</a>
+  <a href="#recursos">Recursos</a>
+  <a href="#plano">Plano</a>
+  <a href="#faq">FAQ</a>
+  <a href="https://wa.me/5575982938031?text=Ol%C3%A1!%20Quero%20come%C3%A7ar%20com%20o%20Infuse%20Agenda." target="_blank" rel="noopener" class="btn btn-amber" style="align-self:flex-start;margin-top:8px;">Começar agora</a>
+</div>
+
+<!-- ============ HERO ============ -->
+<main id="top">
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div data-r>
+      <div class="hero-badge">Sistema de agendamento online</div>
+      <h1>Seu cliente agenda sozinho.<br><span class="accent">Você foca no atendimento.</span></h1>
+      <p class="lede">Site profissional da sua empresa + sistema completo de agendamento, tudo em um só lugar. Barbearias, salões de beleza, manicures, nail designers e muito mais.</p>
+      <div class="hero-ctas">
+        <a href="https://wa.me/5575982938031?text=Ol%C3%A1!%20Quero%20come%C3%A7ar%20com%20o%20Infuse%20Agenda." target="_blank" rel="noopener" class="btn btn-amber btn-lg">Começar agora: R$ 39,90/mês</a>
+        <a href="#plano" class="btn btn-outline btn-lg">Testar grátis</a>
+      </div>
+      <div class="hero-proof">
+        <div class="stars" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="hero-proof-text"><strong>Sem taxa de implantação.</strong> Cancele quando quiser.</p>
+      </div>
+    </div>
+
+    <div class="hero-visual" data-r data-d="2">
+      <div class="phone-mock">
+        <div class="phone-mock-screen">
+          <video autoplay muted loop playsinline preload="auto">
+            <source src="assets/agendamento barbearia.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="hero-float float-a">
+        <div class="hero-float-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <div class="hero-float-text">
+          <strong>Novo agendamento!</strong>
+          <span>Ana Lima · Corte + Escova</span>
+        </div>
+      </div>
+      <div class="hero-float float-b">
+        <div class="hero-float-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div class="hero-float-text">
+          <strong>Lembrete enviado</strong>
+          <span>30 min antes · automático</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <div class="ticker-item">Barbearia <span class="sep">·</span> Salão de Beleza <span class="sep">·</span> Nail Design <span class="sep">·</span> Manicure <span class="sep">·</span> Designer de Sobrancelha <span class="sep">·</span> Lash Designer <span class="sep">·</span> Clínica de Estética <span class="sep">·</span> Cabeleireiro <span class="sep">·</span></div>
+      <div class="ticker-item">Barbearia <span class="sep">·</span> Salão de Beleza <span class="sep">·</span> Nail Design <span class="sep">·</span> Manicure <span class="sep">·</span> Designer de Sobrancelha <span class="sep">·</span> Lash Designer <span class="sep">·</span> Clínica de Estética <span class="sep">·</span> Cabeleireiro <span class="sep">·</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DORES ============ -->
+<section class="section-pad pain-section" id="dores">
+  <div class="wrap">
+    <div class="section-head center" data-r>
+      <span class="label">O problema</span>
+      <h2>Reconhece alguma dessas situações?</h2>
+      <p class="lede center" style="margin:0 auto;">Se você respondeu sim para qualquer uma delas, o Infuse Agenda foi feito para o seu negócio.</p>
+    </div>
+    <div class="pain-grid">
+      <div class="pain-card" data-r data-d="1">
+        <div class="pain-emoji">💬</div>
+        <h3>Perde tempo respondendo WhatsApp</h3>
+        <p>Você está atendendo e o celular não para de piscar. Cliente esperando, venda perdendo.</p>
+      </div>
+      <div class="pain-card" data-r data-d="2">
+        <div class="pain-emoji">🗓️</div>
+        <h3>Agenda no papel ou na memória</h3>
+        <p>Confusão de horários, marcações erradas, cliente que não viu a mensagem.</p>
+      </div>
+      <div class="pain-card" data-r data-d="3">
+        <div class="pain-emoji">😤</div>
+        <h3>Cliente esquece e falta sem avisar</h3>
+        <p>Horário vazio, você esperando, e um prejuízo que poderia ser evitado.</p>
+      </div>
+      <div class="pain-card" data-r data-d="1">
+        <div class="pain-emoji">🌙</div>
+        <h3>Mensagens fora do horário comercial</h3>
+        <p>Sem descanso real. Sempre tem alguém tentando marcar às 23h.</p>
+      </div>
+      <div class="pain-card" data-r data-d="2">
+        <div class="pain-emoji">📵</div>
+        <h3>Cliente desistiu porque ninguém respondeu</h3>
+        <p>Mandou mensagem, esperou, sem resposta. Foi para o concorrente.</p>
+      </div>
+      <div class="pain-card" data-r data-d="3">
+        <div class="pain-emoji">📱</div>
+        <h3>Sem presença profissional online</h3>
+        <p>O concorrente tem site e você passa o link do Instagram. A impressão já começa errada.</p>
+      </div>
+      <div class="pain-card" data-r data-d="1">
+        <div class="pain-emoji">👥</div>
+        <h3>Difícil organizar mais de um profissional</h3>
+        <p>Cada um com sua agenda separada. Impossível ter visão geral do dia.</p>
+      </div>
+      <div class="pain-card" data-r data-d="2">
+        <div class="pain-emoji">❌</div>
+        <h3>Cancelamentos de última hora</h3>
+        <p>O cliente some, o horário fica vazio e você não tem tempo de preencher.</p>
+      </div>
+      <div class="pain-card" data-r data-d="3">
+        <div class="pain-emoji">📊</div>
+        <h3>Sem controle dos seus clientes</h3>
+        <p>Não sabe quantos atendeu, quem voltou, quem sumiu. Impossível crescer assim.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============ VEJA O SISTEMA ============ -->
+<section class="section-pad" id="sistema">
+  <div class="wrap">
+    <div class="section-head center" data-r>
+      <span class="label">O sistema em ação</span>
+      <h2>Veja como funciona na prática.</h2>
+      <p class="lede" style="margin:0 auto;">Seu cliente acessa o link, escolhe o serviço e confirma — tudo em menos de um minuto. Você recebe a notificação e continua atendendo.</p>
+    </div>
+    <div class="phones-row">
+      <div class="phone-group" data-r data-d="1">
+        <div class="phone-mock">
+          <div class="phone-mock-screen">
+            <video autoplay muted loop playsinline preload="auto">
+              <source src="assets/agendamento barbearia.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+        <span class="phone-group-label">Barbearia</span>
+      </div>
+      <div class="phone-group" data-r data-d="2">
+        <div class="phone-mock">
+          <div class="phone-mock-screen">
+            <video autoplay muted loop playsinline preload="auto">
+              <source src="assets/agendamentosalao feminino.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+        <span class="phone-group-label">Salão feminino</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============ SITE PROFISSIONAL ============ -->
+<section class="section-pad" id="site">
+  <div class="wrap split-section">
+    <div data-r>
+      <span class="label">Incluso no plano</span>
+      <h2>Não é só uma agenda. É o site completo do seu negócio.</h2>
+      <p style="color:var(--muted);margin-top:14px;font-size:1rem;">Ao assinar, você recebe uma página exclusiva e profissional pronta para receber clientes e realizar agendamentos, sem precisar de nenhum conhecimento técnico.</p>
+      <div class="check-list">
+        <div class="check-item">
+          <div class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div><strong>Seu link exclusivo, pronto para compartilhar</strong><p>Cole no Instagram, no Google, no WhatsApp. Qualquer pessoa acessa do celular.</p></div>
+        </div>
+        <div class="check-item">
+          <div class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div><strong>Logo, fotos, serviços, preços e localização</strong><p>Tudo que o cliente precisa ver antes de agendar, em um único lugar.</p></div>
+        </div>
+        <div class="check-item">
+          <div class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div><strong>WhatsApp, Instagram e botão de agendamento</strong><p>Integrados diretamente na sua página, sem precisar redirecionar o cliente.</p></div>
+        </div>
+        <div class="check-item">
+          <div class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div><strong>Visual profissional que transmite credibilidade</strong><p>Seus clientes percebem a diferença na primeira visita.</p></div>
+        </div>
+      </div>
+    </div>
+    <div data-r data-d="2">
+      <div class="phone-mock-wrap">
+        <div class="phone-mock">
+          <div class="phone-mock-screen">
+            <img src="assets/site-barbeiro.png" alt="Site de agendamento Luiz Barber - Infuse Agenda" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============ PAINEL ADMIN ============ -->
+<section class="section-pad" style="background:var(--bg-alt);">
+  <div class="wrap split-section reverse">
+    <div data-r>
+      <span class="label">Painel administrativo</span>
+      <h2>Controle toda sua agenda em um único painel.</h2>
+      <p style="color:var(--muted);margin-top:14px;font-size:1rem;">Visualize os agendamentos do dia em tempo real, gerencie clientes e profissionais, tudo pelo celular ou computador.</p>
+      <div class="check-list">
+        <div class="check-item">
+          <div class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div><strong>Agenda do dia com todos os horários</strong><p>Veja cliente, serviço, profissional e valor de cada agendamento.</p></div>
+        </div>
+        <div class="check-item">
+          <div class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div><strong>Filtre por profissional</strong><p>Acesse a agenda de cada membro da equipe individualmente, em tempo real.</p></div>
+        </div>
+        <div class="check-item">
+          <div class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div><strong>Cadastre clientes e edite serviços</strong><p>Histórico de atendimentos, dados de contato e muito mais.</p></div>
+        </div>
+        <div class="check-item">
+          <div class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div><strong>Adicione novos agendamentos manualmente</strong><p>Para clientes que preferirem marcar por telefone ou pessoalmente.</p></div>
+        </div>
+      </div>
+    </div>
+    <div data-r data-d="2">
+      <div class="phone-mock-wrap">
+        <div class="phone-mock" style="width:290px;">
+          <div class="phone-mock-screen no-top">
+            <img src="assets/painel-admin-barber.png" alt="Painel administrativo Barber Admin - Infuse Agenda" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============ COMO FUNCIONA ============ -->
+<section class="section-pad how-section" id="como-funciona">
+  <div class="wrap">
+    <div class="section-head center" data-r>
+      <span class="label">Simples assim</span>
+      <h2>Você começa a receber agendamentos em menos de um dia.</h2>
+    </div>
+    <div class="steps-grid">
+      <div class="step-connector"><div class="step-connector-fill" id="stepFill"></div></div>
+      <div class="step" data-r data-d="1">
+        <div class="step-num active" id="sn1">01</div>
+        <h3>Assine o plano</h3>
+        <p>Sem taxa de implantação, sem burocracia. Tudo resolvido em 2 minutos.</p>
+      </div>
+      <div class="step" data-r data-d="2">
+        <div class="step-num" id="sn2">02</div>
+        <h3>Personalize sua página</h3>
+        <p>Adicione logo, serviços, preços, profissionais e horários pelo painel.</p>
+      </div>
+      <div class="step" data-r data-d="3">
+        <div class="step-num" id="sn3">03</div>
+        <h3>Compartilhe o link</h3>
+        <p>No Instagram, no WhatsApp, no Google — onde seu cliente já está.</p>
+      </div>
+      <div class="step" data-r data-d="4">
+        <div class="step-num" id="sn4">04</div>
+        <h3>Receba agendamentos</h3>
+        <p>Automático, 24 horas. Você foca no que realmente importa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============ RECURSOS ============ -->
+<section class="section-pad" id="recursos">
+  <div class="wrap">
+    <div class="section-head center" data-r>
+      <span class="label">Tudo incluso</span>
+      <h2>Cada recurso pensado para o seu dia a dia.</h2>
+      <p class="lede" style="margin:0 auto;">Um sistema completo pelo preço de um serviço por mês.</p>
+    </div>
+    <div class="feat-grid">
+      <div class="feat-card" data-r data-d="1">
+        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+        <h3>Site profissional incluso</h3>
+        <p>Página exclusiva do seu negócio, com sua identidade visual e botão de agendamento.</p>
+      </div>
+      <div class="feat-card" data-r data-d="2">
+        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+        <h3>Agendamento online 24h</h3>
+        <p>Seu cliente marca sozinho, qualquer hora do dia, sem você precisar responder.</p>
+      </div>
+      <div class="feat-card" data-r data-d="3">
+        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <h3>Lembrete automático no WhatsApp</h3>
+        <p>30 minutos antes do atendimento, o cliente recebe mensagem automática. Faltas caem drasticamente.</p>
+      </div>
+      <div class="feat-card" data-r data-d="1">
+        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3>Até 3 profissionais</h3>
+        <p>Cada um com sua agenda e horários individuais. O cliente escolhe com quem quer ser atendido.</p>
+      </div>
+      <div class="feat-card" data-r data-d="2">
+        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <h3>Horários personalizados</h3>
+        <p>Defina os dias e turnos conforme a rotina real do seu negócio.</p>
+      </div>
+      <div class="feat-card" data-r data-d="3">
+        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+        <h3>Painel administrativo completo</h3>
+        <p>Agenda em tempo real, cadastro de clientes, edição de serviços e informações do site.</p>
+      </div>
+      <div class="feat-card" data-r data-d="1">
+        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
+        <h3>Funciona no celular</h3>
+        <p>Painel 100% responsivo. Gerencie tudo de qualquer lugar, pelo celular.</p>
+      </div>
+      <div class="feat-card" data-r data-d="2">
+        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.71h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 10.5a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+        <h3>Suporte via WhatsApp</h3>
+        <p>Dúvida ou ajuste? Nossa equipe responde direto no WhatsApp, sem fila de chamados.</p>
+      </div>
+      <div class="feat-card" data-r data-d="3">
+        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3>Sem fidelidade</h3>
+        <p>Cancele quando quiser, sem multa, sem burocracia, sem perguntas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============ BENEFÍCIOS ============ -->
+<section class="section-pad-sm" style="background:var(--bg-alt);">
+  <div class="wrap">
+    <div class="benefits-row">
+      <div class="benefit-item" data-r data-d="1">
+        <div class="benefit-num">24h</div>
+        <h3>Agenda sempre aberta</h3>
+        <p>Seu cliente marca de madrugada. Você acorda com agendamentos confirmados.</p>
+      </div>
+      <div class="benefit-item" data-r data-d="2">
+        <div class="benefit-num">-90%</div>
+        <h3>Menos mensagens no WhatsApp</h3>
+        <p>Sem mais horas do dia respondendo "qual o horário disponível?"</p>
+      </div>
+      <div class="benefit-item" data-r data-d="3">
+        <div class="benefit-num">+clientes</div>
+        <h3>Agendamentos que você perderia</h3>
+        <p>Quem tentou marcar fora do horário comercial e não teve resposta.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============ PRICING ============ -->
+<section class="section-pad pricing-section" id="plano">
+  <div class="wrap">
+    <div class="section-head center" data-r>
+      <span class="label">Plano</span>
+      <h2>Um preço justo. Tudo incluso.</h2>
+      <p class="lede" style="margin:0 auto;">Sem cobranças escondidas, sem recursos bloqueados, sem fidelidade.</p>
+    </div>
+    <div class="pricing-card" data-r data-d="2">
+      <div class="pricing-top-badge">⚡ Oferta por tempo limitado</div>
+      <div class="pricing-title">Infuse Agenda - Plano Completo</div>
+      <div class="pricing-sub">Para barbearias, salões, nail designers e profissionais de estética.</div>
+      <div class="pricing-price-row">
+        <span class="pricing-price-old">De R$ 89,90/mês</span>
+      </div>
+      <div class="pricing-price"><span class="pp-currency">R$</span><span class="pp-int">39</span><span class="pp-dec">,90/mês</span></div>
+      <p class="pricing-note">Cobrado mensalmente · Cancele quando quiser</p>
+      <div class="pricing-insight">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        Um único atendimento já paga o sistema inteiro do mês.
+      </div>
+      <div class="pricing-grid">
+        <div class="p-item"><div class="p-check"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>Site profissional da empresa</div>
+        <div class="p-item"><div class="p-check"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>Agendamento online 24h</div>
+        <div class="p-item"><div class="p-check"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>Painel administrativo</div>
+        <div class="p-item"><div class="p-check"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>Agenda em tempo real</div>
+        <div class="p-item"><div class="p-check"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>Até 3 profissionais</div>
+        <div class="p-item"><div class="p-check"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>Horários personalizados</div>
+        <div class="p-item"><div class="p-check"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>Lembrete automático WhatsApp</div>
+        <div class="p-item"><div class="p-check"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>Gestão de clientes</div>
+        <div class="p-item"><div class="p-check"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>Suporte via WhatsApp</div>
+        <div class="p-item"><div class="p-check"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>Sem fidelidade</div>
+        <div class="p-item"><div class="p-check"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>Cancele quando quiser</div>
+        <div class="p-item"><div class="p-check"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>Sem taxa de implantação</div>
+      </div>
+      <div class="pricing-ctas">
+        <a href="https://wa.me/5575982938031?text=Ol%C3%A1!%20Quero%20assinar%20o%20Infuse%20Agenda." target="_blank" rel="noopener" class="btn btn-amber btn-lg" style="width:100%;justify-content:center;">Começar agora</a>
+        <a href="https://wa.me/5575982938031?text=Ol%C3%A1!%20Quero%20testar%20o%20Infuse%20Agenda%20gratuitamente." target="_blank" rel="noopener" class="btn btn-outline" style="width:100%;justify-content:center;">Quero testar antes de contratar</a>
+      </div>
+      <div class="pricing-seals">
+        <div class="pricing-seal"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Sem taxa de implantação</div>
+        <div class="pricing-seal"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Cancele quando quiser</div>
+        <div class="pricing-seal"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Pagamento seguro</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRIAL (dark) ============ -->
+<section class="trial-section" id="teste">
+  <div class="wrap center">
+    <span class="label trial-label">Sem risco</span>
+    <h2>Teste antes de contratar.</h2>
+    <p>Conheça a plataforma, veja como funciona o agendamento, explore o painel. Sem necessidade de cartão de crédito.</p>
+    <div class="trial-ctas">
+      <a href="https://wa.me/5575982938031?text=Ol%C3%A1!%20Quero%20testar%20o%20Infuse%20Agenda%20gratuitamente." target="_blank" rel="noopener" class="btn btn-amber btn-lg">Quero testar grátis</a>
+      <a href="https://wa.me/5575982938031?text=Ol%C3%A1!%20Tenho%20d%C3%BAvidas%20sobre%20o%20Infuse%20Agenda." target="_blank" rel="noopener" class="btn btn-white btn-lg">Falar com a equipe</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section-pad" id="faq">
+  <div class="wrap">
+    <div class="faq-layout">
+      <div class="faq-sticky" data-r>
+        <span class="label">FAQ</span>
+        <h2 style="margin:14px 0 16px;">Perguntas frequentes.</h2>
+        <p style="color:var(--muted);font-size:.95rem;margin-bottom:28px;">Não encontrou o que procura? Fale com a gente.</p>
+        <a href="https://wa.me/5575982938031?text=Ol%C3%A1!%20Tenho%20d%C3%BAvidas%20sobre%20o%20Infuse%20Agenda." target="_blank" rel="noopener" class="btn btn-outline">Falar no WhatsApp</a>
+      </div>
+      <div class="faq-list" data-r data-d="2">
+        <details class="faq-item">
+          <summary>O que é o Infuse Agenda?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></summary>
+          <div class="faq-answer">O Infuse Agenda é um sistema completo de agendamento online para profissionais da beleza e estética. Ao assinar, você recebe uma página exclusiva e profissional para sua empresa mais um painel administrativo para gerenciar toda sua agenda sem precisar de nenhum conhecimento técnico.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Para quem é o Infuse Agenda?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></summary>
+          <div class="faq-answer">Para barbearias, salões de beleza, estúdios de nail design, manicures, cabeleireiras, designers de sobrancelha, lash designers, clínicas de estética e qualquer profissional que trabalhe com agendamentos e queira organizar sua agenda de forma profissional.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Preciso instalar algum programa?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></summary>
+          <div class="faq-answer">Não. O Infuse Agenda é 100% online. Funciona direto no navegador do celular ou computador, sem instalar nada. Você acessa o painel de qualquer dispositivo, a qualquer hora.</div>
+        </details>
+        <details class="faq-item">
+          <summary>O cliente consegue agendar sozinho?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></summary>
+          <div class="faq-answer">Sim. Esse é o principal recurso do sistema. O cliente acessa o link da sua página, escolhe o serviço, o profissional, o dia e o horário disponível, e confirma sozinho, sem precisar chamar você no WhatsApp.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Como funciona o lembrete automático no WhatsApp?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></summary>
+          <div class="faq-answer">30 minutos antes do horário agendado, o sistema envia automaticamente uma mensagem de lembrete para o WhatsApp do cliente. Você não precisa fazer nada, isso acontece de forma automática, reduzindo as faltas sem esforço da sua parte.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Posso cadastrar mais de um profissional?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></summary>
+          <div class="faq-answer">Sim. O plano inclui até 3 profissionais. Cada um tem sua própria agenda e horários personalizados. O cliente escolhe com qual profissional quer ser atendido durante o agendamento.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Funciona no celular?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></summary>
+          <div class="faq-answer">Sim, perfeitamente. Tanto o painel administrativo quanto a página de agendamento do seu cliente são totalmente responsivos. Você gerencia tudo pelo celular com a mesma facilidade do computador.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Posso cancelar quando quiser?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></summary>
+          <div class="faq-answer">Sim. Não existe fidelidade nem multa. Você pode cancelar sua assinatura a qualquer momento, sem burocracia, sem perguntas.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Tenho suporte se precisar de ajuda?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></summary>
+          <div class="faq-answer">Sim. Nosso suporte é feito via WhatsApp. Se tiver dúvida, precisar de ajuda na configuração ou quiser fazer algum ajuste, nossa equipe está disponível para ajudar diretamente.</div>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA FINAL ============ -->
+<section class="section-pad final-cta-section">
+  <div class="wrap">
+    <div class="final-cta-card" data-r>
+      <span class="label final-label">Comece hoje</span>
+      <h2>Sua agenda organizada a partir de agora.</h2>
+      <p>Pare de perder tempo respondendo WhatsApp. Comece a receber agendamentos automáticos ainda hoje, com um site profissional que representa o seu negócio.</p>
+      <div class="final-cta-btns">
+        <a href="https://wa.me/5575982938031?text=Ol%C3%A1!%20Quero%20come%C3%A7ar%20com%20o%20Infuse%20Agenda." target="_blank" rel="noopener" class="btn btn-white btn-lg">Começar agora — R$ 39,90/mês</a>
+        <a href="https://wa.me/5575982938031?text=Ol%C3%A1!%20Quero%20testar%20o%20Infuse%20Agenda%20gratuitamente." target="_blank" rel="noopener" class="btn btn-lg" style="background:rgba(255,255,255,.15);color:#fff;border:1.5px solid rgba(255,255,255,.4);">Testar grátis</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="../" class="brand">
+          <img src="../icon.png" alt="Infuse" class="brand-logo">
+          Infuse
+          <span class="brand-badge">Agenda</span>
+        </a>
+        <p>Sistema de agendamento online para barbearias, salões de beleza, nail designers e profissionais de estética.</p>
+        <div class="footer-social" style="margin-top:16px;">
+          <a href="https://www.instagram.com/infuse.software" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://wa.me/5575982938031" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Produto</h4>
+        <a href="#dores">Por que usar</a>
+        <a href="#sistema">Veja o sistema</a>
+        <a href="#como-funciona">Como funciona</a>
+        <a href="#recursos">Recursos</a>
+        <a href="#plano">Plano e preço</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <a href="https://wa.me/5575982938031?text=Ol%C3%A1!%20Quero%20conhecer%20o%20Infuse%20Agenda." target="_blank" rel="noopener">WhatsApp</a>
+        <a href="https://www.instagram.com/infuse.software" target="_blank" rel="noopener">Instagram</a>
+        <a href="../">Site da Infuse</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Infuse Software. Todos os direitos reservados.</p>
+      <p>Infuse Agenda | Agendamento online para beleza e estética.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp float -->
+<a href="https://wa.me/5575982938031?text=Ol%C3%A1!%20Tenho%20interesse%20no%20Infuse%20Agenda." class="float-wa" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.84.5 3.56 1.45 5.04L2 22l5.25-1.38a9.86 9.86 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm0 18.05h-.01c-1.5 0-2.97-.4-4.25-1.16l-.3-.18-3.12.82.83-3.04-.2-.31a8.15 8.15 0 0 1-1.26-4.36c0-4.5 3.66-8.16 8.18-8.16 2.18 0 4.23.85 5.77 2.4a8.07 8.07 0 0 1 2.4 5.77c-.01 4.51-3.67 8.22-8.04 8.22zm4.48-6.16c-.25-.12-1.46-.72-1.68-.8-.23-.08-.39-.12-.56.12-.16.25-.63.8-.78.96-.14.16-.29.18-.53.06-1.45-.72-2.4-1.29-3.35-2.93-.25-.43.25-.4.72-1.33.08-.16.04-.3-.03-.42-.08-.12-.6-1.44-.82-1.97-.21-.52-.43-.45-.6-.46h-.5c-.16 0-.43.06-.66.3-.23.25-.87.85-.87 2.06 0 1.22.89 2.4 1.01 2.57.13.16 1.76 2.69 4.27 3.66 2.12.83 2.55.66 3.01.62.47-.04 1.46-.6 1.66-1.18.21-.58.21-1.07.15-1.18-.06-.1-.23-.16-.48-.28z"/></svg>
+</a>
+
+<script>
+// Header scroll
+const hdr = document.getElementById('siteHeader');
+window.addEventListener('scroll', () => hdr.classList.toggle('scrolled', window.scrollY > 40), {passive:true});
+
+// Mobile nav
+const burger = document.getElementById('burgerBtn');
+const mNav = document.getElementById('mobileNav');
+burger.addEventListener('click', () => {
+  const open = mNav.classList.toggle('open');
+  burger.setAttribute('aria-expanded', open);
+  mNav.setAttribute('aria-hidden', !open);
+});
+mNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  mNav.classList.remove('open');
+  burger.setAttribute('aria-expanded', false);
+}));
+
+// Reveal
+const ro = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); ro.unobserve(e.target); }});
+}, {threshold:.1});
+document.querySelectorAll('[data-r]').forEach(el => ro.observe(el));
+
+// Garantir que vídeos começam do segundo 0
+document.querySelectorAll('video').forEach(v => {
+  v.addEventListener('loadedmetadata', () => { v.currentTime = 0; });
+  v.currentTime = 0;
+});
+
+// Step numbers animate on view
+const stepFill = document.getElementById('stepFill');
+const sn2 = document.getElementById('sn2');
+const sn3 = document.getElementById('sn3');
+const sn4 = document.getElementById('sn4');
+const stepsEl = document.querySelector('.steps-grid');
+if (stepsEl) {
+  const so = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) {
+      if(stepFill) stepFill.classList.add('done');
+      [sn2,sn3,sn4].forEach((el,i) => { if(el) setTimeout(() => el.classList.add('active'), 250 * (i+1)); });
+      so.disconnect();
+    }
+  }, {threshold:.3});
+  so.observe(stepsEl);
+}
+</script>
+</body>
+</html>
