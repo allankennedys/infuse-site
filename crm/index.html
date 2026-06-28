@@ -1,0 +1,1372 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Infuse - CRM com WhatsApp Integrado, Funil de Vendas e IA</title>
+<meta name="description" content="CRM completo com WhatsApp integrado, funil de vendas, agente de IA e gestão de conversões. Comece grátis agora.">
+<meta name="keywords" content="CRM WhatsApp, CRM com WhatsApp, funil de vendas, multiatendentes, agente de IA, CRM Brasil, gestão de atendimento">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.infusesoftware.com/crm/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Infuse CRM – CRM com WhatsApp Integrado e Agente de IA">
+<meta property="og:description" content="Centralize seu atendimento, organize seu funil de vendas e aumente suas conversões. Teste grátis por 7 dias.">
+<meta property="og:url" content="https://www.infusesoftware.com/crm/">
+<meta property="og:image" content="https://www.infusesoftware.com/crm/assets/og-crm.png">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Infuse CRM">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Infuse: CRM com WhatsApp Integrado e Agente de IA">
+<meta name="twitter:description" content="CRM completo com WhatsApp, multiatendentes, funil de vendas e IA. Teste grátis 7 dias.">
+<meta name="twitter:image" content="https://www.infusesoftware.com/crm/assets/og-crm.png">
+<link rel="icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"SoftwareApplication",
+  "name":"Infuse CRM",
+  "applicationCategory":"BusinessApplication",
+  "description":"CRM completo com WhatsApp integrado, multiatendentes, funil de vendas, gestão de contatos, produtos, tarefas, conversões e agente de IA.",
+  "offers":[
+    {"@type":"Offer","name":"Plano CRM","price":"40.00","priceCurrency":"BRL"},
+    {"@type":"Offer","name":"Plano CRM + Agente de IA","price":"100.00","priceCurrency":"BRL"}
+  ],
+  "operatingSystem":"Web",
+  "url":"https://www.infusesoftware.com/crm/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Posso ter mais de um atendente?","acceptedAnswer":{"@type":"Answer","text":"Sim. O Infuse CRM suporta múltiplos atendentes. O plano base inclui 1 usuário e cada usuário adicional custa R$20/mês."}},
+    {"@type":"Question","name":"Posso conectar mais de um número de WhatsApp?","acceptedAnswer":{"@type":"Answer","text":"Sim. Você pode conectar múltiplos números de WhatsApp (via API Oficial ou QR Code) à mesma conta do CRM."}},
+    {"@type":"Question","name":"Posso cancelar quando quiser?","acceptedAnswer":{"@type":"Answer","text":"Sim. Sem fidelidade, sem multa. Você pode cancelar a qualquer momento diretamente pelo painel."}},
+    {"@type":"Question","name":"Quanto tempo demora para receber meu acesso?","acceptedAnswer":{"@type":"Answer","text":"O acesso é imediato após a criação da conta. Em segundos você já pode começar a usar o sistema."}},
+    {"@type":"Question","name":"Existe suporte?","acceptedAnswer":{"@type":"Answer","text":"Sim. Oferecemos suporte especializado via WhatsApp e e-mail para todos os planos."}},
+    {"@type":"Question","name":"Preciso instalar alguma coisa?","acceptedAnswer":{"@type":"Answer","text":"Não. O Infuse CRM é 100% web. Funciona direto no navegador do computador ou celular, sem instalação."}},
+    {"@type":"Question","name":"Posso usar a API Oficial do WhatsApp?","acceptedAnswer":{"@type":"Answer","text":"Sim. Suportamos tanto a API Oficial do WhatsApp Business quanto a conexão via QR Code (WhatsApp Web)."}},
+    {"@type":"Question","name":"Posso mudar de plano depois?","acceptedAnswer":{"@type":"Answer","text":"Sim. Você pode fazer upgrade ou downgrade do seu plano a qualquer momento."}}
+  ]
+}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --primary:#1a2f4f;
+  --primary-dark:#0f1e33;
+  --primary-hover:#152741;
+  --accent:#2563eb;
+  --accent-light:#eff6ff;
+  --accent-border:#bfdbfe;
+  --green:#16a34a;
+  --green-light:#22c55e;
+  --green-bg:#f0fdf4;
+  --green-border:#bbf7d0;
+  --whatsapp:#25d366;
+  --whatsapp-dark:#128c4f;
+  --bg:#ffffff;
+  --bg-soft:#f8fafc;
+  --bg-alt:#f1f5f9;
+  --text:#0f172a;
+  --text-2:#1e293b;
+  --muted:#64748b;
+  --subtle:#94a3b8;
+  --border:#e2e8f0;
+  --border-2:#f1f5f9;
+  --shadow-xs:0 1px 2px rgba(15,23,42,.06);
+  --shadow-sm:0 1px 3px rgba(15,23,42,.08),0 1px 2px rgba(15,23,42,.05);
+  --shadow:0 4px 16px rgba(15,23,42,.08),0 2px 6px rgba(15,23,42,.04);
+  --shadow-md:0 8px 24px rgba(15,23,42,.1),0 2px 8px rgba(15,23,42,.05);
+  --shadow-lg:0 20px 48px rgba(15,23,42,.12),0 4px 12px rgba(15,23,42,.06);
+  --shadow-xl:0 32px 64px rgba(15,23,42,.16);
+  --radius:12px;
+  --radius-lg:20px;
+  --radius-xl:28px;
+  --maxw:1200px;
+  --ease:cubic-bezier(.16,.84,.44,1);
+  --grad:linear-gradient(135deg,#1a2f4f 0%,#2563eb 100%);
+  --grad-soft:linear-gradient(135deg,rgba(26,47,79,.07) 0%,rgba(37,99,235,.07) 100%);
+}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Inter',system-ui,-apple-system,sans-serif;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img,svg{display:block;max-width:100%;}
+a{color:inherit;text-decoration:none;}
+ul{list-style:none;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;}
+section{position:relative;}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px;}
+
+h1,h2,h3{font-weight:800;letter-spacing:-.025em;line-height:1.1;color:var(--primary);}
+h1{font-size:clamp(2.1rem,4.2vw,3.4rem);}
+h2{font-size:clamp(1.7rem,3vw,2.4rem);}
+h3{font-size:1.1rem;font-weight:700;}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:12px;
+}
+.eyebrow::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0;}
+.lede{color:var(--muted);font-size:1.05rem;line-height:1.7;max-width:52ch;}
+.section-pad{padding:100px 0;}
+.section-head{max-width:640px;margin-bottom:60px;}
+.section-head h2{margin-top:8px;}
+.section-head .lede{margin-top:14px;}
+
+[data-reveal]{opacity:0;transform:translateY(20px);transition:opacity .65s var(--ease),transform .65s var(--ease);}
+[data-reveal].in{opacity:1;transform:none;}
+[data-reveal-d="1"]{transition-delay:.07s;}
+[data-reveal-d="2"]{transition-delay:.14s;}
+[data-reveal-d="3"]{transition-delay:.21s;}
+[data-reveal-d="4"]{transition-delay:.28s;}
+[data-reveal-d="5"]{transition-delay:.35s;}
+[data-reveal-d="6"]{transition-delay:.42s;}
+[data-reveal-d="7"]{transition-delay:.49s;}
+[data-reveal-d="8"]{transition-delay:.56s;}
+
+@media(prefers-reduced-motion:reduce){*{animation-duration:.001ms!important;transition-duration:.001ms!important;}}
+
+/* ===== BUTTONS ===== */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:13px 26px;border-radius:100px;font-weight:600;font-size:.94rem;
+  transition:transform .22s var(--ease),box-shadow .22s var(--ease),background .2s,border-color .2s;
+  white-space:nowrap;cursor:pointer;
+}
+.btn svg{width:17px;height:17px;flex-shrink:0;}
+.btn-primary{background:var(--primary);color:#fff;box-shadow:0 6px 20px -6px rgba(26,47,79,.5);}
+.btn-primary:hover{background:var(--primary-hover);transform:translateY(-2px);box-shadow:0 12px 28px -8px rgba(26,47,79,.6);}
+.btn-outline{border:2px solid var(--primary);color:var(--primary);background:#fff;}
+.btn-outline:hover{background:var(--primary);color:#fff;transform:translateY(-2px);}
+.btn-whatsapp{background:var(--whatsapp);color:#fff;box-shadow:0 6px 20px -6px rgba(37,211,102,.5);}
+.btn-whatsapp:hover{background:var(--whatsapp-dark);transform:translateY(-2px);box-shadow:0 12px 28px -8px rgba(37,211,102,.55);}
+.btn-accent{background:var(--accent);color:#fff;box-shadow:0 6px 20px -6px rgba(37,99,235,.5);}
+.btn-accent:hover{background:#1d4ed8;transform:translateY(-2px);box-shadow:0 12px 28px -8px rgba(37,99,235,.55);}
+.btn-sm{padding:10px 20px;font-size:.86rem;}
+.btn-lg{padding:16px 34px;font-size:1rem;}
+
+/* ===== HEADER ===== */
+.site-header{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(255,255,255,.85);backdrop-filter:blur(16px) saturate(150%);
+  border-bottom:1px solid var(--border);
+  padding:16px 0;transition:padding .3s var(--ease),box-shadow .3s var(--ease);
+}
+.site-header.scrolled{padding:11px 0;box-shadow:var(--shadow-sm);}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.1rem;color:var(--primary);letter-spacing:-.02em;}
+.brand img{width:32px;height:32px;}
+.brand-tag{font-size:.7rem;font-weight:700;background:var(--accent-light);color:var(--accent);padding:2px 8px;border-radius:100px;letter-spacing:.04em;}
+.nav{display:flex;align-items:center;gap:32px;}
+.nav a{font-size:.9rem;font-weight:500;color:var(--muted);transition:color .2s;}
+.nav a:hover{color:var(--primary);}
+.header-ctas{display:flex;align-items:center;gap:12px;}
+.burger{display:none;width:38px;height:38px;align-items:center;justify-content:center;border-radius:8px;border:1px solid var(--border);}
+.burger-icon{width:18px;height:14px;position:relative;display:flex;flex-direction:column;justify-content:space-between;}
+.burger-icon span{display:block;height:2px;background:var(--primary);border-radius:2px;transition:.25s var(--ease);}
+
+.mob-panel{
+  position:fixed;inset:0;top:65px;z-index:99;
+  background:rgba(255,255,255,.98);backdrop-filter:blur(12px);
+  display:flex;flex-direction:column;padding:32px 24px;gap:20px;
+  opacity:0;pointer-events:none;transform:translateY(-8px);transition:.28s var(--ease);
+}
+.mob-panel.open{opacity:1;pointer-events:auto;transform:none;}
+.mob-panel a{font-size:1.2rem;font-weight:600;color:var(--primary);padding:10px 0;border-bottom:1px solid var(--border);}
+.mob-ctas{display:flex;flex-direction:column;gap:12px;margin-top:10px;}
+
+/* ===== HERO ===== */
+.hero{min-height:100vh;display:flex;flex-direction:column;padding:140px 0 0;overflow:hidden;background:linear-gradient(180deg,#fff 0%,var(--bg-soft) 100%);}
+.hero-body{flex:1;display:flex;align-items:center;padding-bottom:60px;}
+.hero-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:64px;align-items:center;width:100%;}
+.hero-eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:20px;}
+.hero-pill{background:var(--accent-light);color:var(--accent);font-size:.78rem;font-weight:700;padding:5px 14px;border-radius:100px;border:1px solid var(--accent-border);}
+.hero h1{margin-bottom:20px;color:var(--primary);}
+.hero h1 em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.hero-features{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0 32px;}
+.hero-feat{
+  font-size:.8rem;font-weight:500;color:var(--text-2);
+  background:#fff;border:1px solid var(--border);border-radius:100px;
+  padding:6px 14px;display:flex;align-items:center;gap:6px;
+  box-shadow:var(--shadow-xs);
+}
+.hero-feat .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0;}
+.hero-feat.ai .dot{background:linear-gradient(135deg,#7c3aed,#2563eb);}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;}
+
+/* ===== DASHBOARD MOCKUP ===== */
+.db-wrap{position:relative;}
+.db-browser{
+  background:#fff;border-radius:16px;
+  box-shadow:var(--shadow-xl);
+  border:1px solid var(--border);
+  overflow:hidden;
+}
+.db-chrome{
+  background:#f1f5f9;padding:10px 16px;
+  display:flex;align-items:center;gap:12px;
+  border-bottom:1px solid var(--border);
+}
+.db-dots{display:flex;gap:6px;}
+.db-dots span{width:11px;height:11px;border-radius:50%;}
+.db-dots span:nth-child(1){background:#ff5f57;}
+.db-dots span:nth-child(2){background:#febc2e;}
+.db-dots span:nth-child(3){background:#28c840;}
+.db-urlbar{
+  flex:1;background:#fff;border-radius:6px;padding:5px 12px;
+  font-size:.73rem;color:var(--muted);border:1px solid var(--border);
+  display:flex;align-items:center;gap:6px;
+}
+.db-urlbar svg{width:12px;height:12px;stroke:var(--subtle);flex-shrink:0;}
+.db-app{display:flex;height:360px;}
+.db-sidebar{
+  width:44px;background:var(--primary);
+  display:flex;flex-direction:column;align-items:center;
+  padding:14px 0;gap:6px;flex-shrink:0;
+}
+.db-sidebar-logo{width:26px;height:26px;background:rgba(255,255,255,.15);border-radius:7px;margin-bottom:8px;}
+.db-sico{
+  width:32px;height:32px;border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  transition:.2s;
+}
+.db-sico.active{background:rgba(255,255,255,.18);}
+.db-sico svg{width:16px;height:16px;stroke:rgba(255,255,255,.7);}
+.db-sico.active svg{stroke:#fff;}
+.db-main{flex:1;overflow:hidden;position:relative;}
+.db-main img{width:100%;height:100%;object-fit:cover;object-position:top left;}
+
+.db-float{
+  position:absolute;background:#fff;border-radius:12px;
+  box-shadow:var(--shadow-lg);border:1px solid var(--border);
+  padding:12px 16px;display:flex;align-items:center;gap:10px;
+  animation:float 4s ease-in-out infinite;
+  z-index:10;
+}
+.db-browser{position:relative;z-index:1;}
+.db-float-1{top:-18px;left:-18px;animation-delay:0s;}
+.db-float-2{bottom:30px;left:-24px;animation-delay:1.4s;}
+.db-float-3{top:40%;right:-24px;animation-delay:.7s;}
+@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
+.db-float-icon{
+  width:36px;height:36px;border-radius:9px;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.db-float-icon.green{background:var(--green-bg);}
+.db-float-icon.green svg{stroke:var(--green);}
+.db-float-icon.blue{background:var(--accent-light);}
+.db-float-icon.blue svg{stroke:var(--accent);}
+.db-float-icon.amber{background:#fffbeb;}
+.db-float-icon.amber svg{stroke:#d97706;}
+.db-float-icon svg{width:18px;height:18px;}
+.db-float-text strong{display:block;font-size:.82rem;font-weight:700;color:var(--primary);}
+.db-float-text span{font-size:.72rem;color:var(--muted);}
+
+/* ===== TRUST BAR ===== */
+.trust-bar{background:var(--primary);padding:20px 0;}
+.trust-inner{display:flex;align-items:center;justify-content:center;gap:48px;flex-wrap:wrap;}
+.trust-item{display:flex;align-items:center;gap:10px;color:rgba(255,255,255,.9);font-size:.88rem;font-weight:500;}
+.trust-item svg{width:18px;height:18px;stroke:#4ade80;flex-shrink:0;}
+
+/* ===== FEATURES ===== */
+.features{background:var(--bg-soft);}
+.feat-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+.feat-card{
+  background:#fff;border-radius:var(--radius-lg);padding:28px 24px;
+  border:1px solid var(--border);
+  box-shadow:var(--shadow-sm);
+  transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s;
+}
+.feat-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-md);border-color:var(--accent-border);}
+.feat-icon{
+  width:48px;height:48px;border-radius:12px;
+  background:var(--grad-soft);border:1px solid var(--accent-border);
+  display:flex;align-items:center;justify-content:center;margin-bottom:16px;
+}
+.feat-icon svg{width:22px;height:22px;stroke:var(--accent);}
+.feat-icon.ai-icon{background:linear-gradient(135deg,rgba(124,58,237,.1),rgba(37,99,235,.1));border-color:rgba(124,58,237,.3);}
+.feat-icon.ai-icon svg{stroke:#7c3aed;}
+.feat-badge{
+  display:inline-block;font-size:.66rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  background:linear-gradient(135deg,#7c3aed,#2563eb);color:#fff;
+  padding:3px 9px;border-radius:100px;margin-bottom:10px;
+}
+.feat-card h3{color:var(--primary);margin-bottom:8px;font-size:1rem;}
+.feat-card p{font-size:.87rem;color:var(--muted);line-height:1.6;}
+
+/* ===== ATENDIMENTO ===== */
+.attend{background:#fff;}
+.attend-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;}
+.attend-list{display:flex;flex-direction:column;gap:22px;margin-top:28px;}
+.attend-item{display:flex;gap:16px;}
+.attend-num{
+  width:38px;height:38px;border-radius:50%;background:var(--primary);
+  color:#fff;font-size:.82rem;font-weight:800;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.attend-item h3{font-size:.98rem;color:var(--primary);margin-bottom:4px;}
+.attend-item p{font-size:.87rem;color:var(--muted);}
+.attend-visual{position:relative;}
+.attend-visual img{
+  width:100%;border-radius:var(--radius-lg);
+  box-shadow:var(--shadow-xl);border:1px solid var(--border);
+}
+.attend-badge{
+  position:absolute;bottom:-18px;right:-18px;
+  background:var(--primary);color:#fff;border-radius:var(--radius);
+  padding:14px 20px;box-shadow:var(--shadow-lg);
+  display:flex;align-items:center;gap:10px;
+}
+.attend-badge svg{width:20px;height:20px;flex-shrink:0;}
+.attend-badge strong{display:block;font-size:.85rem;font-weight:700;}
+.attend-badge span{font-size:.75rem;opacity:.75;}
+
+/* ===== WHATSAPP SECTION ===== */
+.wa-section{background:var(--bg-soft);}
+.wa-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-bottom:56px;}
+.wa-card{
+  background:#fff;border-radius:var(--radius-lg);padding:36px 32px;
+  border:2px solid var(--border);position:relative;overflow:hidden;
+  transition:border-color .3s,box-shadow .3s;
+}
+.wa-card:hover{border-color:var(--accent-border);box-shadow:var(--shadow-md);}
+.wa-card.recommended{border-color:var(--primary);}
+.wa-rec-badge{
+  position:absolute;top:20px;right:20px;
+  background:var(--primary);color:#fff;font-size:.68rem;font-weight:700;
+  letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:100px;
+}
+.wa-card-icon{
+  width:56px;height:56px;border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:20px;
+}
+.wa-card-icon.official{background:var(--green-bg);border:1px solid var(--green-border);}
+.wa-card-icon.official svg{stroke:var(--green);}
+.wa-card-icon.qr{background:var(--accent-light);border:1px solid var(--accent-border);}
+.wa-card-icon.qr svg{stroke:var(--accent);}
+.wa-card-icon svg{width:26px;height:26px;}
+.wa-card h3{color:var(--primary);margin-bottom:6px;font-size:1.1rem;}
+.wa-card .desc{color:var(--muted);font-size:.88rem;margin-bottom:20px;}
+.wa-features{display:flex;flex-direction:column;gap:8px;}
+.wa-feat{display:flex;align-items:center;gap:8px;font-size:.87rem;color:var(--text-2);}
+.wa-feat svg{width:16px;height:16px;stroke:var(--green);flex-shrink:0;}
+
+/* comparison table */
+.compare-table{width:100%;border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border);}
+.compare-table th,.compare-table td{padding:16px 20px;text-align:left;font-size:.88rem;}
+.compare-table thead{background:var(--primary);color:#fff;}
+.compare-table thead th{font-weight:700;}
+.compare-table tbody tr:nth-child(even){background:var(--bg-soft);}
+.compare-table tbody tr{border-bottom:1px solid var(--border);}
+.compare-table .check{color:var(--green);display:flex;align-items:center;}
+.compare-table .check svg{width:17px;height:17px;stroke:var(--green);}
+.compare-table .x{color:var(--subtle);display:flex;align-items:center;}
+.compare-table .x svg{width:17px;height:17px;stroke:var(--subtle);}
+.compare-table .feature-name{font-weight:500;color:var(--text);}
+
+/* ===== BENEFITS ===== */
+.benefits{background:#fff;}
+.ben-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.ben-card{
+  padding:32px 28px;border-radius:var(--radius-lg);
+  background:var(--bg-soft);border:1px solid var(--border);
+  transition:transform .3s var(--ease),box-shadow .3s;
+}
+.ben-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);}
+.ben-icon{
+  width:52px;height:52px;border-radius:14px;background:var(--grad);
+  display:flex;align-items:center;justify-content:center;margin-bottom:18px;
+}
+.ben-icon svg{width:24px;height:24px;stroke:#fff;}
+.ben-card h3{color:var(--primary);margin-bottom:10px;}
+.ben-card p{font-size:.88rem;color:var(--muted);line-height:1.65;}
+
+/* ===== HOW IT WORKS ===== */
+.how{background:var(--bg-soft);}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;}
+.steps::before{
+  content:'';position:absolute;top:24px;left:calc(12.5%);right:calc(12.5%);height:2px;
+  background:linear-gradient(90deg,var(--primary),var(--accent));opacity:.25;
+}
+.step{padding:0 24px;text-align:center;position:relative;}
+.step-num{
+  width:48px;height:48px;border-radius:50%;
+  background:#fff;border:2px solid var(--primary);
+  color:var(--primary);font-size:.88rem;font-weight:800;
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 20px;position:relative;z-index:1;
+}
+.step-num.active{background:var(--primary);color:#fff;}
+.step h3{color:var(--primary);margin-bottom:8px;font-size:1rem;}
+.step p{font-size:.86rem;color:var(--muted);}
+
+/* ===== PLANS ===== */
+.plans{background:#fff;}
+.plans-note{text-align:center;margin-bottom:48px;color:var(--muted);font-size:.9rem;}
+.plans-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;max-width:880px;margin:0 auto 60px;}
+.plan-card{
+  border-radius:var(--radius-xl);padding:40px 36px;
+  border:2px solid var(--border);position:relative;overflow:hidden;
+  background:#fff;transition:transform .3s var(--ease),box-shadow .3s;
+}
+.plan-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-xl);}
+.plan-card.popular{border-color:var(--primary);box-shadow:var(--shadow-lg);}
+.plan-popular-badge{
+  position:absolute;top:0;right:32px;
+  background:var(--primary);color:#fff;
+  font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  padding:6px 14px;border-radius:0 0 10px 10px;
+}
+.plan-name{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;}
+.plan-name.full{color:var(--primary);}
+.plan-price{display:flex;align-items:baseline;gap:4px;margin:16px 0 6px;}
+.plan-price .cur{font-size:1.1rem;font-weight:700;color:var(--muted);}
+.plan-price .val{font-size:2.8rem;font-weight:800;color:var(--primary);letter-spacing:-.04em;line-height:1;}
+.plan-price .per{font-size:.88rem;color:var(--muted);}
+.plan-user-note{font-size:.82rem;color:var(--muted);margin-bottom:28px;padding-bottom:28px;border-bottom:1px solid var(--border);}
+.plan-features{display:flex;flex-direction:column;gap:10px;margin-bottom:32px;}
+.plan-feat{display:flex;align-items:center;gap:10px;font-size:.88rem;color:var(--text-2);}
+.plan-feat svg{width:16px;height:16px;stroke:var(--green);flex-shrink:0;}
+.plan-feat.ai-feat svg{stroke:#7c3aed;}
+
+.plan-compare{max-width:880px;margin:0 auto;}
+.plan-compare h3{text-align:center;font-size:1.3rem;color:var(--primary);margin-bottom:28px;}
+.plan-compare-table{width:100%;border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border);}
+.plan-compare-table th,.plan-compare-table td{padding:15px 20px;text-align:center;font-size:.87rem;}
+.plan-compare-table th:first-child,.plan-compare-table td:first-child{text-align:left;}
+.plan-compare-table thead{background:var(--primary);}
+.plan-compare-table thead th{color:#fff;font-weight:700;}
+.plan-compare-table tbody tr:nth-child(even){background:var(--bg-soft);}
+.plan-compare-table tbody tr{border-bottom:1px solid var(--border);}
+.plan-compare-table .yes{color:var(--green);}
+.plan-compare-table .yes svg{width:17px;height:17px;stroke:var(--green);}
+.plan-compare-table .no{color:var(--subtle);}
+.plan-compare-table .no svg{width:17px;height:17px;stroke:var(--subtle);}
+.plan-compare-table td:nth-child(3){font-weight:600;}
+
+/* ===== CTA FINAL ===== */
+.cta-final{background:var(--primary);padding:100px 0;}
+.cta-final-inner{text-align:center;max-width:680px;margin:0 auto;}
+.cta-final h2{color:#fff;font-size:clamp(1.8rem,3vw,2.6rem);}
+.cta-final p{color:rgba(255,255,255,.72);margin:16px 0 40px;font-size:1.05rem;}
+.cta-final-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+.btn-white{background:#fff;color:var(--primary);box-shadow:0 6px 20px -6px rgba(0,0,0,.3);}
+.btn-white:hover{background:var(--bg-soft);transform:translateY(-2px);}
+.btn-outline-white{border:2px solid rgba(255,255,255,.4);color:#fff;background:transparent;}
+.btn-outline-white:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.7);}
+.btn-wa-white{background:var(--whatsapp);color:#fff;}
+.btn-wa-white:hover{background:var(--whatsapp-dark);transform:translateY(-2px);}
+
+/* ===== FAQ ===== */
+.faq-section{background:var(--bg-soft);}
+.faq-layout{display:grid;grid-template-columns:1fr 1.7fr;gap:72px;align-items:start;}
+.faq-sticky{position:sticky;top:100px;}
+.faq-sticky h2{margin-bottom:14px;}
+.faq-sticky p{color:var(--muted);font-size:.92rem;margin-bottom:28px;}
+.faq-list{display:flex;flex-direction:column;gap:10px;}
+.faq-item{
+  background:#fff;border:1px solid var(--border);border-radius:var(--radius);
+  overflow:hidden;transition:border-color .25s;
+}
+.faq-item[open]{border-color:var(--accent-border);}
+.faq-item summary{
+  padding:20px 22px;cursor:pointer;font-weight:600;font-size:.93rem;color:var(--primary);
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  list-style:none;user-select:none;
+}
+.faq-item summary::-webkit-details-marker{display:none;}
+.faq-chevron{width:20px;height:20px;flex-shrink:0;stroke:var(--accent);transition:transform .3s var(--ease);}
+.faq-item[open] .faq-chevron{transform:rotate(-180deg);}
+.faq-ans{padding:0 22px 20px;color:var(--muted);font-size:.9rem;line-height:1.7;}
+
+/* ===== CONTACT ===== */
+.contact-section{background:#fff;}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+.contact-items{display:flex;flex-direction:column;gap:24px;}
+.contact-item{display:flex;align-items:flex-start;gap:16px;padding:24px;background:var(--bg-soft);border-radius:var(--radius-lg);border:1px solid var(--border);}
+.contact-item-icon{
+  width:46px;height:46px;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.contact-item-icon.wa{background:var(--green-bg);border:1px solid var(--green-border);}
+.contact-item-icon.wa svg{stroke:var(--green);}
+.contact-item-icon.mail{background:var(--accent-light);border:1px solid var(--accent-border);}
+.contact-item-icon.mail svg{stroke:var(--accent);}
+.contact-item-icon svg{width:22px;height:22px;}
+.contact-item strong{display:block;font-size:.9rem;font-weight:700;color:var(--primary);margin-bottom:4px;}
+.contact-item span{font-size:.88rem;color:var(--muted);}
+.contact-item a{font-size:.95rem;font-weight:600;color:var(--text);transition:color .2s;}
+.contact-item a:hover{color:var(--accent);}
+.contact-cta-box{background:var(--bg-soft);border-radius:var(--radius-xl);padding:48px 40px;border:1px solid var(--border);text-align:center;}
+.contact-cta-box h3{color:var(--primary);font-size:1.4rem;margin-bottom:12px;}
+.contact-cta-box p{color:var(--muted);font-size:.92rem;margin-bottom:28px;}
+.contact-cta-box .btns{display:flex;flex-direction:column;gap:12px;}
+
+/* ===== FOOTER ===== */
+.site-footer{background:var(--primary);padding:60px 0 30px;}
+.footer-top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.1);}
+.footer-brand{display:flex;align-items:center;gap:10px;color:#fff;font-weight:800;font-size:1.1rem;}
+.footer-brand img{width:30px;height:30px;filter:brightness(0) invert(1);}
+.footer-links{display:flex;gap:24px;flex-wrap:wrap;}
+.footer-links a{color:rgba(255,255,255,.6);font-size:.87rem;transition:color .2s;}
+.footer-links a:hover{color:#fff;}
+.footer-bottom{padding-top:28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+.footer-bottom p{color:rgba(255,255,255,.45);font-size:.8rem;}
+
+/* ===== FLOAT WA BUTTON ===== */
+.float-wa{
+  position:fixed;bottom:26px;right:26px;z-index:200;
+  width:58px;height:58px;border-radius:50%;background:var(--whatsapp);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 24px -6px rgba(37,211,102,.7);
+  animation:waPulse 3s ease-in-out infinite;
+}
+.float-wa svg{width:28px;height:28px;}
+@keyframes waPulse{0%,100%{box-shadow:0 8px 24px -6px rgba(37,211,102,.7);}50%{box-shadow:0 8px 24px -6px rgba(37,211,102,.9),0 0 0 10px rgba(37,211,102,.08);}}
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:1024px){
+  .feat-grid{grid-template-columns:repeat(2,1fr);}
+  .ben-grid{grid-template-columns:repeat(2,1fr);}
+  .faq-layout{grid-template-columns:1fr;}
+  .faq-sticky{position:static;}
+}
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr;}
+  .db-wrap{margin-top:40px;}
+  .attend-grid{grid-template-columns:1fr;}
+  .wa-grid{grid-template-columns:1fr;}
+  .plans-grid{grid-template-columns:1fr;}
+  .contact-grid{grid-template-columns:1fr;}
+  .steps{grid-template-columns:repeat(2,1fr);gap:40px;}
+  .steps::before{display:none;}
+}
+@media(max-width:720px){
+  .wrap{padding:0 20px;}
+  .nav{display:none;}
+  .header-ctas .btn:not(.btn-primary){display:none;}
+  .burger{display:flex;}
+  .hero-pill{display:none;}
+  .hero{padding:110px 0 60px;}
+  .section-pad{padding:72px 0;}
+  .feat-grid{grid-template-columns:1fr;}
+  .ben-grid{grid-template-columns:1fr;}
+  .trust-inner{gap:20px;}
+  .cta-final-btns{flex-direction:column;align-items:center;}
+  .footer-top{flex-direction:column;align-items:flex-start;}
+  .db-app{height:240px;}
+  .db-float-1,.db-float-3{display:none;}
+  .db-float-2{bottom:10px;left:10px;}
+  .attend-badge{right:0;bottom:-12px;}
+}
+@media(max-width:480px){
+  .steps{grid-template-columns:1fr;}
+  .hero-ctas{flex-direction:column;}
+  .hero-ctas .btn{justify-content:center;}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header" id="siteHeader">
+  <div class="wrap header-inner">
+    <a href="https://infusesoftware.com" class="brand">
+      <img src="/icon.png" alt="Infuse">
+      Infuse
+      <span class="brand-tag">CRM</span>
+    </a>
+    <nav class="nav" id="mainNav">
+      <a href="#funcionalidades">Funcionalidades</a>
+      <a href="#whatsapp">WhatsApp</a>
+      <a href="#planos">Planos</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="header-ctas">
+      <a href="https://wa.me/5575982938031?text=Ol%C3%A1!%20Gostaria%20de%20tirar%20algumas%20d%C3%BAvidas%20sobre%20o%20Infuse%20CRM." target="_blank" rel="noopener" class="btn btn-outline btn-sm">Falar com nosso time</a>
+      <a href="#planos" class="btn btn-primary btn-sm">Ver planos</a>
+      <button class="burger" id="burgerBtn" aria-label="Abrir menu">
+        <div class="burger-icon"><span></span><span></span><span></span></div>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mob-panel" id="mobPanel">
+  <a href="#funcionalidades" class="mob-link">Funcionalidades</a>
+  <a href="#whatsapp" class="mob-link">WhatsApp</a>
+  <a href="#planos" class="mob-link">Planos</a>
+  <a href="#faq" class="mob-link">FAQ</a>
+  <div class="mob-ctas">
+    <a href="#planos" class="btn btn-primary">Ver planos</a>
+    <a href="https://wa.me/5575982938031?text=Ol%C3%A1!%20Gostaria%20de%20tirar%20algumas%20d%C3%BAvidas%20sobre%20o%20Infuse%20CRM." target="_blank" rel="noopener" class="btn btn-whatsapp">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.84.5 3.56 1.45 5.04L2 22l5.25-1.38a9.86 9.86 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2z"/></svg>
+      Falar com nosso time
+    </a>
+  </div>
+</div>
+
+<!-- HERO -->
+<main>
+<section class="hero" id="top">
+  <div class="hero-body">
+  <div class="wrap hero-grid">
+    <div data-reveal>
+      <div class="hero-eyebrow">
+        <span class="eyebrow">CRM completo para times de vendas</span>
+        <span class="hero-pill">Teste grátis 7 dias</span>
+      </div>
+      <h1>Centralize seu atendimento, organize seu <em>funil de vendas</em> e aumente suas conversões.</h1>
+      <p class="lede">O Infuse CRM reúne WhatsApp, multiatendentes, funil de vendas, contatos, tarefas, conversões e Agente de IA em uma única plataforma — simples, rápida e poderosa.</p>
+      <div class="hero-features">
+        <span class="hero-feat"><span class="dot"></span>CRM completo</span>
+        <span class="hero-feat"><span class="dot"></span>WhatsApp integrado</span>
+        <span class="hero-feat"><span class="dot"></span>Multiatendentes</span>
+        <span class="hero-feat"><span class="dot"></span>Funil de vendas</span>
+        <span class="hero-feat"><span class="dot"></span>Gestão de conversões</span>
+        <span class="hero-feat ai"><span class="dot"></span>IA no plano completo</span>
+      </div>
+      <div class="hero-ctas">
+        <a href="#planos" class="btn btn-primary btn-lg">Ver planos</a>
+        <a href="https://wa.me/5575982938031?text=Ol%C3%A1!%20Gostaria%20de%20tirar%20algumas%20d%C3%BAvidas%20sobre%20o%20Infuse%20CRM." target="_blank" rel="noopener" class="btn btn-outline btn-lg">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.84.5 3.56 1.45 5.04L2 22l5.25-1.38a9.86 9.86 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2z"/></svg>
+          Falar com nosso time
+        </a>
+      </div>
+    </div>
+
+    <div class="db-wrap" data-reveal data-reveal-d="2">
+      <!-- floating metric cards -->
+      <div class="db-float db-float-1">
+        <div class="db-float-icon green">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+        </div>
+        <div class="db-float-text">
+          <strong>12 conversões</strong>
+          <span>registradas hoje</span>
+        </div>
+      </div>
+      <div class="db-float db-float-2">
+        <div class="db-float-icon blue">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div class="db-float-text">
+          <strong>5 atendentes</strong>
+          <span>online agora</span>
+        </div>
+      </div>
+      <div class="db-float db-float-3">
+        <div class="db-float-icon amber">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-4"/></svg>
+        </div>
+        <div class="db-float-text">
+          <strong>R$ 48.200</strong>
+          <span>em pipeline</span>
+        </div>
+      </div>
+
+      <div class="db-browser">
+        <div class="db-chrome">
+          <div class="db-dots">
+            <span></span><span></span><span></span>
+          </div>
+          <div class="db-urlbar">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg>
+            crm.infusesoftware.com
+          </div>
+        </div>
+        <div class="db-app">
+          <div class="db-main">
+            <img src="assets/print-funil.png" alt="Dashboard do Infuse CRM mostrando funil de vendas e pipeline">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div><!-- end hero-body -->
+  <div class="trust-bar" id="trust">
+    <div class="wrap trust-inner">
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+        Teste grátis por 7 dias
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+        Sem fidelidade
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+        Acesso imediato
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+        Suporte especializado
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section-pad features" id="funcionalidades">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Funcionalidades</span>
+      <h2>Tudo que você precisa em um só sistema</h2>
+      <p class="lede">Do primeiro contato ao fechamento da venda — o Infuse CRM centraliza todas as ferramentas que o seu time precisa para atender melhor e vender mais.</p>
+    </div>
+    <div class="feat-grid">
+      <div class="feat-card" data-reveal data-reveal-d="1">
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.84.5 3.56 1.45 5.04L2 22l5.25-1.38a9.86 9.86 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2z"/></svg>
+        </div>
+        <h3>WhatsApp Integrado</h3>
+        <p>Conecte seu WhatsApp via API Oficial ou QR Code e gerencie todas as conversas direto no CRM, sem precisar alternar entre aplicativos.</p>
+      </div>
+      <div class="feat-card" data-reveal data-reveal-d="2">
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        </div>
+        <h3>Gestão de Conversas</h3>
+        <p>Visualize, filtre e responda todas as conversas em um painel unificado. Histórico completo, status e atribuição de atendente.</p>
+      </div>
+      <div class="feat-card" data-reveal data-reveal-d="3">
+        <div class="feat-icon ai-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        </div>
+        <div class="feat-badge">Plano IA</div>
+        <h3>Agente de IA</h3>
+        <p>Automatize o atendimento com um agente inteligente que responde, qualifica leads e encaminha para o vendedor certo 24 horas por dia.</p>
+      </div>
+      <div class="feat-card" data-reveal data-reveal-d="4">
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M3 3v18h18"/><rect x="7" y="13" width="3" height="5"/><rect x="12" y="9" width="3" height="9"/><rect x="17" y="5" width="3" height="13"/></svg>
+        </div>
+        <h3>Funil de Vendas</h3>
+        <p>Organize seus negócios em etapas visuais do pipeline. Mova oportunidades entre colunas e acompanhe o progresso de cada venda em tempo real.</p>
+      </div>
+      <div class="feat-card" data-reveal data-reveal-d="5">
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Contatos</h3>
+        <p>Base de contatos completa com histórico de interações, segmentações e informações personalizadas de cada cliente.</p>
+      </div>
+      <div class="feat-card" data-reveal data-reveal-d="6">
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        </div>
+        <h3>Produtos</h3>
+        <p>Cadastre seu catálogo de produtos e serviços, vincule aos negócios do funil e controle o que está sendo vendido pela sua equipe.</p>
+      </div>
+      <div class="feat-card" data-reveal data-reveal-d="7">
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        </div>
+        <h3>Tarefas</h3>
+        <p>Crie e atribua tarefas para sua equipe vinculadas a contatos e oportunidades. Acompanhe prazos e nunca perca um follow-up.</p>
+      </div>
+      <div class="feat-card" data-reveal data-reveal-d="8">
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+        </div>
+        <h3>Conversões</h3>
+        <p>Registre e acompanhe cada conversão do seu funil. Visualize métricas de desempenho e descubra quais canais e atendentes convertem mais.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ATENDIMENTO COLABORATIVO -->
+<section class="section-pad attend" id="atendimento">
+  <div class="wrap attend-grid">
+    <div data-reveal>
+      <span class="eyebrow">Atendimento colaborativo</span>
+      <h2>Toda a sua equipe trabalhando junta, de forma organizada</h2>
+      <p class="lede">Com o Infuse CRM, múltiplos atendentes trabalham em simultâneo sem conflito, cada um com sua fila e histórico compartilhado.</p>
+      <div class="attend-list">
+        <div class="attend-item">
+          <div class="attend-num">1</div>
+          <div>
+            <h3>Múltiplos atendentes</h3>
+            <p>Cada membro da equipe tem seu próprio acesso e fila de atendimento, sem ninguém pisando no pé de ninguém.</p>
+          </div>
+        </div>
+        <div class="attend-item">
+          <div class="attend-num">2</div>
+          <div>
+            <h3>Múltiplos números de WhatsApp</h3>
+            <p>Conecte vários números (API Oficial ou QR Code) e distribua automaticamente o atendimento entre eles.</p>
+          </div>
+        </div>
+        <div class="attend-item">
+          <div class="attend-num">3</div>
+          <div>
+            <h3>Histórico compartilhado</h3>
+            <p>Todo o time acessa o histórico completo de conversas com cada cliente, garantindo continuidade no atendimento.</p>
+          </div>
+        </div>
+        <div class="attend-item">
+          <div class="attend-num">4</div>
+          <div>
+            <h3>Distribuição inteligente</h3>
+            <p>Direcione atendimentos por setor, atendente ou regras automáticas. Nenhuma mensagem fica sem resposta.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="attend-visual" data-reveal data-reveal-d="2">
+      <img src="assets/print chat.png" alt="Painel de conversas do Infuse CRM com múltiplos atendimentos simultâneos">
+      <div class="attend-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <div>
+          <strong>Multiatendentes</strong>
+          <span>vários atendentes, 1 sistema</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHATSAPP INTEGRATION -->
+<section class="section-pad wa-section" id="whatsapp">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Integração WhatsApp</span>
+      <h2>Conecte seu WhatsApp do jeito que funciona melhor para você</h2>
+      <p class="lede">Oferecemos duas formas de integração. Ambas funcionam no mesmo sistema — você escolhe o que faz mais sentido para o seu negócio.</p>
+    </div>
+
+    <div class="wa-grid">
+      <div class="wa-card recommended" data-reveal data-reveal-d="1">
+        <span class="wa-rec-badge">Recomendado</span>
+        <div class="wa-card-icon official">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <h3>API Oficial do WhatsApp Business</h3>
+        <p class="desc">Conexão via Meta/WhatsApp, número verificado com selo verde. Ideal para empresas que precisam de estabilidade e escala.</p>
+        <div class="wa-features">
+          <div class="wa-feat"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Número com selo verificado (Meta)</div>
+          <div class="wa-feat"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Alta estabilidade e disponibilidade</div>
+          <div class="wa-feat"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Envio de mensagens em massa (templates)</div>
+          <div class="wa-feat"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Sem risco de bloqueio de número</div>
+          <div class="wa-feat"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Conformidade total com termos do WhatsApp</div>
+        </div>
+      </div>
+      <div class="wa-card" data-reveal data-reveal-d="2">
+        <div class="wa-card-icon qr">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="3" width="5" height="5"/><rect x="16" y="3" width="5" height="5"/><rect x="3" y="16" width="5" height="5"/><path d="M21 16h-3v3M21 21h-2M16 21v-2M9 9h2v2H9zM3 9h2v2H3zM9 3h2v2H9zM9 16h2v2H9z"/></svg>
+        </div>
+        <h3>QR Code (WhatsApp Web)</h3>
+        <p class="desc">Conecte seu número atual via QR Code, igual ao WhatsApp Web. Simples, rápido e sem precisar criar uma nova conta.</p>
+        <div class="wa-features">
+          <div class="wa-feat"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Ativação imediata via QR Code</div>
+          <div class="wa-feat"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Usa seu número de WhatsApp existente</div>
+          <div class="wa-feat"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Sem necessidade de conta Meta Business</div>
+          <div class="wa-feat"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Ideal para pequenas equipes</div>
+          <div class="wa-feat"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Fácil configuração, sem burocracia</div>
+        </div>
+      </div>
+    </div>
+
+    <div data-reveal>
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Característica</th>
+            <th>API Oficial</th>
+            <th>QR Code</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="feature-name">Estabilidade alta</td>
+            <td><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span></td>
+            <td><span class="x"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg></span></td>
+          </tr>
+          <tr>
+            <td class="feature-name">Selo verificado Meta</td>
+            <td><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span></td>
+            <td><span class="x"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg></span></td>
+          </tr>
+          <tr>
+            <td class="feature-name">Envio de templates em massa</td>
+            <td><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span></td>
+            <td><span class="x"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg></span></td>
+          </tr>
+          <tr>
+            <td class="feature-name">Ativação rápida (QR)</td>
+            <td><span class="x"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg></span></td>
+            <td><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span></td>
+          </tr>
+          <tr>
+            <td class="feature-name">Usa número existente</td>
+            <td><span class="x"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg></span></td>
+            <td><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span></td>
+          </tr>
+          <tr>
+            <td class="feature-name">Receber e enviar mensagens</td>
+            <td><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span></td>
+            <td><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span></td>
+          </tr>
+          <tr>
+            <td class="feature-name">Multiatendentes no CRM</td>
+            <td><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span></td>
+            <td><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="section-pad benefits" id="beneficios">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Por que o Infuse CRM</span>
+      <h2>Benefícios que se traduzem em resultado real</h2>
+    </div>
+    <div class="ben-grid">
+      <div class="ben-card" data-reveal data-reveal-d="1">
+        <div class="ben-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        </div>
+        <h3>Centralize todos os atendimentos</h3>
+        <p>Pare de perder conversas em celulares diferentes. Todos os canais e atendentes em um painel único e organizado.</p>
+      </div>
+      <div class="ben-card" data-reveal data-reveal-d="2">
+        <div class="ben-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <h3>Aumente a produtividade do time</h3>
+        <p>Com automações, respostas rápidas e distribuição automática de atendimentos, sua equipe foca no que importa: vender.</p>
+      </div>
+      <div class="ben-card" data-reveal data-reveal-d="3">
+        <div class="ben-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Organize sua equipe de vendas</h3>
+        <p>Veja em tempo real quem está atendendo quem, qual é a carga de cada atendente e quais oportunidades precisam de atenção.</p>
+      </div>
+      <div class="ben-card" data-reveal data-reveal-d="4">
+        <div class="ben-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3>Automatize processos repetitivos</h3>
+        <p>Configure o Agente de IA para responder perguntas frequentes, qualificar leads e encaminhar automaticamente para a equipe.</p>
+      </div>
+      <div class="ben-card" data-reveal data-reveal-d="5">
+        <div class="ben-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        </div>
+        <h3>Utilize a inteligência artificial</h3>
+        <p>No plano completo, um agente de IA atende, qualifica e responde clientes 24h/dia, 7 dias por semana, sem precisar de humanos.</p>
+      </div>
+      <div class="ben-card" data-reveal data-reveal-d="6">
+        <div class="ben-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-4"/></svg>
+        </div>
+        <h3>Acompanhe todas as conversões</h3>
+        <p>Métricas claras sobre o desempenho do funil, taxa de conversão por atendente, canal e período. Decisões baseadas em dados.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section-pad how" id="como-funciona">
+  <div class="wrap">
+    <div class="section-head" style="margin:0 auto 60px;text-align:center;max-width:560px;" data-reveal>
+      <span class="eyebrow">Como funciona</span>
+      <h2>Do cadastro ao primeiro atendimento em minutos</h2>
+    </div>
+    <div class="steps">
+      <div class="step" data-reveal data-reveal-d="1">
+        <div class="step-num active">01</div>
+        <h3>Crie sua conta</h3>
+        <p>Acesse o link de cadastro e crie sua conta em segundos. Sem cartão, sem burocracia.</p>
+      </div>
+      <div class="step" data-reveal data-reveal-d="2">
+        <div class="step-num">02</div>
+        <h3>Receba acesso imediato</h3>
+        <p>Assim que sua conta é criada, você já acessa o painel completo do CRM.</p>
+      </div>
+      <div class="step" data-reveal data-reveal-d="3">
+        <div class="step-num">03</div>
+        <h3>Escolha o plano ideal</h3>
+        <p>CRM completo por R$40/mês, ou CRM + Agente de IA por R$100/mês. Escolha o que mais faz sentido para você.</p>
+      </div>
+      <div class="step" data-reveal data-reveal-d="4">
+        <div class="step-num">04</div>
+        <h3>Teste por 7 dias grátis</h3>
+        <p>Explore todas as funcionalidades sem custo e sem compromisso durante 7 dias completos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLANS -->
+<section class="section-pad plans" id="planos">
+  <div class="wrap">
+    <div class="section-head" style="margin:0 auto 20px;text-align:center;" data-reveal>
+      <span class="eyebrow">Planos e preços</span>
+      <h2>Simples, transparente, sem surpresas</h2>
+    </div>
+    <p class="plans-note" data-reveal>Todos os planos incluem 7 dias grátis · Sem fidelidade · Cancele quando quiser</p>
+
+    <div class="plans-grid">
+      <div class="plan-card" data-reveal data-reveal-d="1">
+        <div class="plan-name">Plano CRM</div>
+        <p style="color:var(--muted);font-size:.9rem;">Tudo que você precisa para centralizar o atendimento e organizar suas vendas.</p>
+        <div class="plan-price">
+          <span class="cur">R$</span>
+          <span class="val">40</span>
+          <span class="per">/mês</span>
+        </div>
+        <p class="plan-user-note">Inclui 1 usuário · Usuários adicionais: <strong>+R$20/mês por usuário</strong> · Sem fidelidade</p>
+        <div class="plan-features">
+          <div class="plan-feat"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>WhatsApp integrado (API Oficial + QR Code)</div>
+          <div class="plan-feat"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Gestão de conversas</div>
+          <div class="plan-feat"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Funil de vendas</div>
+          <div class="plan-feat"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Gestão de contatos</div>
+          <div class="plan-feat"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Produtos</div>
+          <div class="plan-feat"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Tarefas</div>
+          <div class="plan-feat"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Conversões</div>
+          <div class="plan-feat"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Multiatendentes</div>
+          <div class="plan-feat"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Suporte especializado</div>
+        </div>
+        <a href="http://crm.infusesoftware.com/enrollment/new?product=CRM%2B+Convers%C3%B5es" target="_blank" rel="noopener" class="btn btn-outline" style="width:100%;justify-content:center;">Começar teste grátis</a>
+      </div>
+
+      <div class="plan-card popular" data-reveal data-reveal-d="2">
+        <span class="plan-popular-badge">Mais popular</span>
+        <div class="plan-name full">Plano CRM + Agente de IA</div>
+        <p style="color:var(--muted);font-size:.9rem;">Tudo do plano CRM mais um Agente de IA que atende, qualifica e vende 24h por dia.</p>
+        <div class="plan-price">
+          <span class="cur">R$</span>
+          <span class="val">100</span>
+          <span class="per">/mês</span>
+        </div>
+        <p class="plan-user-note">Inclui 1 usuário · Usuários adicionais: <strong>+R$20/mês por usuário</strong> · Sem fidelidade</p>
+        <div class="plan-features">
+          <div class="plan-feat"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Tudo do Plano CRM</div>
+          <div class="plan-feat ai-feat" style="color:var(--text-2);font-weight:600;">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke="#7c3aed"><path d="M20 6L9 17l-5-5"/></svg>
+            Agente de IA incluído
+          </div>
+          <div class="plan-feat ai-feat">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke="#7c3aed"><path d="M20 6L9 17l-5-5"/></svg>
+            Atendimento automatizado 24h/7d
+          </div>
+          <div class="plan-feat ai-feat">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke="#7c3aed"><path d="M20 6L9 17l-5-5"/></svg>
+            Respostas inteligentes personalizadas
+          </div>
+          <div class="plan-feat ai-feat">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke="#7c3aed"><path d="M20 6L9 17l-5-5"/></svg>
+            Qualificação automática de leads
+          </div>
+          <div class="plan-feat ai-feat">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke="#7c3aed"><path d="M20 6L9 17l-5-5"/></svg>
+            Automação de conversas e follow-ups
+          </div>
+        </div>
+        <a href="http://crm.infusesoftware.com/enrollment/new?product=CRM+%2B+Agente+de+IA+%2B+Convers%C3%B5es" target="_blank" rel="noopener" class="btn btn-primary" style="width:100%;justify-content:center;">Começar teste grátis</a>
+      </div>
+    </div>
+
+    <div class="plan-compare" data-reveal>
+      <h3>Comparativo de planos</h3>
+      <table class="plan-compare-table">
+        <thead>
+          <tr>
+            <th style="width:50%">Funcionalidade</th>
+            <th>CRM – R$40/mês</th>
+            <th>CRM + IA – R$100/mês</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>WhatsApp (API Oficial + QR Code)</td>
+            <td class="yes"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></td>
+            <td class="yes"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></td>
+          </tr>
+          <tr>
+            <td>Gestão de conversas</td>
+            <td class="yes"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></td>
+            <td class="yes"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></td>
+          </tr>
+          <tr>
+            <td>Funil de vendas</td>
+            <td class="yes"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></td>
+            <td class="yes"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></td>
+          </tr>
+          <tr>
+            <td>Contatos, Produtos e Tarefas</td>
+            <td class="yes"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></td>
+            <td class="yes"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></td>
+          </tr>
+          <tr>
+            <td>Conversões e métricas</td>
+            <td class="yes"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></td>
+            <td class="yes"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></td>
+          </tr>
+          <tr>
+            <td>Multiatendentes</td>
+            <td class="yes"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></td>
+            <td class="yes"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></td>
+          </tr>
+          <tr>
+            <td>Suporte especializado</td>
+            <td class="yes"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></td>
+            <td class="yes"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></td>
+          </tr>
+          <tr style="background:linear-gradient(90deg,rgba(124,58,237,.06),rgba(37,99,235,.06));">
+            <td style="font-weight:600;color:var(--primary);">Agente de IA</td>
+            <td class="no"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg></td>
+            <td class="yes" style="color:#7c3aed;"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke="#7c3aed"><path d="M20 6L9 17l-5-5"/></svg></td>
+          </tr>
+          <tr style="background:linear-gradient(90deg,rgba(124,58,237,.06),rgba(37,99,235,.06));">
+            <td style="font-weight:600;color:var(--primary);">Atendimento automático 24h</td>
+            <td class="no"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg></td>
+            <td class="yes" style="color:#7c3aed;"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke="#7c3aed"><path d="M20 6L9 17l-5-5"/></svg></td>
+          </tr>
+          <tr style="background:linear-gradient(90deg,rgba(124,58,237,.06),rgba(37,99,235,.06));">
+            <td style="font-weight:600;color:var(--primary);">Qualificação automática de leads</td>
+            <td class="no"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg></td>
+            <td class="yes" style="color:#7c3aed;"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke="#7c3aed"><path d="M20 6L9 17l-5-5"/></svg></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-final" id="cta-final">
+  <div class="wrap cta-final-inner" data-reveal>
+    <span class="eyebrow" style="color:rgba(255,255,255,.6);justify-content:center;">Comece hoje mesmo</span>
+    <h2>Pronto para transformar seu atendimento e aumentar suas vendas?</h2>
+    <p>Junte-se a times de vendas que já centralizaram seu atendimento, organizaram o funil e estão convertendo mais com o Infuse CRM. Teste grátis por 7 dias, sem cartão, sem fidelidade.</p>
+    <div class="cta-final-btns">
+      <a href="http://crm.infusesoftware.com/enrollment/new?product=CRM%2B+Convers%C3%B5es" target="_blank" rel="noopener" class="btn btn-white btn-lg">Quero o CRM</a>
+      <a href="http://crm.infusesoftware.com/enrollment/new?product=CRM+%2B+Agente+de+IA+%2B+Convers%C3%B5es" target="_blank" rel="noopener" class="btn btn-outline-white btn-lg">Quero o CRM + IA</a>
+      <a href="https://wa.me/5575982938031?text=Ol%C3%A1!%20Gostaria%20de%20tirar%20algumas%20d%C3%BAvidas%20sobre%20o%20Infuse%20CRM." target="_blank" rel="noopener" class="btn btn-wa-white btn-lg">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.84.5 3.56 1.45 5.04L2 22l5.25-1.38a9.86 9.86 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2z"/></svg>
+        Falar com um especialista
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section-pad faq-section" id="faq">
+  <div class="wrap">
+    <div class="faq-layout">
+      <div class="faq-sticky" data-reveal>
+        <span class="eyebrow">FAQ</span>
+        <h2>Perguntas frequentes</h2>
+        <p>Ainda tem dúvidas? Fale com nosso time pelo WhatsApp e respondemos em minutos.</p>
+        <a href="https://wa.me/5575982938031?text=Ol%C3%A1!%20Gostaria%20de%20tirar%20algumas%20d%C3%BAvidas%20sobre%20o%20Infuse%20CRM." target="_blank" rel="noopener" class="btn btn-whatsapp">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.84.5 3.56 1.45 5.04L2 22l5.25-1.38a9.86 9.86 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2z"/></svg>
+          Falar no WhatsApp
+        </a>
+      </div>
+      <div class="faq-list" data-reveal data-reveal-d="1">
+        <details class="faq-item">
+          <summary>
+            Posso ter mais de um atendente?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <p class="faq-ans">Sim. O Infuse CRM é pensado para equipes. O plano base inclui 1 usuário, e você pode adicionar quantos atendentes quiser por apenas R$20/mês por usuário adicional. Cada atendente tem seu próprio acesso e fila.</p>
+        </details>
+        <details class="faq-item">
+          <summary>
+            Posso conectar mais de um número de WhatsApp?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <p class="faq-ans">Sim. Você pode conectar múltiplos números de WhatsApp ao mesmo sistema — seja via API Oficial ou QR Code. Ideal para empresas que têm números diferentes por departamento ou atendente.</p>
+        </details>
+        <details class="faq-item">
+          <summary>
+            Posso cancelar quando quiser?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <p class="faq-ans">Sim, sem fidelidade e sem multa. Você pode cancelar sua assinatura a qualquer momento, diretamente pelo painel, sem precisar falar com ninguém.</p>
+        </details>
+        <details class="faq-item">
+          <summary>
+            Quanto tempo demora para receber meu acesso?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <p class="faq-ans">O acesso é imediato. Assim que você concluir o cadastro, já terá acesso ao painel completo do CRM e poderá começar a usar na hora.</p>
+        </details>
+        <details class="faq-item">
+          <summary>
+            Existe suporte?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <p class="faq-ans">Sim. Oferecemos suporte especializado via WhatsApp e e-mail para todos os planos. Nossa equipe está disponível em horário comercial para te ajudar a configurar e aproveitar ao máximo o sistema.</p>
+        </details>
+        <details class="faq-item">
+          <summary>
+            Preciso instalar alguma coisa?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <p class="faq-ans">Não. O Infuse CRM é 100% web. Funciona diretamente no navegador do seu computador ou celular, sem precisar instalar nenhum aplicativo ou software.</p>
+        </details>
+        <details class="faq-item">
+          <summary>
+            O teste grátis exige dados de pagamento?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <p class="faq-ans">Para mais informações sobre o que é necessário no momento do cadastro do teste grátis, nossa equipe está disponível para responder todas as suas dúvidas pelo WhatsApp antes de você começar.</p>
+        </details>
+        <details class="faq-item">
+          <summary>
+            Posso usar a API Oficial do WhatsApp?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <p class="faq-ans">Sim. Suportamos a API Oficial do WhatsApp Business (via Meta) e também a conexão via QR Code (WhatsApp Web). Você pode usar ambas no mesmo sistema, inclusive com números diferentes.</p>
+        </details>
+        <details class="faq-item">
+          <summary>
+            Posso mudar de plano depois?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <p class="faq-ans">Sim. Você pode fazer upgrade para o plano com Agente de IA ou downgrade a qualquer momento, diretamente pelo painel, sem burocracia.</p>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section-pad contact-section" id="contato">
+  <div class="wrap contact-grid">
+    <div data-reveal>
+      <span class="eyebrow">Contato</span>
+      <h2>Fale com nosso time</h2>
+      <p class="lede" style="margin-bottom:32px;">Tem alguma dúvida antes de começar? Estamos aqui para ajudar.</p>
+      <div class="contact-items">
+        <div class="contact-item">
+          <div class="contact-item-icon wa">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.84.5 3.56 1.45 5.04L2 22l5.25-1.38a9.86 9.86 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2z"/></svg>
+          </div>
+          <div>
+            <strong>WhatsApp</strong>
+            <span>Respondemos em poucos minutos no horário comercial</span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon mail">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M22 6L12 13 2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+          </div>
+          <div>
+            <strong>E-mail</strong>
+            <a href="mailto:contato@infusesoftware.com">contato@infusesoftware.com</a><br>
+            <span>Para dúvidas técnicas e suporte pós-contratação</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-cta-box" data-reveal data-reveal-d="2">
+      <h3>Pronto para começar?</h3>
+      <p>Crie sua conta agora e explore o Infuse CRM por 7 dias completamente grátis. Escolha o plano que melhor se encaixa no seu momento.</p>
+      <div class="btns">
+        <a href="http://crm.infusesoftware.com/enrollment/new?product=CRM%2B+Convers%C3%B5es" target="_blank" rel="noopener" class="btn btn-primary" style="justify-content:center;">Começar com o CRM – R$40/mês</a>
+        <a href="http://crm.infusesoftware.com/enrollment/new?product=CRM+%2B+Agente+de+IA+%2B+Convers%C3%B5es" target="_blank" rel="noopener" class="btn btn-accent" style="justify-content:center;">Começar com CRM + IA – R$100/mês</a>
+        <a href="https://wa.me/5575982938031?text=Ol%C3%A1!%20Gostaria%20de%20tirar%20algumas%20d%C3%BAvidas%20sobre%20o%20Infuse%20CRM." target="_blank" rel="noopener" class="btn btn-whatsapp" style="justify-content:center;">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.84.5 3.56 1.45 5.04L2 22l5.25-1.38a9.86 9.86 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2z"/></svg>
+          Tirar dúvidas no WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <a href="https://infusesoftware.com" class="footer-brand">
+        <img src="/icon.png" alt="Infuse">
+        Infuse CRM
+      </a>
+      <div class="footer-links">
+        <a href="#">Política de Privacidade</a>
+        <a href="#">Termos de Uso</a>
+        <a href="https://infusesoftware.com">Infuse Software</a>
+        <a href="https://wa.me/5575982938031" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="mailto:contato@infusesoftware.com">contato@infusesoftware.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© <span id="year"></span> Infuse CRM. Todos os direitos reservados.</p>
+      <p>Desenvolvido pela <a href="https://infusesoftware.com" style="color:rgba(255,255,255,.6);text-decoration:underline;">Infuse Software</a></p>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING WA -->
+<a href="https://wa.me/5575982938031?text=Ol%C3%A1!%20Gostaria%20de%20tirar%20algumas%20d%C3%BAvidas%20sobre%20o%20Infuse%20CRM." target="_blank" rel="noopener" class="float-wa" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" fill="#fff"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.84.5 3.56 1.45 5.04L2 22l5.25-1.38a9.86 9.86 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm0 18.05h-.01c-1.5 0-2.97-.4-4.25-1.16l-.3-.18-3.12.82.83-3.04-.2-.31a8.15 8.15 0 0 1-1.26-4.36c0-4.5 3.66-8.16 8.18-8.16 2.18 0 4.23.85 5.77 2.4a8.07 8.07 0 0 1 2.4 5.77c-.01 4.51-3.67 8.22-8.04 8.22zm4.48-6.16c-.25-.12-1.46-.72-1.68-.8-.23-.08-.39-.12-.56.12-.16.25-.63.8-.78.96-.14.16-.29.18-.53.06-1.45-.72-2.4-1.29-3.35-2.93-.25-.43.25-.4.72-1.33.08-.16.04-.3-.03-.42-.08-.12-.6-1.44-.82-1.97-.21-.52-.43-.45-.6-.46h-.5c-.16 0-.43.06-.66.3-.23.25-.87.85-.87 2.06 0 1.22.89 2.4 1.01 2.57.13.16 1.76 2.69 4.27 3.66 2.12.83 2.55.66 3.01.62.47-.04 1.46-.6 1.66-1.18.21-.58.21-1.07.15-1.18-.06-.1-.23-.16-.48-.28z"/></svg>
+</a>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+/* header scroll */
+const header = document.getElementById('siteHeader');
+window.addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', window.scrollY > 20);
+}, { passive: true });
+
+/* mobile menu */
+const burger = document.getElementById('burgerBtn');
+const mobPanel = document.getElementById('mobPanel');
+burger.addEventListener('click', () => {
+  const open = mobPanel.classList.toggle('open');
+  burger.setAttribute('aria-expanded', open);
+});
+mobPanel.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  mobPanel.classList.remove('open');
+}));
+
+/* scroll reveal */
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('[data-reveal]').forEach(el => io.observe(el));
+
+/* smooth scroll for #planos CTA in hero */
+document.querySelectorAll('a[href="#planos"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    document.getElementById('planos').scrollIntoView({ behavior: 'smooth' });
+  });
+});
+</script>
+</body>
+</html>
