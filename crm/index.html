@@ -466,6 +466,15 @@ h3{font-size:1.1rem;font-weight:700;}
 .plan-compare-table .no{color:var(--subtle);}
 .plan-compare-table .no svg{width:17px;height:17px;stroke:var(--subtle);}
 .plan-compare-table td:nth-child(4){font-weight:600;}
+.plan-compare-cards{display:none;}
+.plan-compare-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px;}
+.plan-compare-card+.plan-compare-card{margin-top:20px;}
+.plan-compare-card-head{font-weight:700;color:var(--primary);font-size:1.05rem;text-align:center;padding-bottom:16px;margin-bottom:16px;border-bottom:1px solid var(--border);}
+.plan-compare-card ul{list-style:none;display:flex;flex-direction:column;gap:14px;}
+.plan-compare-card li{display:flex;align-items:center;gap:10px;font-size:.88rem;color:var(--text);}
+.plan-compare-card li svg{width:18px;height:18px;flex-shrink:0;stroke:var(--green);}
+.plan-compare-card li.no{color:var(--subtle);}
+.plan-compare-card li.no svg{stroke:var(--subtle);}
 
 /* ===== CTA FINAL ===== */
 .cta-final{background:var(--primary);padding:100px 0;}
@@ -580,6 +589,8 @@ h3{font-size:1.1rem;font-weight:700;}
   .trust-inner{gap:20px;}
   .cta-final-btns{flex-direction:column;align-items:stretch;}
   .contact-cta-box{padding:32px 24px;}
+  .plan-compare-scroll{display:none;}
+  .plan-compare-cards{display:block;}
   .footer-top{flex-direction:column;align-items:flex-start;}
   .db-app{height:240px;}
   .db-float-1,.db-float-2,.db-float-3{display:none;}
@@ -1214,6 +1225,60 @@ h3{font-size:1.1rem;font-weight:700;}
           </tr>
         </tbody>
       </table>
+      </div>
+
+      <div class="plan-compare-cards">
+        <div class="plan-compare-card">
+          <div class="plan-compare-card-head">CRM – R$40/mês</div>
+          <ul>
+            <li class="yes"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>WhatsApp (API Oficial + QR Code)</li>
+            <li class="yes"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Gestão de conversas</li>
+            <li class="yes"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Funil de vendas</li>
+            <li class="yes"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Contatos, Produtos e Tarefas</li>
+            <li class="yes"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Conversões e métricas</li>
+            <li class="yes"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Multiatendentes</li>
+            <li class="yes"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Suporte especializado</li>
+            <li class="no"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>Métricas de redes sociais</li>
+            <li class="no"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>Agendamento no Instagram</li>
+            <li class="no"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>Agente de IA</li>
+            <li class="no"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>Atendimento automático 24h</li>
+            <li class="no"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>Qualificação automática de leads</li>
+          </ul>
+        </div>
+        <div class="plan-compare-card">
+          <div class="plan-compare-card-head">CRM + Redes – R$50/mês</div>
+          <ul>
+            <li class="yes"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>WhatsApp (API Oficial + QR Code)</li>
+            <li class="yes"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Gestão de conversas</li>
+            <li class="yes"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Funil de vendas</li>
+            <li class="yes"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Contatos, Produtos e Tarefas</li>
+            <li class="yes"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Conversões e métricas</li>
+            <li class="yes"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Multiatendentes</li>
+            <li class="yes"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Suporte especializado</li>
+            <li class="yes" style="color:#d97706;"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke="#d97706"><path d="M20 6L9 17l-5-5"/></svg>Métricas de redes sociais</li>
+            <li class="yes" style="color:#d97706;"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke="#d97706"><path d="M20 6L9 17l-5-5"/></svg>Agendamento no Instagram</li>
+            <li class="no"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>Agente de IA</li>
+            <li class="no"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>Atendimento automático 24h</li>
+            <li class="no"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>Qualificação automática de leads</li>
+          </ul>
+        </div>
+        <div class="plan-compare-card">
+          <div class="plan-compare-card-head">CRM + IA – R$100/mês</div>
+          <ul>
+            <li class="yes"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>WhatsApp (API Oficial + QR Code)</li>
+            <li class="yes"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Gestão de conversas</li>
+            <li class="yes"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Funil de vendas</li>
+            <li class="yes"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Contatos, Produtos e Tarefas</li>
+            <li class="yes"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Conversões e métricas</li>
+            <li class="yes"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Multiatendentes</li>
+            <li class="yes"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Suporte especializado</li>
+            <li class="yes" style="color:#d97706;"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke="#d97706"><path d="M20 6L9 17l-5-5"/></svg>Métricas de redes sociais</li>
+            <li class="yes" style="color:#d97706;"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke="#d97706"><path d="M20 6L9 17l-5-5"/></svg>Agendamento no Instagram</li>
+            <li class="yes" style="color:#7c3aed;"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke="#7c3aed"><path d="M20 6L9 17l-5-5"/></svg>Agente de IA</li>
+            <li class="yes" style="color:#7c3aed;"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke="#7c3aed"><path d="M20 6L9 17l-5-5"/></svg>Atendimento automático 24h</li>
+            <li class="yes" style="color:#7c3aed;"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke="#7c3aed"><path d="M20 6L9 17l-5-5"/></svg>Qualificação automática de leads</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
