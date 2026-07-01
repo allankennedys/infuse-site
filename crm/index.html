@@ -453,8 +453,9 @@ h3{font-size:1.1rem;font-weight:700;}
 
 .plan-compare{max-width:1200px;margin:0 auto;}
 .plan-compare h3{text-align:center;font-size:1.3rem;color:var(--primary);margin-bottom:28px;}
-.plan-compare-table{width:100%;border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border);}
-.plan-compare-table th,.plan-compare-table td{padding:15px 20px;text-align:center;font-size:.87rem;}
+.plan-compare-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:var(--radius-lg);border:1px solid var(--border);}
+.plan-compare-table{width:100%;min-width:640px;border-radius:var(--radius-lg);border-collapse:collapse;}
+.plan-compare-table th,.plan-compare-table td{padding:15px 20px;text-align:center;font-size:.87rem;white-space:nowrap;}
 .plan-compare-table th:first-child,.plan-compare-table td:first-child{text-align:left;}
 .plan-compare-table thead{background:var(--primary);}
 .plan-compare-table thead th{color:#fff;font-weight:700;}
@@ -472,6 +473,7 @@ h3{font-size:1.1rem;font-weight:700;}
 .cta-final h2{color:#fff;font-size:clamp(1.8rem,3vw,2.6rem);}
 .cta-final p{color:rgba(255,255,255,.72);margin:16px 0 40px;font-size:1.05rem;}
 .cta-final-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+.cta-final-btns .btn{white-space:normal;}
 .btn-white{background:#fff;color:var(--primary);box-shadow:0 6px 20px -6px rgba(0,0,0,.3);}
 .btn-white:hover{background:var(--bg-soft);transform:translateY(-2px);}
 .btn-outline-white{border:2px solid rgba(255,255,255,.4);color:#fff;background:transparent;}
@@ -523,6 +525,7 @@ h3{font-size:1.1rem;font-weight:700;}
 .contact-cta-box h3{color:var(--primary);font-size:1.4rem;margin-bottom:12px;}
 .contact-cta-box p{color:var(--muted);font-size:.92rem;margin-bottom:28px;}
 .contact-cta-box .btns{display:flex;flex-direction:column;gap:12px;}
+.contact-cta-box .btns .btn{white-space:normal;}
 
 /* ===== FOOTER ===== */
 .site-footer{background:var(--primary);padding:60px 0 30px;}
@@ -575,7 +578,8 @@ h3{font-size:1.1rem;font-weight:700;}
   .feat-grid{grid-template-columns:1fr;}
   .ben-grid{grid-template-columns:1fr;}
   .trust-inner{gap:20px;}
-  .cta-final-btns{flex-direction:column;align-items:center;}
+  .cta-final-btns{flex-direction:column;align-items:stretch;}
+  .contact-cta-box{padding:32px 24px;}
   .footer-top{flex-direction:column;align-items:flex-start;}
   .db-app{height:240px;}
   .db-float-1,.db-float-2,.db-float-3{display:none;}
@@ -1125,6 +1129,7 @@ h3{font-size:1.1rem;font-weight:700;}
 
     <div class="plan-compare" data-reveal>
       <h3>Comparativo de planos</h3>
+      <div class="plan-compare-scroll">
       <table class="plan-compare-table">
         <thead>
           <tr>
@@ -1209,6 +1214,7 @@ h3{font-size:1.1rem;font-weight:700;}
           </tr>
         </tbody>
       </table>
+      </div>
     </div>
   </div>
 </section>
