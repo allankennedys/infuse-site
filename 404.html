@@ -91,7 +91,7 @@
       flex-wrap: wrap;
     }
 
-    a {
+    button {
       text-decoration: none;
       padding: 12px 18px;
       border-radius: 10px;
@@ -163,10 +163,20 @@
     </p>
 
     <div class="actions">
-      <a href="/" class="primary">Voltar a página inicial</a>
+     <button class="primary" onclick="goBackOrHome()">Voltar</button>
     </div>
 
   </div>
+<script>
+function goBackOrHome() {
+  const ref = document.referrer;
 
+  if (window.history.length > 1 && ref.includes(window.location.host)) {
+    window.history.back();
+  } else {
+    window.location.href = "/";
+  }
+}
+</script>
 </body>
 </html>
