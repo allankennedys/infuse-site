@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Página não encontrada | Infuse</title>
+
+<meta name="googlebot" content="noindex, follow">
+
+<meta name="robots" content="noindex, follow">
+
+
+
+  <link rel="icon" href="icon.png">
+
+  <style>
+    :root {
+      --bg: #070f1e;
+      --card: rgba(255,255,255,0.04);
+      --text: #e6eaf2;
+      --muted: rgba(230,234,242,0.6);
+      --primary: #6c5cff;
+      --secondary: #4aa3ff;
+      --border: rgba(255,255,255,0.08);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Inter, Arial, sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at top, #111c3a 0%, var(--bg) 60%);
+      color: var(--text);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .container {
+      text-align: center;
+      max-width: 620px;
+      padding: 40px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .logo {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 100px;
+    }
+
+    .logo img {
+      width: 100px;
+      height: 100px;
+      filter: drop-shadow(0 0 10px rgba(108,92,255,0.4));
+    }
+
+    h1 {
+      font-size: 110px;
+      line-height: 1;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    h2 {
+      margin-top: 10px;
+      font-size: 22px;
+      font-weight: 500;
+    }
+
+    p {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .actions {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    a {
+      text-decoration: none;
+      padding: 12px 18px;
+      border-radius: 10px;
+      font-size: 14px;
+      transition: 0.2s ease;
+    }
+
+    .primary {
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      color: white;
+      box-shadow: 0 10px 30px rgba(108,92,255,0.25);
+    }
+
+    .primary:hover {
+      transform: translateY(-2px);
+    }
+
+    .secondary {
+      border: 1px solid var(--border);
+      color: var(--text);
+      background: var(--card);
+    }
+
+    .secondary:hover {
+      background: rgba(255,255,255,0.07);
+    }
+
+    .glow {
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(108,92,255,0.25), transparent 60%);
+      filter: blur(60px);
+      top: -100px;
+      left: -100px;
+      z-index: 0;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 80px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="glow"></div>
+
+  <div class="container">
+
+    <div class="logo">
+      <img src="icon.png" alt="Infuse Logo">
+    </div>
+
+    <h1>404</h1>
+
+    <h2>Página não encontrada</h2>
+
+    <p>
+      A página que você está procurando não existe, foi movida ou está temporariamente indisponível.
+    </p>
+
+    <div class="actions">
+      <a href="/" class="primary">Voltar a página inicial</a>
+    </div>
+
+  </div>
+
+</body>
+</html>
