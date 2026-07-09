@@ -1,0 +1,28 @@
+# Infuse Software
+
+> Empresa de tecnologia especializada em desenvolvimento web, automação de processos, inteligência artificial e soluções SaaS. A Infuse cria sites, e-commerces, landing pages, CRMs, chatbots e agentes de IA no WhatsApp para negócios que querem atender melhor e vender mais.
+
+A Infuse é sediada em Feira de Santana, Bahia (Brasil), e atende clientes em todo o país. Atua do diagnóstico ao resultado, entregando tecnologia sob medida para cada etapa do negócio. Principais frentes: sites e landing pages de alta conversão, automação de WhatsApp, CRM com funil de vendas e IA integrada, e sistema de agendamento online para serviços.
+
+- Localização: Feira de Santana, Bahia, Brasil (atendimento em todo o Brasil)
+- Idioma: Português (pt-BR)
+- Contato: contato@infusesoftware.com | WhatsApp: https://wa.me/5575982938031
+- Instagram: https://www.instagram.com/infuse.software
+
+## Páginas
+
+- [Página inicial — Infuse](https://www.infusesoftware.com/): Visão geral da empresa e das soluções (sites, e-commerces, automações, CRM, chatbots e IA no WhatsApp). Explica o processo de trabalho, do diagnóstico ao resultado, e reúne as perguntas frequentes sobre as soluções.
+- [Infuse CRM](https://www.infusesoftware.com/crm/): CRM completo com WhatsApp integrado, funil de vendas, agente de IA e gestão de conversões. Centraliza o atendimento, organiza a equipe e o pipeline de vendas. Teste grátis por 7 dias.
+- [Infuse Agenda](https://www.infusesoftware.com/agenda/): Sistema de agendamento online para barbearias, salões de beleza, manicures, nail designers e clínicas de estética. Inclui site profissional, agendamento 24h feito pelo próprio cliente e lembretes automáticos no WhatsApp. A partir de R$ 39,90/mês.
+
+## Soluções
+
+- Sites e landing pages: páginas focadas em converter visitantes em clientes, leads ou agendamentos, ideais para anúncios no Instagram, Google e WhatsApp.
+- Automação de WhatsApp: conecta o WhatsApp Business a fluxos inteligentes que respondem, qualificam e registram atendimentos automaticamente no CRM.
+- IA no WhatsApp: agente que entende linguagem natural e atende clientes 24h por dia, 7 dias por semana, incluindo captação de leads e agendamentos.
+- CRM: funil de vendas unificado com histórico de conversas, categorização de leads e acompanhamento de conversão.
+- Agendamento online: agenda que o cliente marca sozinho, com confirmação automática, lembretes e redução de faltas (no-show).
+
+## Optional
+
+- [Sitemap](https://www.infusesoftware.com/sitemap.xml): Lista de todas as URLs indexáveis do site.
