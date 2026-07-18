@@ -40,6 +40,8 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
     const el = symbolRef.current;
     if (!el) return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    // Sem giro no mobile, junto com o parallax e o vídeo do hero.
+    if (window.matchMedia('(max-width: 767px)').matches) return;
 
     if (spinning) {
       // Já girando: nada a fazer (não reiniciar, senão trava no mesmo quadro).
