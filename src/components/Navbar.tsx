@@ -23,6 +23,31 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
   const [logoSpinning, setLogoSpinning] = useState(false);
   const spinTimer = useRef<number | undefined>(undefined);
 
+  /**
+   * Seção alvo enquanto uma rolagem por clique está em curso.
+   *
+   * A rolagem suave atravessa todas as seções do caminho, e o scroll spy
+   * reposicionaria o destaque em cada uma delas — clicar em "Metodologia"
+   * fazia o indicador parar em 5 destinos intermediários, reiniciando a
+   * transição a cada parada. Travando o alvo, ele viaja uma vez só.
+   */
+  const navLock = useRef<string | null>(null);
+  const navLockTimer = useRef<number | undefined>(undefined);
+
+  const goToSection = (id: string) => {
+    navLock.current = id;
+    setActiveSection(id);
+    window.clearTimeout(navLockTimer.current);
+    // Rede de segurança: se a rolagem nunca alcançar a seção (âncora no fim da
+    // página, por exemplo), o spy volta a mandar.
+    navLockTimer.current = window.setTimeout(() => {
+      navLock.current = null;
+      // Força uma medição: se a rolagem foi interrompida e parou, não haveria
+      // mais nenhum evento de scroll para corrigir o destaque.
+      window.dispatchEvent(new Event('scroll'));
+    }, 1800);
+  };
+
   const { containerRef, indicatorRef } = useMorphIndicator<HTMLElement, HTMLSpanElement>(
     activeSection,
     'horizontal'
@@ -51,7 +76,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
         document.documentElement.scrollHeight - 8;
       if (atBottom) current = navLinks[navLinks.length - 1].id;
 
-      setActiveSection(current);
+      if (navLock.current) {
+        // Chegou ao destino: devolve o controle ao scroll spy.
+        if (current === navLock.current) {
+          navLock.current = null;
+          window.clearTimeout(navLockTimer.current);
+        }
+      } else {
+        setActiveSection(current);
+      }
 
       // A logo gira só enquanto há rolagem acontecendo E o hero ainda está na
       // tela; para pouco depois que a rolagem cessa.
@@ -80,6 +113,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
       window.removeEventListener('resize', onScroll);
       if (frame) cancelAnimationFrame(frame);
       window.clearTimeout(spinTimer.current);
+      window.clearTimeout(navLockTimer.current);
     };
   }, []);
 
@@ -117,6 +151,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
                   key={link.id}
                   href={`#${link.id}`}
                   data-morph-item={link.id}
+                  onClick={() => goToSection(link.id)}
                   aria-current={isActive ? 'true' : undefined}
                   className={`fluid-hover relative z-10 px-4 py-1.5 text-xs rounded-full ${
                     isActive
@@ -165,7 +200,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
                 <a
                   key={link.id}
                   href={`#${link.id}`}
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    goToSection(link.id);
+                  }}
                   aria-current={isActive ? 'true' : undefined}
                   className={`fluid-hover text-lg py-2 border-b border-white/5 flex items-center justify-between ${
                     isActive
