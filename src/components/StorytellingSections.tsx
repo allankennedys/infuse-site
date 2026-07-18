@@ -102,7 +102,7 @@ export const StorytellingSections: React.FC<StorytellingSectionsProps> = ({ onOp
               },
               {
                 icon: Bot,
-                title: "2. Atendimento & IA no Zap",
+                title: "2. Atendimento & IA no WhatsApp",
                 desc: "Atendente virtual inteligente que recebe cada visitante, responde dúvidas e faz o agendamento."
               },
               {

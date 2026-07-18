@@ -112,7 +112,7 @@ export const CLIENT_LOGOS = [
   { name: "Lojas Virtuais & E-Commerce", value: "+180% em conversão" },
   { name: "Imobiliárias & Corretores", value: "Captação & Qualificação de Leads" },
   { name: "Barbearias & Salões", value: "Agenda cheia automática" },
-  { name: "Escolas & Cursos", value: "Atendimento & Matriculas no Zap" },
+  { name: "Escolas & Cursos", value: "Atendimento & Matrículas no WhatsApp" },
   { name: "Empresas de Serviços", value: "CRM & Automação de Processos" }
 ];
 
