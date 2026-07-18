@@ -37,7 +37,10 @@ const SERVICES = [
   'Automação de Processos & CRM de Vendas',
   'Agendamento Automático + Lembrete Anti-Falta',
   'Softwares & Sistemas Sob Medida',
+  'Outro',
 ];
+
+const TIMES = ['09:00', '11:00', '14:00', '16:00', 'Outro'];
 
 const FIELD_CLASS =
   'w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-sm text-white ' +
@@ -80,9 +83,14 @@ export const ContactDrawerModal: React.FC<ContactDrawerModalProps> = ({
     const [year, month, day] = formData.preferredDate.split('-');
     const readableDate = formData.preferredDate ? `${day}/${month}/${year}` : '';
 
-    const schedule = [readableDate, formData.preferredTime]
+    // "25/07/2026 às Outro" não se lê. Com "Outro", o horário vira algo que
+    // faz sentido numa conversa.
+    const readableTime =
+      formData.preferredTime === 'Outro' ? 'horário a combinar' : formData.preferredTime;
+
+    const schedule = [readableDate, readableTime]
       .filter(Boolean)
-      .join(' às ');
+      .join(readableTime === 'horário a combinar' ? ', ' : ' às ');
 
     const lines = [
       'Olá! Vim pelo site da Infuse e gostaria de falar com um consultor.',
@@ -287,10 +295,11 @@ export const ContactDrawerModal: React.FC<ContactDrawerModalProps> = ({
                     onChange={update('preferredTime')}
                     className={`${FIELD_CLASS} bg-[#12151f]`}
                   >
-                    <option value="09:00">09:00</option>
-                    <option value="11:00">11:00</option>
-                    <option value="14:00">14:00</option>
-                    <option value="16:00">16:00</option>
+                    {TIMES.map((time) => (
+                      <option key={time} value={time}>
+                        {time}
+                      </option>
+                    ))}
                   </select>
                 </div>
               </div>
