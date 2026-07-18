@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Bot, ShoppingBag, Workflow, Zap, ShieldAlert, CheckCircle } from 'lucide-react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { useMorphIndicator } from '../hooks/useMorphIndicator';
+import { SmartImage } from './SmartImage';
 
 const TABS = [
   { id: 'web', label: 'Sites & E-Commerce Core', icon: ShoppingBag },
@@ -107,7 +108,7 @@ export const TechDeepDive: React.FC = () => {
               </div>
 
               <div className="lg:col-span-6 relative rounded-2xl overflow-hidden border border-emerald-500/30 shadow-2xl group cursor-pointer">
-                <img
+                <SmartImage
                   src="/images/infuse-atendimento-leads.jpg"
                   alt="Painel de atendimento da Infuse aberto em um notebook"
                   className="fluid-media w-full h-80 object-cover group-hover:scale-105"
@@ -148,7 +149,7 @@ export const TechDeepDive: React.FC = () => {
               </div>
 
               <div className="lg:col-span-6 relative rounded-2xl overflow-hidden border border-cyan-500/30 shadow-2xl group cursor-pointer">
-                <img
+                <SmartImage
                   src="/images/infuse-loja-virtual.jpg"
                   alt="Loja virtual desenvolvida pela Infuse com pedido direto pelo WhatsApp"
                   className="fluid-media w-full h-80 object-cover group-hover:scale-105"
@@ -189,7 +190,7 @@ export const TechDeepDive: React.FC = () => {
               </div>
 
               <div className="lg:col-span-6 relative rounded-2xl overflow-hidden border border-indigo-500/30 shadow-2xl group cursor-pointer">
-                <img
+                <SmartImage
                   src="/images/infuse-crm-funil.png"
                   alt="Funil de vendas do CRM da Infuse com os contatos por etapa"
                   className="fluid-media w-full h-80 object-cover group-hover:scale-105"

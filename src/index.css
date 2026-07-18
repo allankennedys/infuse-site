@@ -34,6 +34,29 @@
   h1, h2, h3, h4, p, span, a, li, blockquote {
     overflow-wrap: break-word;
   }
+
+  /*
+   * Controles nativos em tema escuro.
+   *
+   * A lista suspensa do <select> e o calendário do <input type="date"> são
+   * desenhados pelo sistema operacional, não pela página. Sem `color-scheme`
+   * eles saem no tema claro do SO, enquanto o texto branco definido no campo
+   * é herdado pelas <option> — branco no branco, ilegível.
+   *
+   * `color-scheme` resolve na maioria dos navegadores; as regras de <option>
+   * abaixo cobrem os que ignoram a propriedade (Firefox no Linux, sobretudo).
+   */
+  select,
+  input[type="date"],
+  input[type="time"] {
+    color-scheme: dark;
+  }
+
+  select option,
+  select optgroup {
+    background-color: #12151f;
+    color: #f3f4f6;
+  }
 }
 
 .brand-logo {

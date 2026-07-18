@@ -2,6 +2,7 @@ import React from 'react';
 import { ArrowRight, Terminal, Sparkles, Bot, ShoppingBag, Workflow } from 'lucide-react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { useParallax } from '../hooks/useParallax';
+import { SmartImage } from './SmartImage';
 
 interface StorytellingSectionsProps {
   onOpenContact: () => void;
@@ -52,7 +53,7 @@ export const StorytellingSections: React.FC<StorytellingSectionsProps> = ({ onOp
               <div className="relative h-[420px] rounded-3xl overflow-hidden border border-cyan-500/30 shadow-2xl group cursor-pointer">
                 {/* Bleeds past the frame so the parallax drift never exposes an edge. */}
                 <div ref={imageParallaxRef} className="absolute inset-[-10%] will-change-transform">
-                  <img
+                  <SmartImage
                     src="/images/infuse-equipe-operacao.jpg"
                     alt="Equipe trabalhando em conjunto no escritório"
                     className="fluid-media w-full h-full object-cover group-hover:scale-105"

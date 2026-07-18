@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { MessageSquareCode, ShoppingBag, ArrowRight, Bot, CheckCircle, Send, ShieldCheck, Zap } from 'lucide-react';
 import { useParallax } from '../hooks/useParallax';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import { SmartImage } from './SmartImage';
 
 interface HeroProps {
   onOpenContact: () => void;
@@ -174,6 +175,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenContact }) => {
               filter: 'brightness(0.62) contrast(1.12) saturate(1.05) hue-rotate(-65deg)',
             }}
           >
+            {/* AV1 primeiro: 32% menor. Quem não suporta cai no MP4. */}
+            <source src="/video/hero-bg.webm" type="video/webm" />
             <source src="/video/hero-bg.mp4" type="video/mp4" />
           </video>
         </div>
@@ -405,7 +408,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenContact }) => {
             {/* TAB 2: E-Commerce Digital Store Preview */}
             {activeTab === 'ecommerce' && (
               <div className="relative w-full h-full flex-1 flex flex-col justify-between p-4 sm:p-10 bg-gradient-to-br from-[#060810] via-[#0d1424] to-[#04060b]">
-                <img
+                <SmartImage
                   src="/images/infuse-ecommerce-crm.jpg"
                   alt="Infuse E-Commerce Engine"
                   className="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-overlay"

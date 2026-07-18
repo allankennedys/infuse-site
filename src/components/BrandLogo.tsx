@@ -115,7 +115,7 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
 
   if (symbolOnly) return (
     <img
-      src={`/brand/infuse-symbol-${variant}.png`}
+      src={`/brand/infuse-symbol-${variant}.webp`}
       alt="Símbolo da Infuse"
       className={`block h-auto object-contain ${className}`}
     />
@@ -130,14 +130,14 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
       <span className="brand-logo-symbol-wrap">
         <img
           ref={symbolRef}
-          src={`/brand/infuse-symbol-${variant}.png`}
+          src={`/brand/infuse-symbol-${variant}.webp`}
           alt=""
           aria-hidden="true"
           className="brand-logo-symbol brand-logo-spinnable"
         />
       </span>
       <img
-        src={`/brand/infuse-word-${variant}.png`}
+        src={`/brand/infuse-word-${variant}.webp`}
         alt=""
         aria-hidden="true"
         className="brand-logo-word"
