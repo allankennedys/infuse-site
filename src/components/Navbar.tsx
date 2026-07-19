@@ -244,6 +244,19 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
               <span>Falar com Consultor</span>
               <ArrowRight className="w-4 h-4" />
             </button>
+
+            {/* Link externo — fica fora da lista de âncoras acima para não ser
+                lido como mais uma seção da página. */}
+            <a
+              href="https://game.infusesoftware.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setMobileMenuOpen(false)}
+              className="w-full py-3 px-4 rounded-xl border border-white/10 bg-white/5 text-zinc-200 font-semibold text-sm flex items-center justify-center gap-2 hover:text-white hover:border-cyan-400/50 hover:bg-cyan-500/10 transition-colors"
+            >
+              <Gamepad2 className="w-4 h-4 text-cyan-400" />
+              <span>Jogar o Game</span>
+            </a>
           </div>
         </div>
       )}
