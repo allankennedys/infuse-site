@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ArrowRight, Menu, X, ChevronRight } from 'lucide-react';
+import { ArrowRight, Menu, X, ChevronRight, Gamepad2 } from 'lucide-react';
 import { BrandLogo } from './BrandLogo';
 import { useMorphIndicator } from '../hooks/useMorphIndicator';
 
@@ -165,7 +165,20 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
             })}
           </nav>
 
-          {/* Right Action CTA */}
+          {/* Right Action CTA — o game aparece a partir do md; no mobile ele
+              vive só no rodapé, para não competir com o CTA de contato. */}
+          <div className="hidden md:flex items-center gap-3 shrink-0">
+            <a
+              href="https://game.infusesoftware.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="fluid-hover flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 text-xs font-semibold text-zinc-200 hover:text-white hover:border-cyan-400/50 hover:bg-cyan-500/10 transition-colors"
+            >
+              <Gamepad2 className="w-3.5 h-3.5 text-cyan-400" />
+              <span>Game</span>
+            </a>
+          </div>
+
           <div className="hidden lg:flex items-center gap-3 shrink-0">
             <button
               onClick={onOpenContact}

@@ -84,6 +84,17 @@ export const Footer: React.FC<FooterProps> = ({ onOpenContact }) => {
                   <ArrowUpRight className="w-3 h-3 shrink-0 text-cyan-400" />
                 </a>
               </li>
+              <li>
+                <a
+                  href="https://game.infusesoftware.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="fluid-hover flex items-center gap-1.5 hover:text-cyan-400"
+                >
+                  <span>Infuse Game</span>
+                  <ArrowUpRight className="w-3 h-3 shrink-0 text-cyan-400" />
+                </a>
+              </li>
             </ul>
           </div>
 
