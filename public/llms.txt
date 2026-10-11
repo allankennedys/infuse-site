@@ -12,7 +12,7 @@ A Infuse é sediada em Feira de Santana, Bahia (Brasil), e atende clientes em to
 ## Páginas
 
 - [Página inicial — Infuse](https://www.infusesoftware.com/): Visão geral da empresa e das soluções (sites, e-commerces, automações, CRM, chatbots e IA no WhatsApp). Explica o processo de trabalho, do diagnóstico ao resultado, e reúne as perguntas frequentes sobre as soluções.
-- [Infuse CRM](https://www.infusesoftware.com/crm/): CRM completo com WhatsApp integrado, funil de vendas, agente de IA e gestão de conversões. Centraliza o atendimento, organiza a equipe e o pipeline de vendas. Teste grátis por 7 dias.
+- [Infuse CRM](https://www.infusesoftware.com/crm/): CRM com WhatsApp para múltiplos vendedores, com funil de vendas, agente de IA e gestão de conversões. Centraliza o atendimento, organiza a equipe e o pipeline de vendas. Teste grátis por 7 dias.
 - [Infuse Agenda](https://www.infusesoftware.com/agenda/): Sistema de agendamento online para barbearias, salões de beleza, manicures, nail designers e clínicas de estética. Inclui site profissional, agendamento 24h feito pelo próprio cliente e lembretes automáticos no WhatsApp. A partir de R$ 39,90/mês.
 - [Gestão de tráfego inteligente](https://www.infusesoftware.com/gestao-de-trafego/): Gestão de campanhas com rastreamento da origem de cada lead, envio de eventos de conversão às plataformas de anúncio e automação no WhatsApp (API oficial e não oficial). Atendimento em todo o Brasil.
 - [Placas NFC para estabelecimentos](https://www.infusesoftware.com/placa-nfc/): Placas de aproximação que abrem avaliação no Google, Pix, cardápio digital, site ou uma página com vários links.

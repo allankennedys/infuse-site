@@ -67,7 +67,7 @@ export const SOLUTIONS_DATA: Solution[] = [
     id: "crm-vendas",
     title: "CRM de Vendas & Gestão Omnichannel",
     subtitle: "Visão 360° do cliente do primeiro contato ao pós-venda",
-    description: "Organize seus contatos em um funil claro de negociação. Acompanhe a esteira de atendimento de cada cliente com histórico unificado de mensagens do WhatsApp, e-mails e chamadas.",
+    description: "CRM com WhatsApp para múltiplos vendedores: toda a equipe atende no mesmo número e você organiza os contatos em um funil claro de negociação. Acompanhe a esteira de atendimento de cada cliente com histórico unificado de mensagens do WhatsApp, e-mails e chamadas.",
     icon: "BarChart3",
     metrics: "+40% na produtividade do time comercial",
     features: [

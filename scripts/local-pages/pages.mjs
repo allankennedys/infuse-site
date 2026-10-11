@@ -103,7 +103,7 @@ const BASE = [
       items: [
         { t: 'Fluxos com n8n', d: 'Usamos o n8n para orquestrar automações: um evento em um sistema dispara ações em outros, com regras, condições e tratamento de erros.' },
         { t: 'Integrações via API', d: 'Conectamos ERP, loja virtual, meios de pagamento, formulários e outros sistemas que oferecem API ou webhooks.' },
-        { t: 'CRM automatizado', d: 'Cada contato entra no funil sozinho, com origem e histórico. Conheça também o <a href="/crm/">Infuse CRM</a>, nosso CRM com WhatsApp integrado.' },
+        { t: 'CRM automatizado', d: 'Cada contato entra no funil sozinho, com origem e histórico. Conheça também o Infuse CRM, nosso <a href="/crm/">CRM com WhatsApp para múltiplos vendedores</a>.' },
         { t: 'Automação de WhatsApp', d: 'Confirmações, lembretes, avisos de status e distribuição de atendimentos enviados automaticamente pelo WhatsApp.' },
         { t: 'Relatórios e planilhas', d: 'Dados reunidos de várias fontes e atualizados sem intervenção manual, prontos para consulta.' },
         { t: 'Alertas internos', d: 'Sua equipe é avisada na hora quando chega um lead, um pedido ou quando algo foge do esperado.' },
@@ -268,7 +268,7 @@ const BASE = [
         { t: 'Eventos de conversão', d: 'Enviamos às plataformas de anúncio os eventos que acontecem depois do clique, como lead qualificado, agendamento e compra, por meio das APIs de conversão.' },
         { t: 'Automação no WhatsApp', d: 'Resposta imediata ao lead que chega do anúncio, qualificação, distribuição para a equipe e acompanhamento, com a API oficial ou com conexão não oficial do WhatsApp.' },
         { t: 'Painel de desempenho', d: 'Investimento, contatos, conversas qualificadas e vendas reunidos por campanha, para você ver o retorno de cada uma.' },
-        { t: 'CRM integrado', d: 'Cada lead entra no funil já com a origem registrada e segue até o fechamento. Conheça o <a href="/crm/">Infuse CRM</a>.' },
+        { t: 'CRM integrado', d: 'Cada lead entra no funil já com a origem registrada e é distribuído à equipe até o fechamento. Conheça o Infuse CRM, nosso <a href="/crm/">CRM com WhatsApp para múltiplos vendedores</a>.' },
       ],
     },
     local: {
@@ -592,7 +592,7 @@ const BASE = [
         { t: 'Página de cada imóvel', d: 'Uma página por imóvel, otimizada para a busca e com botão de contato direto com o corretor.' },
         { t: 'Landing pages de lançamento', d: 'Páginas específicas para empreendimentos e loteamentos, ideais para campanhas de anúncios.' },
         { t: 'Captação no WhatsApp', d: 'O interessado chama já informando o imóvel que viu, e o corretor responde com contexto.' },
-        { t: 'CRM imobiliário', d: 'Funil de atendimento com histórico de conversas e etapas da negociação. Conheça o <a href="/crm/">Infuse CRM</a>.' },
+        { t: 'CRM imobiliário', d: 'Funil de atendimento com histórico de conversas e etapas da negociação, com todos os corretores no mesmo número. O Infuse CRM é um <a href="/crm/">CRM com WhatsApp para múltiplos vendedores</a>.' },
         { t: 'Qualificação com IA', d: 'Assistente que faz as perguntas iniciais (tipo de imóvel, região, faixa de valor) e passa o contato pronto ao corretor.' },
       ],
     },
@@ -864,7 +864,7 @@ const BASE = [
         { t: 'Envio de eventos de conversão', d: 'Integração servidor a servidor com as APIs de conversão das plataformas, enviando lead, lead qualificado, agendamento e compra.' },
         { t: 'Automação com WhatsApp', d: 'Fluxos de atendimento, qualificação e follow-up usando a API oficial do WhatsApp Business ou conexão não oficial, conforme o cenário de cada empresa.' },
         { t: 'Dashboard de campanhas', d: 'Custo por lead, por lead qualificado e por venda, além do retorno por campanha, em um painel único.' },
-        { t: 'Integração com CRM e sistemas', d: 'Conexão com o <a href="/crm/">Infuse CRM</a> ou com o CRM e ERP que a empresa já utiliza, para que o status da venda alimente o rastreamento.' },
+        { t: 'Integração com CRM e sistemas', d: 'Conexão com o Infuse CRM, nosso <a href="/crm/">CRM com WhatsApp para múltiplos vendedores</a>, ou com o CRM e ERP que a empresa já utiliza, para que o status da venda alimente o rastreamento.' },
       ],
     },
     local: {
