@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "pages": "node scripts/build-local-pages.mjs",
+    "build": "npm run pages && vite build",
     "preview": "vite preview"
   },
   "dependencies": {

@@ -25,6 +25,9 @@ npm run preview   # serve o build para conferência
 - `src/` — componentes da landing page
 - `public/` — arquivos servidos como estão na raiz do site:
   - `crm/` e `agenda/` — landing pages próprias, HTML estático
+  - `*-feira-de-santana/`, `gestao-de-trafego/`, `placa-nfc/`, `cardapio-digital/`,
+    `sobre/` e `contato/` — páginas **geradas** (o `sitemap.xml` também) por `npm run pages`
+    a partir de `scripts/local-pages/pages.mjs` (não edite o HTML direto)
   - `robots.txt`, `sitemap.xml`, `llms.txt`, `404.html`, favicons
   - `images/`, `video/` — mídia da página
 

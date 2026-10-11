@@ -14,6 +14,41 @@ A Infuse é sediada em Feira de Santana, Bahia (Brasil), e atende clientes em to
 - [Página inicial — Infuse](https://www.infusesoftware.com/): Visão geral da empresa e das soluções (sites, e-commerces, automações, CRM, chatbots e IA no WhatsApp). Explica o processo de trabalho, do diagnóstico ao resultado, e reúne as perguntas frequentes sobre as soluções.
 - [Infuse CRM](https://www.infusesoftware.com/crm/): CRM completo com WhatsApp integrado, funil de vendas, agente de IA e gestão de conversões. Centraliza o atendimento, organiza a equipe e o pipeline de vendas. Teste grátis por 7 dias.
 - [Infuse Agenda](https://www.infusesoftware.com/agenda/): Sistema de agendamento online para barbearias, salões de beleza, manicures, nail designers e clínicas de estética. Inclui site profissional, agendamento 24h feito pelo próprio cliente e lembretes automáticos no WhatsApp. A partir de R$ 39,90/mês.
+- [Gestão de tráfego inteligente](https://www.infusesoftware.com/gestao-de-trafego/): Gestão de campanhas com rastreamento da origem de cada lead, envio de eventos de conversão às plataformas de anúncio e automação no WhatsApp (API oficial e não oficial). Atendimento em todo o Brasil.
+- [Placas NFC para estabelecimentos](https://www.infusesoftware.com/placa-nfc/): Placas de aproximação que abrem avaliação no Google, Pix, cardápio digital, site ou uma página com vários links.
+- [Cardápio digital inteligente com placa NFC](https://www.infusesoftware.com/cardapio-digital/): Cardápio para celular aberto por aproximação na mesa, atualizado pelo próprio restaurante, com pedido pelo WhatsApp.
+- [Sobre a Infuse](https://www.infusesoftware.com/sobre/): O que a empresa faz, como trabalha e onde está.
+- [Contato](https://www.infusesoftware.com/contato/): WhatsApp, e-mail, Instagram e localização.
+
+## Serviços em Feira de Santana
+
+- [Criação de sites em Feira de Santana](https://www.infusesoftware.com/criacao-de-sites-feira-de-santana/): Sites institucionais, landing pages e desenvolvimento web para empresas da cidade e região.
+- [Automação de processos em Feira de Santana](https://www.infusesoftware.com/automacao-de-processos-feira-de-santana/): Automações com n8n, integrações via API, CRM e WhatsApp para reduzir tarefas manuais.
+- [Inteligência artificial para empresas em Feira de Santana](https://www.infusesoftware.com/inteligencia-artificial-feira-de-santana/): Agentes de IA, atendimento automatizado e assistentes para WhatsApp.
+- [Desenvolvimento de sistemas web em Feira de Santana](https://www.infusesoftware.com/desenvolvimento-de-sistemas-feira-de-santana/): Sistemas personalizados, dashboards e plataformas SaaS.
+- [Gestão de tráfego inteligente em Feira de Santana](https://www.infusesoftware.com/gestao-de-trafego-feira-de-santana/): Gestão de campanhas com rastreamento de origem, envio de eventos de conversão e automação no WhatsApp (API oficial e não oficial).
+- [Loja virtual para lojas de Feira de Santana](https://www.infusesoftware.com/loja-virtual-feira-de-santana/): E-commerce com catálogo, carrinho, pagamento online e pedidos no WhatsApp.
+- [Site para barbearias](https://www.infusesoftware.com/site-para-barbearia-feira-de-santana/): Site e agendamento online com lembretes no WhatsApp.
+- [Site para contabilidade](https://www.infusesoftware.com/site-para-contabilidade-feira-de-santana/): Site, captação de clientes e automação de rotinas para escritórios contábeis.
+- [Site para restaurantes](https://www.infusesoftware.com/site-para-restaurante-feira-de-santana/): Site e cardápio digital com pedidos e reservas pelo WhatsApp.
+- [Site para clínicas e consultórios](https://www.infusesoftware.com/site-para-clinica-feira-de-santana/): Site, agendamento e confirmação de consultas pelo WhatsApp.
+- [Site para imobiliárias](https://www.infusesoftware.com/site-para-imobiliaria-feira-de-santana/): Vitrine de imóveis, captação de leads e CRM.
+- [Site para corretores de imóveis](https://www.infusesoftware.com/site-para-corretor-de-imoveis-feira-de-santana/): Site pessoal com carteira de imóveis, contato no WhatsApp e CRM para corretores autônomos.
+- [Site para advogados](https://www.infusesoftware.com/site-para-advogado-feira-de-santana/): Site institucional, páginas por área de atuação e blog jurídico informativo para advogados e escritórios.
+- [Site para psicólogos](https://www.infusesoftware.com/site-para-psicologo-feira-de-santana/): Apresentação profissional, agendamento de sessões presenciais e online e lembretes automáticos.
+- [Site para médicos](https://www.infusesoftware.com/site-para-medico-feira-de-santana/): Perfil profissional, locais de atendimento, convênios e agendamento de consultas pelo WhatsApp.
+- [Site para salões de beleza](https://www.infusesoftware.com/site-para-salao-de-beleza-feira-de-santana/): Site e agendamento online por profissional, com lembretes no WhatsApp.
+- [Site para clínicas de estética](https://www.infusesoftware.com/site-para-clinica-de-estetica-feira-de-santana/): Páginas por procedimento, agendamento de avaliação e lembretes de sessão.
+- [Site para dentistas](https://www.infusesoftware.com/site-para-dentista-feira-de-santana/): Tratamentos, agendamento e lembretes de consulta e de retorno.
+- [Site para academias](https://www.infusesoftware.com/site-para-academia-feira-de-santana/): Modalidades, horários, aula experimental e acompanhamento de interessados.
+- [Site para pet shops](https://www.infusesoftware.com/site-para-pet-shop-feira-de-santana/): Agendamento de banho e tosa, catálogo de produtos e pedidos pelo WhatsApp.
+- [Site para clínicas veterinárias](https://www.infusesoftware.com/site-para-clinica-veterinaria-feira-de-santana/): Serviços, agendamento de consultas e lembretes de vacina.
+- [Site para arquitetos](https://www.infusesoftware.com/site-para-arquiteto-feira-de-santana/): Portfólio de projetos, páginas de serviço e formulário de briefing.
+- [Site para construtoras](https://www.infusesoftware.com/site-para-construtora-feira-de-santana/): Páginas de empreendimentos, captação de leads e CRM de vendas.
+- [Site para escolas](https://www.infusesoftware.com/site-para-escola-feira-de-santana/): Proposta pedagógica, agendamento de visitas e atendimento de matrículas.
+- [Site para cursos](https://www.infusesoftware.com/site-para-cursos-feira-de-santana/): Página por curso, inscrições online e funil de matrículas.
+- [Site para energia solar](https://www.infusesoftware.com/site-para-energia-solar-feira-de-santana/): Pré-orçamento, portfólio de instalações e CRM de vendas.
+- [Site para oficinas mecânicas](https://www.infusesoftware.com/site-para-oficina-mecanica-feira-de-santana/): Serviços, agendamento e lembretes de revisão pelo WhatsApp.
 
 ## Soluções
 

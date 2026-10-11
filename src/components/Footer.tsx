@@ -63,6 +63,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenContact }) => {
               <li><a href="#solucoes" className="hover:text-cyan-400 transition-colors">Automação de Processos</a></li>
               <li><a href="#solucoes" className="hover:text-cyan-400 transition-colors">CRM de Vendas</a></li>
               <li><a href="#solucoes" className="hover:text-cyan-400 transition-colors">Agendamento Inteligente</a></li>
+              <li><a href="/gestao-de-trafego/" className="hover:text-cyan-400 transition-colors">Gestão de Tráfego</a></li>
             </ul>
           </div>
 
@@ -84,6 +85,8 @@ export const Footer: React.FC<FooterProps> = ({ onOpenContact }) => {
                   <ArrowUpRight className="w-3 h-3 shrink-0 text-cyan-400" />
                 </a>
               </li>
+              <li><a href="/placa-nfc/" className="hover:text-cyan-400 transition-colors">Placas NFC</a></li>
+              <li><a href="/cardapio-digital/" className="hover:text-cyan-400 transition-colors">Cardápio Digital</a></li>
               <li>
                 <a
                   href="https://game.infusesoftware.com"
@@ -109,6 +112,8 @@ export const Footer: React.FC<FooterProps> = ({ onOpenContact }) => {
               <li><a href="#casos" className="hover:text-cyan-400 transition-colors">Casos de Sucesso</a></li>
               <li><a href="#metodologia" className="hover:text-cyan-400 transition-colors">Metodologia</a></li>
               <li><a href="#hero" className="hover:text-cyan-400 transition-colors">Visão Geral</a></li>
+              <li><a href="/sobre/" className="hover:text-cyan-400 transition-colors">Sobre a Infuse</a></li>
+              <li><a href="/contato/" className="hover:text-cyan-400 transition-colors">Contato</a></li>
             </ul>
           </div>
 
