@@ -187,11 +187,6 @@ export const PRODUTOS = [
     vitrine: {
       hero: {
         telas: ['postline-m-calendario', 'postline-m-inbox', 'postline-m-composer'],
-        chips: [
-          { icone: 'chk', t: 'Post agendado', d: 'Quinta · 15:00' },
-          { icone: 'msg', t: 'Novo comentário', d: '“Quero o cardápio completo!”' },
-          { icone: 'zap', t: 'Resposta automática enviada', d: 'palavra-gatilho: cardápio' },
-        ],
       },
       abas: {
         h2: 'O Postline por dentro',

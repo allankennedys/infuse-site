@@ -194,13 +194,6 @@ h3{font-size:1.08rem;font-weight:600;letter-spacing:-.015em}
 @keyframes slide{0%{opacity:0}6%{opacity:1}30%{opacity:1}36%{opacity:0}100%{opacity:0}}
 .hero-phone .phone-screen img:nth-child(1){animation-name:slide1}
 @keyframes slide1{0%{opacity:1}30%{opacity:1}36%{opacity:0}94%{opacity:0}100%{opacity:1}}
-.chip{position:absolute;z-index:4;display:flex;align-items:center;gap:10px;max-width:230px;padding:10px 14px 10px 11px;border-radius:16px;background:#fff;color:#141416;box-shadow:0 18px 40px -18px rgba(0,0,0,.65);animation:float 6s ease-in-out infinite}
-.chip i{flex-shrink:0;width:30px;height:30px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:rgba(212,88,127,.14);color:#b02a57}
-.chip i svg{width:16px;height:16px}
-.chip b{display:block;font-size:.8rem;font-weight:650;line-height:1.25}
-.chip small{display:block;font-size:.72rem;color:#6f7078;line-height:1.3}
-.chip-a{left:-2%;top:12%}.chip-b{right:-4%;top:44%;animation-delay:-2s}.chip-c{left:2%;bottom:10%;animation-delay:-4s}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
 .tabs-nav{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
 .tabs-nav button{font:inherit;font-weight:600;font-size:.95rem;color:var(--muted);background:transparent;border:1px solid var(--border);border-radius:999px;padding:10px 18px;cursor:pointer;transition:all .2s}
 .tabs-nav button:hover{color:var(--text);border-color:rgba(255,255,255,.3)}
@@ -248,12 +241,11 @@ h3{font-size:1.08rem;font-weight:600;letter-spacing:-.015em}
   .hero-phone{order:4;padding:26px 0 18px}
   .hero-split .checks{order:5}.hero-split .cta-row{order:6}.hero-split .note{order:7}
   .phone{width:min(248px,66vw);border-radius:40px;padding:8px}.phone-screen{border-radius:32px}.phone::before{top:15px;width:70px;height:19px;margin-left:-35px}
-  .chip{max-width:168px;padding:7px 10px 7px 8px;gap:8px;border-radius:13px}.chip i{width:24px;height:24px;border-radius:8px}.chip i svg{width:13px;height:13px}.chip b{font-size:.68rem}.chip small{font-size:.62rem}.chip-a{left:0}.chip-b{right:0}.chip-c{left:0}
   .tab-panel{grid-template-columns:1fr;gap:22px}
   .demo{grid-template-columns:1fr;gap:32px}
 }
 @media(prefers-reduced-motion:reduce){
-  .hero-phone .phone-screen img,.chip,.dm1,.dm2,.dm3,.dm4,.demo-chat .typing i,[data-js] .tab-panel.on{animation:none!important}
+  .hero-phone .phone-screen img,.dm1,.dm2,.dm3,.dm4,.demo-chat .typing i,[data-js] .tab-panel.on{animation:none!important}
   .hero-phone .phone-screen img{opacity:0}.hero-phone .phone-screen img:nth-child(1){opacity:1}
   .dm1,.dm2,.dm4{opacity:1!important;transform:none!important}.dm3{display:none}
   .rv-on .rv{opacity:1;transform:none;transition:none}
@@ -299,9 +291,6 @@ h3{font-size:1.08rem;font-weight:600;letter-spacing:-.015em}
       </div>
       <div class="hero-phone">
         <div class="phone"><div class="phone-screen"><img src="/images/postline/postline-m-calendario.webp" alt="Postline no celular, em modo claro: calendário do mês com as publicações do dia" width="780" height="1688" fetchpriority="high" decoding="async"><img src="/images/postline/postline-m-inbox.webp" alt="Postline no celular, em modo claro: caixa de entrada com comentários e mensagens diretas" width="780" height="1688" loading="lazy" decoding="async"><img src="/images/postline/postline-m-composer.webp" alt="Postline no celular, em modo claro: nova publicação com pré-visualização do post e agendamento" width="780" height="1688" loading="lazy" decoding="async"></div></div>
-        <div class="chip chip-a"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></i><span><b>Post agendado</b><small>Quinta · 15:00</small></span></div>
-        <div class="chip chip-b"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-5.4A8 8 0 1 1 21 12z"/></svg></i><span><b>Novo comentário</b><small>“Quero o cardápio completo!”</small></span></div>
-        <div class="chip chip-c"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></i><span><b>Resposta automática enviada</b><small>palavra-gatilho: cardápio</small></span></div>
       </div>
       </div>
     </div>
