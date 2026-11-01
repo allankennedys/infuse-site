@@ -177,11 +177,82 @@ export const PRODUTOS = [
     ],
     objeto: 'o Postline',
     capa: 'postline-calendario',
-    galeria: {
-      h2: 'O Postline por dentro',
-      sub: 'Calendário, caixa de entrada, IA e métricas na mesma plataforma.',
-      larga: true,
-      imagens: ['postline-calendario', 'postline-inbox', 'postline-studio', 'postline-analytics'],
+    tema: {
+      accent: '#d4587f',
+      accent2: '#e06a91',
+      accent3: '#f2a3bc',
+      glow: 'rgba(212,88,127,.30)',
+    },
+    selo: { img: '/images/postline/postline-logo.svg', alt: 'Logo do Postline', texto: 'Postline · da Infuse Software' },
+    vitrine: {
+      hero: {
+        telas: ['postline-m-calendario', 'postline-m-inbox', 'postline-m-composer'],
+        chips: [
+          { icone: 'chk', t: 'Post agendado', d: 'Quinta · 15:00' },
+          { icone: 'msg', t: 'Novo comentário', d: '“Quero o cardápio completo!”' },
+          { icone: 'zap', t: 'Resposta automática enviada', d: 'palavra-gatilho: cardápio' },
+        ],
+      },
+      abas: {
+        h2: 'O Postline por dentro',
+        sub: 'Escolha um recurso e veja a tela. Calendário, caixa de entrada, IA e métricas na mesma plataforma.',
+        itens: [
+          {
+            rotulo: 'Calendário',
+            img: 'postline-calendario',
+            h3: 'Agendador de posts e calendário editorial',
+            p: 'Planeje o mês no calendário de conteúdo, filtre por rede e por cliente e agende a publicação para o horário certo. Os rascunhos ficam guardados, e você pode publicar na hora quando precisar.',
+            pontos: ['Visão do mês por cliente e por rede', 'Rascunhos, agendadas e publicadas em um só lugar', 'Editor com pré-visualização antes de agendar'],
+          },
+          {
+            rotulo: 'Caixa de entrada',
+            img: 'postline-inbox',
+            h3: 'Comentários e direct em um só lugar',
+            p: 'Responda comentários e mensagens diretas de todos os clientes sem trocar de aplicativo. Use filtros, favoritos e arquivamento para manter a caixa em dia.',
+            pontos: ['Todos os clientes na mesma lista', 'Favoritas e arquivadas', 'Resposta automática por palavra-gatilho'],
+          },
+          {
+            rotulo: 'IA',
+            img: 'postline-studio',
+            h3: 'IA para social media',
+            p: 'Gere roteiros para Reels e Shorts, legendas e criativos a partir do seu briefing. O conteúdo chega pronto para você revisar antes de usar.',
+            pontos: ['Roteiros de 15 a 60 segundos', 'Criativos nos formatos feed, story e paisagem', 'Créditos Postline para usar a IA'],
+          },
+          {
+            rotulo: 'Métricas',
+            img: 'postline-analytics',
+            h3: 'Métricas e relatórios por cliente',
+            p: 'Acompanhe alcance, curtidas, salvamentos e o comparativo entre clientes, direto da API oficial do Instagram.',
+            pontos: ['Comparativo por cliente', 'Alcance, curtidas e salvamentos', 'Dados da API oficial do Instagram'],
+          },
+        ],
+      },
+      demo: {
+        h2: 'Comentou, recebeu: resposta automática no direct do Instagram',
+        p: [
+          'Defina palavras-gatilho para uma publicação e escreva a mensagem. Quem comentar com uma delas recebe a mensagem no direct, sem você precisar fazer nada.',
+          'Serve para enviar um link, um catálogo ou um cardápio no exato momento em que o interesse aparece.',
+        ],
+        pontos: ['Não diferencia maiúsculas de minúsculas', 'Basta a palavra aparecer no comentário', 'Você escolhe a mensagem enviada'],
+        aria: 'Animação: um seguidor comenta com a palavra-gatilho e recebe a resposta automática no direct',
+        cena: {
+          iniciais: 'AM',
+          comentario: '<b>Ana M.</b> Quero o <b>cardápio</b> completo!',
+          gatilho: 'cardápio',
+          resposta: 'Oi, Ana! Que bom que você se interessou. Segue o cardápio completo: graodourado.com.br/cardapio',
+        },
+      },
+      carrossel: {
+        h2: 'Leve o Postline no bolso',
+        sub: 'O Postline funciona no navegador do celular e também pode ser instalado como aplicativo, com notificações.',
+        telas: [
+          { img: 'postline-m-calendario', leg: 'Calendário no celular' },
+          { img: 'postline-m-inbox', leg: 'Caixa de entrada' },
+          { img: 'postline-m-composer', leg: 'Nova publicação com pré-visualização' },
+          { img: 'postline-m-studio', leg: 'IA & Automação' },
+          { img: 'postline-m-analytics', leg: 'Analytics por cliente' },
+        ],
+      },
     },
     waLabel: 'Falar com a Infuse sobre o Postline',
     nota: 'Quer conhecer o Postline? Chame a equipe da Infuse pelo WhatsApp.',

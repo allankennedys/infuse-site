@@ -4,6 +4,31 @@
  * Os arquivos ficam em `public/images/` (otimizados em WebP).
  */
 export const IMAGENS = {
+  'postline-m-calendario': {
+    src: '/images/postline/postline-m-calendario.webp', w: 780, h: 1688,
+    legenda: 'Calendário no celular',
+    alt: 'Postline no celular, em modo claro: calendário do mês com as publicações do dia',
+  },
+  'postline-m-inbox': {
+    src: '/images/postline/postline-m-inbox.webp', w: 780, h: 1688,
+    legenda: 'Caixa de entrada no celular',
+    alt: 'Postline no celular, em modo claro: caixa de entrada com comentários e mensagens diretas',
+  },
+  'postline-m-composer': {
+    src: '/images/postline/postline-m-composer.webp', w: 780, h: 1688,
+    legenda: 'Nova publicação com pré-visualização',
+    alt: 'Postline no celular, em modo claro: nova publicação com pré-visualização do post e agendamento',
+  },
+  'postline-m-studio': {
+    src: '/images/postline/postline-m-studio.webp', w: 780, h: 1688,
+    legenda: 'IA & Automação no celular',
+    alt: 'Postline no celular, em modo claro: roteiro de Reels gerado pela IA',
+  },
+  'postline-m-analytics': {
+    src: '/images/postline/postline-m-analytics.webp', w: 780, h: 1688,
+    legenda: 'Analytics por cliente no celular',
+    alt: 'Postline no celular, em modo claro: métricas de alcance, curtidas e comparativo por cliente',
+  },
   'postline-calendario': {
     src: '/images/postline/postline-calendario.webp', og: '/images/postline/postline-calendario.jpg', w: 1280, h: 800,
     legenda: 'Calendário: planeje o mês e agende por rede e por cliente',

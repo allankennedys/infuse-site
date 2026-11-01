@@ -169,7 +169,96 @@ h3{font-size:1.08rem;font-weight:600;letter-spacing:-.015em}
 .fab{position:fixed;right:16px;bottom:16px;z-index:60;width:56px;height:56px;border-radius:50%;background:var(--green);color:#04130a;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,.45)}
 .fab svg{width:28px;height:28px}
 @media(max-width:760px){.nav{display:none}.sec{padding:56px 0}.hero{padding-bottom:56px}.btn{width:100%}.hdr .btn{width:auto}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}</style>
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+:root{--blue:#d4587f;--blue-2:#e06a91;--blue-3:#f2a3bc}
+.hero::before{background:radial-gradient(closest-side,rgba(212,88,127,.30),transparent)}
+.final{background:radial-gradient(ellipse at 50% 120%,rgba(212,88,127,.30),transparent 62%)}
+.eyebrow{color:#f2a3bc}
+.links a:hover{border-color:#e06a91;color:#f2a3bc}
+
+.selo{display:inline-flex;align-items:center;gap:12px;padding:8px 16px 8px 10px;border:1px solid var(--border);border-radius:999px;background:rgba(255,255,255,.03)}
+.selo img{width:26px;height:auto}
+.selo span{font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--blue-3)}
+.hero-split{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:56px;align-items:center}
+.hero-split .hero-copy .hero-title{max-width:none}
+.hero-phone{position:relative;display:flex;justify-content:center;padding:28px 0 20px}
+.phone{position:relative;width:min(292px,74vw);aspect-ratio:390/844;border-radius:46px;padding:10px;background:#0a0a0c;box-shadow:0 0 0 1.5px #2b2b31 inset,0 50px 100px -34px rgba(212,88,127,.55),0 24px 60px -24px #000}
+.phone::before{content:"";position:absolute;top:19px;left:50%;width:84px;height:23px;margin-left:-42px;border-radius:99px;background:#0a0a0c;z-index:3}
+.phone-screen{position:relative;height:100%;border-radius:37px;overflow:hidden;background:#f7f7f8}
+.phone-screen img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.phone-sm{width:min(236px,68vw);border-radius:40px;padding:8px}.phone-sm .phone-screen{border-radius:32px}.phone-sm::before{top:15px;width:68px;height:19px;margin-left:-34px}
+.hero-phone .phone-screen img{opacity:0;animation:slide 12s infinite}
+.hero-phone .phone-screen img:nth-child(1){opacity:1;animation-delay:0s}
+.hero-phone .phone-screen img:nth-child(2){animation-delay:4s}
+.hero-phone .phone-screen img:nth-child(3){animation-delay:8s}
+@keyframes slide{0%{opacity:0}6%{opacity:1}30%{opacity:1}36%{opacity:0}100%{opacity:0}}
+.hero-phone .phone-screen img:nth-child(1){animation-name:slide1}
+@keyframes slide1{0%{opacity:1}30%{opacity:1}36%{opacity:0}94%{opacity:0}100%{opacity:1}}
+.chip{position:absolute;z-index:4;display:flex;align-items:center;gap:10px;max-width:230px;padding:10px 14px 10px 11px;border-radius:16px;background:#fff;color:#141416;box-shadow:0 18px 40px -18px rgba(0,0,0,.65);animation:float 6s ease-in-out infinite}
+.chip i{flex-shrink:0;width:30px;height:30px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:rgba(212,88,127,.14);color:#b02a57}
+.chip i svg{width:16px;height:16px}
+.chip b{display:block;font-size:.8rem;font-weight:650;line-height:1.25}
+.chip small{display:block;font-size:.72rem;color:#6f7078;line-height:1.3}
+.chip-a{left:-2%;top:12%}.chip-b{right:-4%;top:44%;animation-delay:-2s}.chip-c{left:2%;bottom:10%;animation-delay:-4s}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+.tabs-nav{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
+.tabs-nav button{font:inherit;font-weight:600;font-size:.95rem;color:var(--muted);background:transparent;border:1px solid var(--border);border-radius:999px;padding:10px 18px;cursor:pointer;transition:all .2s}
+.tabs-nav button:hover{color:var(--text);border-color:rgba(255,255,255,.3)}
+.tabs-nav button[aria-selected=true]{color:#fff;background:var(--blue);border-color:var(--blue)}
+.tab-panel{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:36px;align-items:center;margin-bottom:44px}
+[data-js] .tab-panel{display:none;margin-bottom:0}
+[data-js] .tab-panel.on{display:grid;animation:fadeup .45s ease both}
+@keyframes fadeup{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.tab-panel h3{font-size:1.5rem;letter-spacing:-.025em}
+.tab-panel p{color:#d4d4d8;margin-top:12px}
+.tab-panel .checks{margin-top:20px}
+.tab-panel figure img{width:100%;height:auto;border-radius:20px;border:1px solid var(--border);box-shadow:0 30px 70px -34px rgba(0,0,0,.9)}
+.demo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:56px;align-items:center}
+.demo-chat{position:relative;max-width:420px;margin:0 auto;width:100%;min-height:290px;padding:22px;border-radius:26px;background:#f7f7f8;color:#141416;box-shadow:0 40px 90px -40px rgba(212,88,127,.5)}
+.demo-chat .row{display:flex;gap:10px;align-items:flex-end;margin-bottom:14px}
+.demo-chat .av{width:34px;height:34px;border-radius:50%;background:#e7e7ea;color:#6f7078;font-size:.72rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.demo-chat .bub{background:#fff;border:1px solid #e7e7ea;border-radius:16px 16px 16px 5px;padding:10px 14px;font-size:.92rem;max-width:80%}
+.demo-chat .bub b{color:#b02a57}
+.demo-chat .gat{display:flex;justify-content:center;margin:2px 0 14px}
+.demo-chat .gat span{display:inline-flex;align-items:center;gap:6px;font-size:.76rem;font-weight:600;color:#2f7d55;background:rgba(47,125,85,.1);border:1px solid rgba(47,125,85,.25);border-radius:999px;padding:5px 12px}
+.demo-chat .gat svg{width:13px;height:13px}
+.demo-chat .outs{display:grid;justify-items:end}.demo-chat .outs>*{grid-area:1/1;align-self:start}.demo-chat .out{display:flex;justify-content:flex-end;margin-bottom:6px}
+.demo-chat .out .bub{background:#b02a57;color:#fff;border:0;border-radius:16px 16px 5px 16px}
+.demo-chat .typing{display:flex;gap:4px;padding:12px 16px;background:#b02a57;border-radius:16px 16px 5px 16px}
+.demo-chat .typing i{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.85);animation:blink 1s infinite}
+.demo-chat .typing i:nth-child(2){animation-delay:.15s}.demo-chat .typing i:nth-child(3){animation-delay:.3s}
+@keyframes blink{0%,60%,100%{opacity:.3;transform:none}30%{opacity:1;transform:translateY(-3px)}}
+.dm1,.dm2,.dm3,.dm4{animation-duration:11s;animation-iteration-count:infinite;animation-fill-mode:both}
+.dm1{animation-name:s1}.dm2{animation-name:s2}.dm3{animation-name:s3}.dm4{animation-name:s4}
+@keyframes s1{0%,3%{opacity:0;transform:translateY(10px)}8%,92%{opacity:1;transform:none}97%,100%{opacity:0}}
+@keyframes s2{0%,20%{opacity:0;transform:scale(.9)}26%,92%{opacity:1;transform:none}97%,100%{opacity:0}}
+@keyframes s3{0%,36%{opacity:0}40%,50%{opacity:1}53%,100%{opacity:0}}
+@keyframes s4{0%,52%{opacity:0;transform:translateY(10px)}58%,92%{opacity:1;transform:none}97%,100%{opacity:0}}
+.demo-bullets{margin-top:22px}
+.mob{display:flex;gap:30px;overflow-x:auto;scroll-snap-type:x mandatory;padding:8px 4px 30px;margin:0 -4px;scrollbar-width:thin}
+.mob figure{scroll-snap-align:center;flex:0 0 auto;display:flex;flex-direction:column;align-items:center;gap:16px}
+.mob figcaption{font-size:.9rem;color:var(--muted);text-align:center;max-width:220px}
+.mob-hint{font-size:.82rem;color:var(--muted);margin-top:4px}
+.rv-on .rv{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
+.rv-on .rv.in{opacity:1;transform:none}
+@media(max-width:900px){
+  .hero-split{display:flex;flex-direction:column;gap:0}
+  .hero-split .hero-copy{display:contents}
+  .hero-split .selo{order:1}.hero-split h1{order:2}.hero-split .lede{order:3}
+  .hero-phone{order:4;padding:26px 0 18px}
+  .hero-split .checks{order:5}.hero-split .cta-row{order:6}.hero-split .note{order:7}
+  .phone{width:min(248px,66vw);border-radius:40px;padding:8px}.phone-screen{border-radius:32px}.phone::before{top:15px;width:70px;height:19px;margin-left:-35px}
+  .chip{max-width:168px;padding:7px 10px 7px 8px;gap:8px;border-radius:13px}.chip i{width:24px;height:24px;border-radius:8px}.chip i svg{width:13px;height:13px}.chip b{font-size:.68rem}.chip small{font-size:.62rem}.chip-a{left:0}.chip-b{right:0}.chip-c{left:0}
+  .tab-panel{grid-template-columns:1fr;gap:22px}
+  .demo{grid-template-columns:1fr;gap:32px}
+}
+@media(prefers-reduced-motion:reduce){
+  .hero-phone .phone-screen img,.chip,.dm1,.dm2,.dm3,.dm4,.demo-chat .typing i,[data-js] .tab-panel.on{animation:none!important}
+  .hero-phone .phone-screen img{opacity:0}.hero-phone .phone-screen img:nth-child(1){opacity:1}
+  .dm1,.dm2,.dm4{opacity:1!important;transform:none!important}.dm3{display:none}
+  .rv-on .rv{opacity:1;transform:none;transition:none}
+}
+</style>
 </head>
 <body>
 <header class="hdr">
@@ -194,7 +283,7 @@ h3{font-size:1.08rem;font-weight:600;letter-spacing:-.015em}
           <li aria-current="page">Postline</li>
         </ol>
       </nav>
-      <p class="eyebrow" style="margin-top:36px">Postline · Infuse Software</p>
+      <div class="hero-split"><div class="hero-copy"><div class="selo" style="margin-top:36px"><img src="/images/postline/postline-logo.svg" alt="Logo do Postline" width="26" height="29"><span>Postline · da Infuse Software</span></div>
       <h1>Postline: gerenciador de redes sociais para agências e social media</h1>
       <p class="lede">O Postline é uma plataforma de gestão de redes sociais para agências de marketing digital e social media. Agende posts, responda comentários e mensagens, automatize respostas no direct e acompanhe as métricas de cada cliente em um só lugar.</p>
       <ul class="checks">
@@ -207,6 +296,14 @@ h3{font-size:1.08rem;font-weight:600;letter-spacing:-.015em}
         <a class="btn btn-ghost" href="#servicos">Ver o que fazemos</a>
       </div>
       <p class="note">Quer conhecer o Postline? Chame a equipe da Infuse pelo WhatsApp.</p>
+      </div>
+      <div class="hero-phone">
+        <div class="phone"><div class="phone-screen"><img src="/images/postline/postline-m-calendario.webp" alt="Postline no celular, em modo claro: calendário do mês com as publicações do dia" width="780" height="1688" fetchpriority="high" decoding="async"><img src="/images/postline/postline-m-inbox.webp" alt="Postline no celular, em modo claro: caixa de entrada com comentários e mensagens diretas" width="780" height="1688" loading="lazy" decoding="async"><img src="/images/postline/postline-m-composer.webp" alt="Postline no celular, em modo claro: nova publicação com pré-visualização do post e agendamento" width="780" height="1688" loading="lazy" decoding="async"></div></div>
+        <div class="chip chip-a"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></i><span><b>Post agendado</b><small>Quinta · 15:00</small></span></div>
+        <div class="chip chip-b"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-5.4A8 8 0 1 1 21 12z"/></svg></i><span><b>Novo comentário</b><small>“Quero o cardápio completo!”</small></span></div>
+        <div class="chip chip-c"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></i><span><b>Resposta automática enviada</b><small>palavra-gatilho: cardápio</small></span></div>
+      </div>
+      </div>
     </div>
   </section>
 
@@ -218,17 +315,51 @@ h3{font-size:1.08rem;font-weight:600;letter-spacing:-.015em}
     </div>
   </section>
 
-  <section class="sec">
+  <section class="sec" id="recursos-em-acao">
     <div class="wrap">
-      <div class="sec-head">
+      <div class="sec-head rv">
         <h2>O Postline por dentro</h2>
-        <p>Calendário, caixa de entrada, IA e métricas na mesma plataforma.</p>
+        <p>Escolha um recurso e veja a tela. Calendário, caixa de entrada, IA e métricas na mesma plataforma.</p>
       </div>
-      <div class="galeria galeria-larga">
-        <figure class="fig"><img src="/images/postline/postline-calendario.webp" alt="Calendário do Postline com as publicações do mês agendadas e publicadas, organizadas por cliente" width="1280" height="800" loading="lazy" decoding="async"><figcaption>Calendário: planeje o mês e agende por rede e por cliente</figcaption></figure>
-        <figure class="fig"><img src="/images/postline/postline-inbox.webp" alt="Caixa de entrada do Postline com comentários e mensagens diretas e uma resposta automática enviada por palavra-gatilho" width="1280" height="800" loading="lazy" decoding="async"><figcaption>Caixa de entrada: comentários e mensagens em um só lugar, com resposta automática</figcaption></figure>
-        <figure class="fig"><img src="/images/postline/postline-studio.webp" alt="Tela de IA e Automação do Postline com um roteiro de Reels de 30 segundos gerado a partir de um briefing" width="1280" height="800" loading="lazy" decoding="async"><figcaption>IA e automação: roteiros prontos para revisar a partir do briefing</figcaption></figure>
-        <figure class="fig"><img src="/images/postline/postline-analytics.webp" alt="Tela de Analytics do Postline com alcance, curtidas, salvamentos e comparativo entre clientes" width="1280" height="800" loading="lazy" decoding="async"><figcaption>Analytics: alcance, curtidas, salvamentos e comparativo entre clientes</figcaption></figure>
+      <div data-tabs>
+        <div class="tabs-nav" role="tablist" aria-label="Recursos do Postline">
+          <button type="button" role="tab" aria-selected="false">Calendário</button>
+          <button type="button" role="tab" aria-selected="false">Caixa de entrada</button>
+          <button type="button" role="tab" aria-selected="false">IA</button>
+          <button type="button" role="tab" aria-selected="false">Métricas</button>
+        </div>
+        <div class="tab-panel rv" role="tabpanel">
+          <div>
+            <h3>Agendador de posts e calendário editorial</h3>
+            <p>Planeje o mês no calendário de conteúdo, filtre por rede e por cliente e agende a publicação para o horário certo. Os rascunhos ficam guardados, e você pode publicar na hora quando precisar.</p>
+            <ul class="checks"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Visão do mês por cliente e por rede</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Rascunhos, agendadas e publicadas em um só lugar</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Editor com pré-visualização antes de agendar</span></li></ul>
+          </div>
+          <figure><img src="/images/postline/postline-calendario.webp" alt="Calendário do Postline com as publicações do mês agendadas e publicadas, organizadas por cliente" width="1280" height="800" loading="lazy" decoding="async"></figure>
+        </div>
+        <div class="tab-panel rv" role="tabpanel">
+          <div>
+            <h3>Comentários e direct em um só lugar</h3>
+            <p>Responda comentários e mensagens diretas de todos os clientes sem trocar de aplicativo. Use filtros, favoritos e arquivamento para manter a caixa em dia.</p>
+            <ul class="checks"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Todos os clientes na mesma lista</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Favoritas e arquivadas</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Resposta automática por palavra-gatilho</span></li></ul>
+          </div>
+          <figure><img src="/images/postline/postline-inbox.webp" alt="Caixa de entrada do Postline com comentários e mensagens diretas e uma resposta automática enviada por palavra-gatilho" width="1280" height="800" loading="lazy" decoding="async"></figure>
+        </div>
+        <div class="tab-panel rv" role="tabpanel">
+          <div>
+            <h3>IA para social media</h3>
+            <p>Gere roteiros para Reels e Shorts, legendas e criativos a partir do seu briefing. O conteúdo chega pronto para você revisar antes de usar.</p>
+            <ul class="checks"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Roteiros de 15 a 60 segundos</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Criativos nos formatos feed, story e paisagem</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Créditos Postline para usar a IA</span></li></ul>
+          </div>
+          <figure><img src="/images/postline/postline-studio.webp" alt="Tela de IA e Automação do Postline com um roteiro de Reels de 30 segundos gerado a partir de um briefing" width="1280" height="800" loading="lazy" decoding="async"></figure>
+        </div>
+        <div class="tab-panel rv" role="tabpanel">
+          <div>
+            <h3>Métricas e relatórios por cliente</h3>
+            <p>Acompanhe alcance, curtidas, salvamentos e o comparativo entre clientes, direto da API oficial do Instagram.</p>
+            <ul class="checks"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Comparativo por cliente</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Alcance, curtidas e salvamentos</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Dados da API oficial do Instagram</span></li></ul>
+          </div>
+          <figure><img src="/images/postline/postline-analytics.webp" alt="Tela de Analytics do Postline com alcance, curtidas, salvamentos e comparativo entre clientes" width="1280" height="800" loading="lazy" decoding="async"></figure>
+        </div>
       </div>
     </div>
   </section>
@@ -253,6 +384,41 @@ h3{font-size:1.08rem;font-weight:600;letter-spacing:-.015em}
       <div class="cta-row">
         <a class="btn btn-wa" href="https://wa.me/5575982938031?text=Ol%C3%A1!%20Vim%20pela%20p%C3%A1gina%20%22Postline%3A%20gerenciador%20de%20redes%20sociais%20para%20ag%C3%AAncias%20e%20social%20media%22%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35zM12.05 21.8h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26C2.16 6.46 6.6 2.03 12.05 2.03c2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88zm8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.17-3.48-8.41z"/></svg><span>Falar com a Infuse</span></a>
       </div>
+    </div>
+  </section>
+
+
+  <section class="sec sec-alt" id="resposta-automatica">
+    <div class="wrap demo">
+      <div class="rv">
+        <h2>Comentou, recebeu: resposta automática no direct do Instagram</h2>
+        <p class="prose-p" style="color:#d4d4d8;margin-top:16px;font-size:1.04rem">Defina palavras-gatilho para uma publicação e escreva a mensagem. Quem comentar com uma delas recebe a mensagem no direct, sem você precisar fazer nada.</p>
+        <p class="prose-p" style="color:#d4d4d8;margin-top:16px;font-size:1.04rem">Serve para enviar um link, um catálogo ou um cardápio no exato momento em que o interesse aparece.</p>
+        <ul class="checks demo-bullets"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Não diferencia maiúsculas de minúsculas</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Basta a palavra aparecer no comentário</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Você escolhe a mensagem enviada</span></li></ul>
+      </div>
+      <div class="demo-chat rv" role="img" aria-label="Animação: um seguidor comenta com a palavra-gatilho e recebe a resposta automática no direct">
+        <div class="row dm1"><div class="av">AM</div><div class="bub"><b>Ana M.</b> Quero o <b>cardápio</b> completo!</div></div>
+        <div class="gat dm2"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg> Palavra-gatilho: <b>cardápio</b></span></div>
+        <div class="outs"><div class="out dm3"><div class="typing"><i></i><i></i><i></i></div></div>
+        <div class="out dm4"><div class="bub">Oi, Ana! Que bom que você se interessou. Segue o cardápio completo: graodourado.com.br/cardapio</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="no-celular">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <h2>Leve o Postline no bolso</h2>
+        <p>O Postline funciona no navegador do celular e também pode ser instalado como aplicativo, com notificações.</p>
+      </div>
+      <div class="mob rv" tabindex="0" aria-label="Telas do Postline no celular">
+        <figure><div class="phone phone-sm"><div class="phone-screen"><img src="/images/postline/postline-m-calendario.webp" alt="Postline no celular, em modo claro: calendário do mês com as publicações do dia" width="780" height="1688" loading="lazy" decoding="async"></div></div><figcaption>Calendário no celular</figcaption></figure>
+        <figure><div class="phone phone-sm"><div class="phone-screen"><img src="/images/postline/postline-m-inbox.webp" alt="Postline no celular, em modo claro: caixa de entrada com comentários e mensagens diretas" width="780" height="1688" loading="lazy" decoding="async"></div></div><figcaption>Caixa de entrada</figcaption></figure>
+        <figure><div class="phone phone-sm"><div class="phone-screen"><img src="/images/postline/postline-m-composer.webp" alt="Postline no celular, em modo claro: nova publicação com pré-visualização do post e agendamento" width="780" height="1688" loading="lazy" decoding="async"></div></div><figcaption>Nova publicação com pré-visualização</figcaption></figure>
+        <figure><div class="phone phone-sm"><div class="phone-screen"><img src="/images/postline/postline-m-studio.webp" alt="Postline no celular, em modo claro: roteiro de Reels gerado pela IA" width="780" height="1688" loading="lazy" decoding="async"></div></div><figcaption>IA &amp; Automação</figcaption></figure>
+        <figure><div class="phone phone-sm"><div class="phone-screen"><img src="/images/postline/postline-m-analytics.webp" alt="Postline no celular, em modo claro: métricas de alcance, curtidas e comparativo por cliente" width="780" height="1688" loading="lazy" decoding="async"></div></div><figcaption>Analytics por cliente</figcaption></figure>
+      </div>
+      <p class="mob-hint">Arraste para o lado para ver mais telas.</p>
     </div>
   </section>
 
@@ -374,5 +540,22 @@ h3{font-size:1.08rem;font-weight:600;letter-spacing:-.015em}
 </footer>
 
 <a class="fab" href="https://wa.me/5575982938031?text=Ol%C3%A1!%20Vim%20pela%20p%C3%A1gina%20%22Postline%3A%20gerenciador%20de%20redes%20sociais%20para%20ag%C3%AAncias%20e%20social%20media%22%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener" aria-label="Falar com a Infuse no WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35zM12.05 21.8h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26C2.16 6.46 6.6 2.03 12.05 2.03c2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88zm8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.17-3.48-8.41z"/></svg></a>
+<script>
+(function(){
+  document.querySelectorAll('[data-tabs]').forEach(function(root){
+    var btns=[].slice.call(root.querySelectorAll('[role=tab]')),panels=[].slice.call(root.querySelectorAll('.tab-panel'));
+    root.setAttribute('data-js','');
+    function show(i,focus){btns.forEach(function(b,k){b.setAttribute('aria-selected',k===i?'true':'false');b.tabIndex=k===i?0:-1});panels.forEach(function(p,k){p.classList.toggle('on',k===i)});if(focus)btns[i].focus();try{gtag('event','postline_tab',{tab:btns[i].textContent.trim(),page_path:location.pathname})}catch(e){}}
+    btns.forEach(function(b,i){b.addEventListener('click',function(){show(i)});b.addEventListener('keydown',function(e){var n=e.key==='ArrowRight'?i+1:e.key==='ArrowLeft'?i-1:-1;if(n>=0){e.preventDefault();show((n+btns.length)%btns.length,true)}})});
+    show(0);
+  });
+  if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches){
+    var els=document.querySelectorAll('.rv');
+    document.documentElement.classList.add('rv-on');
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:.08});
+    els.forEach(function(el){io.observe(el)});
+  }
+})();
+</script>
 </body>
 </html>

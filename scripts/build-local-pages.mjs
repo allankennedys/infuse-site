@@ -14,6 +14,7 @@ import { PAGES } from './local-pages/pages.mjs';
 import { BLOG } from './local-pages/blog.mjs';
 import { IMAGENS } from './local-pages/imagens.mjs';
 import { AUTORES } from './local-pages/autores.mjs';
+import { temaCss, vitrineCss, vitrineJs, vitrineHero, vitrineAbas, vitrineDemo, vitrineCarrossel } from './local-pages/vitrine.mjs';
 import { FERRAMENTAS } from './local-pages/ferramentas.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -374,7 +375,7 @@ function render(p) {
           <li aria-current="page">${esc(crumb)}</li>
         </ol>
       </nav>
-      <p class="eyebrow" style="margin-top:36px">${esc(p.eyebrow)}</p>
+      ${p.vitrine ? '<div class="hero-split"><div class="hero-copy">' : ''}${p.selo ? `<div class="selo" style="margin-top:36px"><img src="${p.selo.img}" alt="${esc(p.selo.alt)}" width="26" height="29"><span>${esc(p.selo.texto)}</span></div>` : `<p class="eyebrow" style="margin-top:36px">${esc(p.eyebrow)}</p>`}
       <h1>${esc(p.h1)}</h1>
       <p class="lede">${p.lede}</p>
       <ul class="checks">
@@ -385,6 +386,7 @@ function render(p) {
         <a class="btn btn-ghost" href="#servicos">Ver o que fazemos</a>
       </div>
       <p class="note">${p.nota ?? 'Orçamento sem compromisso. Resposta pelo WhatsApp.'}</p>
+      ${p.vitrine ? `</div>\n      ${vitrineHero(p.vitrine)}\n      </div>` : ''}
     </div>
   </section>
 
@@ -394,7 +396,7 @@ function render(p) {
         ${paras(p.intro.p)}
     </div>
   </section>
-${p.galeria ? `
+${p.vitrine?.abas ? vitrineAbas(p.vitrine.abas) : ''}${p.galeria ? `
   <section class="sec">
     <div class="wrap">
       <div class="sec-head">
@@ -422,6 +424,7 @@ ${p.galeria ? `
     </div>
   </section>
 
+${p.vitrine?.demo ? vitrineDemo(p.vitrine.demo) : ''}${p.vitrine?.carrossel ? vitrineCarrossel(p.vitrine.carrossel) : ''}
   <section class="sec sec-alt">
     <div class="wrap prose">
       <h2>${esc(p.local.h2)}</h2>
@@ -587,7 +590,7 @@ ${schema.map(jsonLd).join('\n')}
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-28X808F553"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-28X808F553');</script>
 <script defer src="/wa-track.js"></script>
-<style>${CSS}</style>
+<style>${CSS}${p.tema ? temaCss(p.tema) : ''}${p.vitrine ? vitrineCss : ''}</style>
 </head>
 <body>
 ${siteHeader(waCta, navLinks)}
@@ -599,7 +602,7 @@ ${inst ? mainInst() : mainServico()}
 ${siteFooter()}
 
 <a class="fab" href="${waCta}" target="_blank" rel="noopener" aria-label="Falar com a Infuse no WhatsApp">${WA_ICON}</a>
-</body>
+${p.vitrine ? `<script>${vitrineJs}</script>\n` : ''}</body>
 </html>
 `;
 }
