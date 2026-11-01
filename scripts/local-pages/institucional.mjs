@@ -40,7 +40,7 @@ export const INSTITUCIONAL = [
           { t: 'Inteligência artificial', d: '<a href="/inteligencia-artificial-feira-de-santana/">Agentes de IA e assistentes</a> para atendimento no WhatsApp.' },
           { t: 'Sistemas sob medida', d: '<a href="/desenvolvimento-de-sistemas-feira-de-santana/">Sistemas web, dashboards e plataformas SaaS</a>.' },
           { t: 'Gestão de tráfego', d: '<a href="/gestao-de-trafego/">Campanhas com rastreamento</a> da origem de cada cliente.' },
-          { t: 'Produtos Infuse', d: 'Infuse CRM (<a href="/crm/">CRM com WhatsApp para múltiplos vendedores</a>), <a href="/agenda/">Infuse Agenda</a>, <a href="/placa-nfc/">placas NFC</a> e <a href="/cardapio-digital/">cardápio digital</a>.' },
+          { t: 'Produtos Infuse', d: 'Infuse CRM (<a href="/crm/">CRM com WhatsApp para múltiplos vendedores</a>), <a href="/agenda/">Infuse Agenda</a>, <a href="/postline/">Postline</a> (gestão de redes sociais), <a href="/placa-nfc/">placas NFC</a> e <a href="/cardapio-digital/">cardápio digital</a>.' },
         ],
       },
       {

@@ -240,7 +240,7 @@ export const APOIO = [
       {
         h2: 'O que a Infuse faz',
         p: [
-          'A Infuse Software, de Feira de Santana, na Bahia, desenvolve <a href="/criacao-de-sites-feira-de-santana/">sites</a>, <a href="/loja-virtual-feira-de-santana/">lojas virtuais</a>, <a href="/desenvolvimento-de-sistemas-feira-de-santana/">sistemas sob medida</a>, <a href="/automacao-de-processos-feira-de-santana/">automações</a>, <a href="/inteligencia-artificial-feira-de-santana/">IA no WhatsApp</a>, <a href="/gestao-de-trafego/">gestão de tráfego</a> e os produtos <a href="/crm/">Infuse CRM</a>, <a href="/agenda/">Infuse Agenda</a> e <a href="/placa-nfc/">placa NFC</a>. Atende a cidade e a região, e também outros estados, de forma remota. Mais respostas em <a href="/perguntas-frequentes/">perguntas frequentes</a>.',
+          'A Infuse Software, de Feira de Santana, na Bahia, desenvolve <a href="/criacao-de-sites-feira-de-santana/">sites</a>, <a href="/loja-virtual-feira-de-santana/">lojas virtuais</a>, <a href="/desenvolvimento-de-sistemas-feira-de-santana/">sistemas sob medida</a>, <a href="/automacao-de-processos-feira-de-santana/">automações</a>, <a href="/inteligencia-artificial-feira-de-santana/">IA no WhatsApp</a>, <a href="/gestao-de-trafego/">gestão de tráfego</a> e os produtos <a href="/crm/">Infuse CRM</a>, <a href="/agenda/">Infuse Agenda</a>, <a href="/postline/">Postline</a> e <a href="/placa-nfc/">placa NFC</a>. Atende a cidade e a região, e também outros estados, de forma remota. Mais respostas em <a href="/perguntas-frequentes/">perguntas frequentes</a>.',
         ],
       },
     ],
@@ -274,7 +274,7 @@ export const APOIO = [
       },
     ],
     faq: [
-      { q: 'O que é a Infuse Software?', a: 'É uma empresa de tecnologia de Feira de Santana, na Bahia, que desenvolve sites, lojas virtuais, sistemas sob medida, automações, CRM, inteligência artificial no WhatsApp e gestão de tráfego, além de produtos próprios, como o Infuse CRM, o Infuse Agenda e a placa NFC.' },
+      { q: 'O que é a Infuse Software?', a: 'É uma empresa de tecnologia de Feira de Santana, na Bahia, que desenvolve sites, lojas virtuais, sistemas sob medida, automações, CRM, inteligência artificial no WhatsApp e gestão de tráfego, além de produtos próprios, como o Infuse CRM, o Infuse Agenda, o Postline e a placa NFC.' },
       { q: 'Quem fundou a Infuse Software?', a: 'A Infuse Software foi fundada por Allan Kennedy e Breno Lins. Mais informações na página <a href="/sobre/">Sobre a Infuse</a>.' },
       { q: 'Onde a Infuse fica e atende?', a: 'A sede é em Feira de Santana, na Bahia. A Infuse atende a cidade e a região e também outras cidades e estados, de forma remota, pelo WhatsApp e por reunião online.' },
       { q: 'Como peço um orçamento?', a: 'Pelo WhatsApp. Você conta o que precisa, a Infuse entende o cenário e envia a proposta, sem compromisso. Veja o passo a passo em <a href="/como-contratar-a-infuse/">como contratar a Infuse</a>.' },
@@ -282,6 +282,7 @@ export const APOIO = [
       { q: 'Qual a diferença entre a Infuse Software e outras empresas chamadas Infuse?', a: 'Existem outras marcas com o nome Infuse, como um aplicativo de vídeo e uma empresa de marketing B2B internacional. A Infuse Software é a empresa de tecnologia de Feira de Santana, e o site oficial é infusesoftware.com.' },
       { q: 'O que é o Infuse CRM?', a: 'É um CRM com WhatsApp para equipes de vendas, com vários atendentes no mesmo número, funil de vendas, contatos, tarefas e agente de IA. Veja <a href="/o-que-e-infuse-crm/">o que é o Infuse CRM</a>.' },
       { q: 'O que é o Infuse Agenda?', a: 'É um sistema de agendamento online para profissionais da beleza e da estética, com página exclusiva, painel e lembrete automático pelo WhatsApp. Veja <a href="/o-que-e-infuse-agenda/">o que é o Infuse Agenda</a>.' },
+      { q: 'O que é o Postline?', a: 'É uma plataforma de gestão de redes sociais da Infuse Software, para agências e social media que cuidam de várias marcas. Reúne calendário e agendamento, caixa de entrada, métricas e criação de conteúdo com IA. Veja a página do <a href="/postline/">Postline</a>.' },
       { q: 'O que é a placa NFC da Infuse?', a: 'É uma placa com NFC e QR Code que leva o cliente a um destino que você escolhe e pode editar, como Instagram, avaliação no Google, Pix ou uma página com vários links. Veja <a href="/como-funciona-a-placa-nfc-da-infuse/">como funciona</a>.' },
       { q: 'A Infuse faz site e também cuida dos anúncios?', a: 'Faz as duas coisas, e elas funcionam melhor juntas. Também dá para contratar só uma parte, por exemplo só o rastreamento e a automação.' },
       { q: 'Como falo com a Infuse?', a: 'Pelo WhatsApp, no número (75) 98293-8031, ou pelo e-mail contato@infusesoftware.com. Veja a página de <a href="/contato/">contato</a>.' },

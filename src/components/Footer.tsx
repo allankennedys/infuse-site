@@ -107,6 +107,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenContact }) => {
                 </a>
               </li>
               <li><a href="/placa-nfc/" className="hover:text-cyan-400 transition-colors">Placas NFC</a></li>
+              <li><a href="/postline/" className="hover:text-cyan-400 transition-colors">Postline</a></li>
               <li><a href="/cardapio-digital/" className="hover:text-cyan-400 transition-colors">Cardápio Digital</a></li>
               <li>
                 <a

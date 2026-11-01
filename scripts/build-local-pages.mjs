@@ -35,10 +35,10 @@ const CHECK_ICON =
 /** URL absoluta para og:image e schema (JPG, mais compatível com prévias de link). */
 const imgUrl = (key) => (IMAGENS[key] ? SITE + (IMAGENS[key].og ?? IMAGENS[key].src) : OG_IMAGE);
 /** `<figure>` com a imagem do mapa IMAGENS; `alt` opcional sobrescreve o padrão. */
-const figure = (key, { alt, eager } = {}) => {
+const figure = (key, { alt, eager, legenda } = {}) => {
   const i = IMAGENS[key];
   if (!i) throw new Error(`imagem desconhecida: ${key}`);
-  return `<figure class="fig"><img src="${i.src}" alt="${esc(alt ?? i.alt)}" width="${i.w}" height="${i.h}" ${eager ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async"></figure>`;
+  return `<figure class="fig"><img src="${i.src}" alt="${esc(alt ?? i.alt)}" width="${i.w}" height="${i.h}" ${eager ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async">${legenda && i.legenda ? `<figcaption>${esc(i.legenda)}</figcaption>` : ''}</figure>`;
 };
 
 const CSS = `
@@ -113,10 +113,15 @@ h3{font-size:1.08rem;font-weight:600;letter-spacing:-.015em}
 .galeria{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));align-items:start}
 .galeria .fig{margin:0}
 .galeria .fig img{max-width:100%}
+.galeria-larga{grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr))}
+.galeria-larga .fig img{box-shadow:0 18px 50px -28px rgba(0,0,0,.8)}
+.fig figcaption{margin-top:10px;font-size:.88rem;color:var(--muted)}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 26px;border-radius:999px;font-weight:600;font-size:1rem;text-decoration:none;transition:transform .2s,background .2s,border-color .2s;text-align:center}
 .btn svg{width:20px;height:20px;flex-shrink:0}
 .btn-wa{background:var(--green);color:#04130a}
 .btn-wa:hover{background:#3be07a;transform:translateY(-1px)}
+.btn-blue{background:var(--blue);color:#fff}
+.btn-blue:hover{background:var(--blue-2);transform:translateY(-1px)}
 .btn-ghost{border:1px solid var(--border);color:var(--text)}
 .btn-ghost:hover{border-color:rgba(255,255,255,.3)}
 .btn-sm{padding:9px 16px;font-size:.88rem}
@@ -324,6 +329,24 @@ function render(p) {
   ];
   if (inst) schema[1] = { '@context': 'https://schema.org', '@type': p.schemaType, name: p.h1, description: p.description, url, about: { '@id': p.aboutId ?? `${SITE}/#organization` } };
   if (!p.faq) schema.pop();
+  if (p.software) {
+    schema.push({
+      '@context': 'https://schema.org',
+      '@type': 'SoftwareApplication',
+      '@id': `${url}#software`,
+      name: p.software.nome,
+      url,
+      description: p.software.descricao,
+      applicationCategory: 'BusinessApplication',
+      operatingSystem: 'Web',
+      inLanguage: 'pt-BR',
+      brand: { '@type': 'Brand', name: 'Infuse Software' },
+      provider: { '@id': `${SITE}/#organization` },
+      publisher: { '@id': `${SITE}/#organization` },
+      featureList: p.software.recursos,
+      sameAs: p.software.sameAs,
+    });
+  }
   if (p.produto) {
     schema.push({
       '@context': 'https://schema.org',
@@ -358,10 +381,10 @@ function render(p) {
         ${p.destaques.map((d) => `<li>${CHECK_ICON}<span>${d}</span></li>`).join('\n        ')}
       </ul>
       <div class="cta-row">
-        <a class="btn btn-wa" href="${waCta}" target="_blank" rel="noopener">${WA_ICON}<span>Pedir orçamento no WhatsApp</span></a>
+        ${p.acesso ? `<a class="btn btn-blue" data-cta="acesso" href="${p.acesso.href}" target="_blank" rel="noopener">${esc(p.acesso.label)}</a>\n        ` : ''}<a class="btn btn-wa" href="${waCta}" target="_blank" rel="noopener">${WA_ICON}<span>${esc(p.waLabel ?? 'Pedir orçamento no WhatsApp')}</span></a>
         <a class="btn btn-ghost" href="#servicos">Ver o que fazemos</a>
       </div>
-      <p class="note">Orçamento sem compromisso. Resposta pelo WhatsApp.</p>
+      <p class="note">${p.nota ?? 'Orçamento sem compromisso. Resposta pelo WhatsApp.'}</p>
     </div>
   </section>
 
@@ -378,8 +401,8 @@ ${p.galeria ? `
         <h2>${esc(p.galeria.h2)}</h2>
         ${p.galeria.sub ? `<p>${p.galeria.sub}</p>` : ''}
       </div>
-      <div class="galeria">
-        ${p.galeria.imagens.map((k) => figure(k)).join('\n        ')}
+      <div class="galeria${p.galeria.larga ? ' galeria-larga' : ''}">
+        ${p.galeria.imagens.map((k) => figure(k, { legenda: p.galeria.larga })).join('\n        ')}
       </div>
     </div>
   </section>
@@ -409,8 +432,8 @@ ${p.galeria ? `
   <section class="sec" id="como-funciona">
     <div class="wrap">
       <div class="sec-head">
-        <h2>Como funciona o trabalho com a Infuse</h2>
-        <p>Um processo simples, do primeiro contato à entrega.</p>
+        <h2>${esc(p.passosH2 ?? 'Como funciona o trabalho com a Infuse')}</h2>
+        <p>${p.passosSub ?? 'Um processo simples, do primeiro contato à entrega.'}</p>
       </div>
       <ol class="grid steps">
           ${cards(p.passos ?? steps(p))}
@@ -421,7 +444,7 @@ ${p.galeria ? `
   <section class="sec sec-alt">
     <div class="wrap">
       <div class="sec-head">
-        <h2>Por que contratar a Infuse${geral ? '' : ' em Feira de Santana'}</h2>
+        <h2>${esc(p.whyH2 ?? `Por que contratar a Infuse${geral ? '' : ' em Feira de Santana'}`)}</h2>
       </div>
       <ul class="grid">
           ${cards(WHY(p))}
@@ -465,7 +488,7 @@ ${p.guias ? `  <section class="sec sec-alt">
       <h2>Vamos conversar sobre o seu projeto?</h2>
       <p>Conte o que a sua empresa precisa. A gente entende o cenário e envia um orçamento para o seu caso, direto pelo WhatsApp.</p>
       <div class="cta-row">
-        <a class="btn btn-wa" href="${waCta}" target="_blank" rel="noopener">${WA_ICON}<span>Chamar no WhatsApp</span></a>
+        ${p.acesso ? `<a class="btn btn-blue" data-cta="acesso-final" href="${p.acesso.href}" target="_blank" rel="noopener">${esc(p.acesso.label)}</a>\n        ` : ''}<a class="btn btn-wa" href="${waCta}" target="_blank" rel="noopener">${WA_ICON}<span>Chamar no WhatsApp</span></a>
       </div>
     </div>
   </section>`;
@@ -1198,7 +1221,7 @@ ${FAB(waCta)}
   ];
   const li = (href, txt) => `<li><a href="${href}">${esc(txt)}</a></li>`;
   const svc = PAGES.filter((p) => p.kind === 'servico').map((p) => li(`/${p.slug}/`, `${p.nome} em Feira de Santana`));
-  const prod = [li('/crm/', 'Infuse CRM'), li('/agenda/', 'Infuse Agenda'), li('/placa-nfc/', 'Placas NFC'), li('/cardapio-digital/', 'Cardápio digital'), li('/gestao-de-trafego/', 'Gestão de tráfego')];
+  const prod = [li('/crm/', 'Infuse CRM'), li('/agenda/', 'Infuse Agenda'), li('/placa-nfc/', 'Placas NFC'), li('/postline/', 'Postline'), li('/cardapio-digital/', 'Cardápio digital'), li('/gestao-de-trafego/', 'Gestão de tráfego')];
   const seg = PAGES.filter((p) => p.kind === 'segmento').map((p) => li(`/${p.slug}/`, `${p.nome}`));
   const guias = featured.map((k) => BLOG.find((b) => b.slug === k)).filter(Boolean).map((b) => li(`/blog/${b.slug}/`, b.h1));
   const bloco = `<main class="seo-static">
