@@ -278,9 +278,11 @@ function render(p) {
       '@type': 'ProfessionalService',
       '@id': `${SITE}/#organization`,
       name: 'Infuse Software',
+      alternateName: ['Infuse', 'Infuse Software Feira de Santana'],
       url: `${SITE}/`,
       logo: `${SITE}/favicon.png`,
       image: ogImg,
+      founder: Object.values(AUTORES).map((a) => ({ '@type': 'Person', name: a.nome, url: `${SITE}/autor/${a.slug}/`, sameAs: [a.linkedin] })),
       email: 'contato@infusesoftware.com',
       telephone: `+${WHATSAPP_NUMBER}`,
       address: {
@@ -320,8 +322,22 @@ function render(p) {
       })),
     },
   ];
-  if (inst) schema[1] = { '@context': 'https://schema.org', '@type': p.schemaType, name: p.h1, description: p.description, url, about: { '@id': `${SITE}/#organization` } };
+  if (inst) schema[1] = { '@context': 'https://schema.org', '@type': p.schemaType, name: p.h1, description: p.description, url, about: { '@id': p.aboutId ?? `${SITE}/#organization` } };
   if (!p.faq) schema.pop();
+  if (p.produto) {
+    schema.push({
+      '@context': 'https://schema.org',
+      '@type': 'Product',
+      '@id': `${url}#product`,
+      name: p.produto.nome,
+      description: p.produto.descricao,
+      category: p.produto.categoria,
+      url,
+      image: (p.produto.imagens ?? []).map(imgUrl),
+      brand: { '@type': 'Brand', name: 'Infuse Software' },
+      manufacturer: { '@id': `${SITE}/#organization` },
+    });
+  }
 
   const cards = (items) =>
     items.map((i) => `<li class="card"><h3>${i.t}</h3><p>${i.d}</p></li>`).join('\n          ');
@@ -430,7 +446,7 @@ ${p.galeria ? `
 ${p.guias ? `  <section class="sec sec-alt">
     <div class="wrap">
       <h2>${esc(p.guias.h2)}</h2>
-      <ul class="links" style="margin-top:20px">${p.guias.slugs.map((k) => BLOG.find((x) => x.slug === k)).filter(Boolean).map((x) => `<li><a href="/blog/${x.slug}/">${esc(x.h1)}</a></li>`).join('')}</ul>
+      <ul class="links" style="margin-top:20px">${p.guias.slugs.map((k) => { const b = BLOG.find((x) => x.slug === k); const pg = PAGES.find((x) => x.slug === k); return b ? { href: `/blog/${b.slug}/`, t: b.h1 } : pg ? { href: `/${pg.slug}/`, t: pg.nome } : null; }).filter(Boolean).map((x) => `<li><a href="${x.href}">${esc(x.t)}</a></li>`).join('')}</ul>
     </div>
   </section>
 
@@ -475,6 +491,7 @@ ${p.guias ? `  <section class="sec sec-alt">
       <p class="eyebrow" style="margin-top:36px">${esc(p.eyebrow)}</p>
       <h1>${esc(p.h1)}</h1>
       <p class="lede">${p.lede}</p>
+      ${p.capa ? figure(p.capa, { eager: true }) : ''}
       <div class="cta-row">
         <a class="btn btn-wa" href="${waCta}" target="_blank" rel="noopener">${WA_ICON}<span>Chamar no WhatsApp</span></a>
         <a class="btn btn-ghost" href="mailto:contato@infusesoftware.com">Enviar e-mail</a>
@@ -1197,7 +1214,7 @@ ${FAB(waCta)}
 <h2>Guias e conteúdos</h2>
 <ul>${guias.join('')}${li('/blog/', 'Ver todos os artigos do blog')}</ul>
 <h2>Sobre a Infuse</h2>
-<ul>${li('/sobre/', 'Sobre a Infuse')}${li('/contato/', 'Contato')}</ul>
+<ul>${PAGES.filter((p) => p.kind === 'institucional').map((p) => li(`/${p.slug}/`, p.nome)).join('')}</ul>
 </main>`;
   const file = path.join(ROOT, 'index.html');
   const html = readFileSync(file, 'utf8');

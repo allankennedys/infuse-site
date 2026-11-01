@@ -22,10 +22,17 @@ export const PRODUTOS = [
     description:
       'Placa NFC com QR Code para o seu estabelecimento: o cliente aproxima o celular ou escaneia e abre avaliação no Google, Pix, Instagram ou vários links.',
     capa: 'nfc-loja-de-roupas',
+    produto: {
+      nome: 'Placa NFC com QR Code da Infuse',
+      descricao:
+        'Placa com NFC e QR Code que levam ao mesmo destino editável: Instagram, avaliação no Google, Pix ou uma página personalizável com vários links.',
+      categoria: 'Placas NFC',
+      imagens: ['nfc-loja-de-roupas', 'nfc-balcao-granito', 'nfc-vitrine-relogios', 'nfc-na-mao'],
+    },
     guias: {
       h2: 'Guias sobre a placa NFC e o QR Code',
       slugs: [
-        'placa-nfc-como-funciona-no-celular', 'placa-nfc-ou-qr-code-qual-usar', 'placa-nfc-para-avaliacoes-no-google',
+        'como-funciona-a-placa-nfc-da-infuse', 'placa-nfc-como-funciona-no-celular', 'placa-nfc-ou-qr-code-qual-usar', 'placa-nfc-para-avaliacoes-no-google',
         'placa-qr-code-google-avaliacao', 'placa-nfc-e-qr-code-para-instagram', 'placa-qr-code-pix-como-receber-no-balcao',
         'placa-qr-code-whatsapp-como-usar', 'pagina-com-varios-links-placa-nfc', 'placa-nfc-e-qr-code-personalizada',
         'placa-qr-code-na-parede-onde-posicionar', 'como-escolher-fornecedor-de-placa-nfc',

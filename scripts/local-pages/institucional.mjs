@@ -55,6 +55,12 @@ export const INSTITUCIONAL = [
         ],
       },
       {
+        h2: 'Quem fundou a Infuse Software',
+        p: [
+          'A Infuse Software foi fundada por <a href="/autor/allan-kennedy/">Allan Kennedy</a> (<a href="https://www.linkedin.com/in/allankennedys/" target="_blank" rel="noopener me">LinkedIn</a>) e <a href="/autor/breno-lins/">Breno Lins</a> (<a href="https://www.linkedin.com/in/devbrenolins/" target="_blank" rel="noopener me">LinkedIn</a>), cofundadores da empresa. Os dois assinam os artigos do <a href="/blog/">blog da Infuse</a>.',
+        ],
+      },
+      {
         h2: 'Onde estamos',
         p: [
           'A Infuse Software está sediada em Feira de Santana, Bahia. Atendemos empresas da cidade e da região e também clientes de outros estados, com todo o processo conduzido pelo WhatsApp e por reuniões online.',

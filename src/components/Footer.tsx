@@ -134,6 +134,8 @@ export const Footer: React.FC<FooterProps> = ({ onOpenContact }) => {
               <li><a href="#metodologia" className="hover:text-cyan-400 transition-colors">Metodologia</a></li>
               <li><a href="#hero" className="hover:text-cyan-400 transition-colors">Visão Geral</a></li>
               <li><a href="/blog/" className="hover:text-cyan-400 transition-colors">Blog</a></li>
+              <li><a href="/perguntas-frequentes/" className="hover:text-cyan-400 transition-colors">Perguntas frequentes</a></li>
+              <li><a href="/como-contratar-a-infuse/" className="hover:text-cyan-400 transition-colors">Como contratar</a></li>
               <li><a href="/ferramentas/" className="hover:text-cyan-400 transition-colors">Ferramentas gratuitas</a></li>
               <li><a href="/sobre/" className="hover:text-cyan-400 transition-colors">Sobre a Infuse</a></li>
               <li><a href="/contato/" className="hover:text-cyan-400 transition-colors">Contato</a></li>

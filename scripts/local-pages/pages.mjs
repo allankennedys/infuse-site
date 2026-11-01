@@ -15,6 +15,7 @@
 import { SEGMENTOS_2 } from './segmentos-2.mjs';
 import { PRODUTOS } from './produtos.mjs';
 import { INSTITUCIONAL } from './institucional.mjs';
+import { APOIO } from './apoio.mjs';
 
 const BASE = [
   // ───────────────────────────── SERVIÇOS ─────────────────────────────
@@ -897,4 +898,5 @@ export const PAGES = [
   ...locais('geral'),
   ...PRODUTOS,
   ...INSTITUCIONAL,
+  ...APOIO,
 ];
