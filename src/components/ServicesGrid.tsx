@@ -1,177 +1,151 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { SOLUTIONS_DATA, Solution } from '../data/infuseData';
-import { MessageSquareCode, ShoppingBag, Workflow, BarChart3, CalendarCheck, Code2, ArrowUpRight, Check, X, Terminal, ChevronRight } from 'lucide-react';
+import { MessageSquareCode, ShoppingBag, Workflow, BarChart3, CalendarCheck, Code2, Plus, Check, X } from 'lucide-react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
 interface ServicesGridProps {
   onOpenContact: (solutionTitle?: string) => void;
 }
 
+const ICONS: Record<string, React.ElementType> = {
+  MessageSquareCode,
+  ShoppingBag,
+  Workflow,
+  BarChart3,
+  CalendarCheck,
+  Code2,
+};
+
+const SolutionIcon: React.FC<{ name: string; className?: string }> = ({ name, className = 'w-8 h-8' }) => {
+  const Icon = ICONS[name] ?? MessageSquareCode;
+  return <Icon className={className} strokeWidth={1.4} aria-hidden="true" />;
+};
+
+/** Nomes curtos nos cards; o painel e o contato continuam usando o título completo. */
+const SHORT_TITLE: Record<string, string> = {
+  'whatsapp-ai-chatbot': 'IA no WhatsApp',
+  'sites-e-commerce': 'Sites e lojas virtuais',
+  'automacao-processos': 'Automação de processos',
+  'crm-vendas': 'CRM de vendas',
+  'agendamento-inteligente': 'Agendamento inteligente',
+  'sistemas-customizados': 'Sistemas sob medida',
+};
+
+/** Larguras da grade de 6 colunas no desktop: 2 grandes, 3 médios e 1 faixa larga. */
+const SPAN = ['lg:col-span-3', 'lg:col-span-3', 'lg:col-span-2', 'lg:col-span-2', 'lg:col-span-2', 'lg:col-span-6'];
+
 export const ServicesGrid: React.FC<ServicesGridProps> = ({ onOpenContact }) => {
   const [selectedSolution, setSelectedSolution] = useState<Solution | null>(null);
   const headerRef = useScrollReveal<HTMLDivElement>();
   const gridRef = useScrollReveal<HTMLDivElement>();
 
-  const getIcon = (iconName: string) => {
-    switch (iconName) {
-      case 'MessageSquareCode': return <MessageSquareCode className="w-6 h-6 text-emerald-400" />;
-      case 'ShoppingBag': return <ShoppingBag className="w-6 h-6 text-cyan-400" />;
-      case 'Workflow': return <Workflow className="w-6 h-6 text-indigo-400" />;
-      case 'BarChart3': return <BarChart3 className="w-6 h-6 text-purple-400" />;
-      case 'CalendarCheck': return <CalendarCheck className="w-6 h-6 text-amber-400" />;
-      case 'Code2': return <Code2 className="w-6 h-6 text-sky-400" />;
-      default: return <MessageSquareCode className="w-6 h-6 text-cyan-400" />;
-    }
-  };
+  // Fecha com Esc e trava a rolagem do fundo enquanto o painel está aberto.
+  useEffect(() => {
+    if (!selectedSolution) return;
+    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setSelectedSolution(null);
+    document.addEventListener('keydown', onKey);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      document.body.style.overflow = prev;
+    };
+  }, [selectedSolution]);
 
   return (
-    <section id="solucoes" className="py-24 sm:py-32 bg-[#020204] relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        {/* Header Section */}
-        <div ref={headerRef} className="reveal flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
-          <div>
-            <span className="text-xs font-mono uppercase tracking-[0.2em] text-cyan-400 font-bold">
-              SOLUÇÕES & SERVIÇOS INFUSE
-            </span>
-            <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white mt-3">
-              Tecnologia e Automação para <br className="hidden sm:inline" />
-              <span className="text-cyan-glow-gradient">Escalar Suas Vendas Digitais.</span>
-            </h2>
-          </div>
-
-          <p className="text-zinc-400 max-w-md text-sm leading-relaxed">
-            Desenvolvemos a infraestrutura inteira do seu negócio: do site ultrarrápido ao atendimento automatizado com Inteligência Artificial no WhatsApp.
-          </p>
+    <section id="solucoes" className="py-28 sm:py-40 bg-black relative">
+      <div className="max-w-[1180px] mx-auto px-5 sm:px-8">
+        {/* Cabeçalho */}
+        <div ref={headerRef} className="reveal max-w-4xl mb-16 sm:mb-24">
+          <p className="text-[17px] font-semibold text-[#2997ff]">Soluções</p>
+          <h2 className="mt-3 text-[40px] sm:text-[56px] lg:text-[64px] font-semibold tracking-[-0.03em] leading-[1.06] text-[#f5f5f7]">
+            Tudo para vender mais pela internet.{' '}
+            <span className="text-[#6e6e73]">Do site ao atendimento no WhatsApp.</span>
+          </h2>
         </div>
 
-        {/* Bento Grid Layout with Mouse Hover Dynamic Scaling */}
-        <div ref={gridRef} className="reveal-group grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {SOLUTIONS_DATA.map((solution, idx) => {
-            const isFeatured = idx === 0 || idx === 1;
-            return (
-              <div
-                key={solution.id}
-                onClick={() => setSelectedSolution(solution)}
-                className={`fluid-hover group cursor-pointer rounded-2xl p-6 sm:p-8 border relative flex flex-col justify-between overflow-hidden hover:-translate-y-1.5 ${
-                  isFeatured
-                    ? 'bg-[#0a0d14] border-cyan-500/40 hover:border-cyan-300'
-                    : 'bg-zinc-900/40 border-white/10 hover:border-white/30 hover:bg-zinc-900/80 hover:shadow-xl'
-                }`}
-              >
-                {/* Visual Background Glow Effect on hover */}
-                <div className="fluid-hover absolute top-0 right-0 w-48 h-48 bg-cyan-500/5 blur-3xl rounded-full group-hover:bg-cyan-500/20 pointer-events-none" />
+        {/* Grade */}
+        <div ref={gridRef} className="reveal-group grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4 sm:gap-5">
+          {SOLUTIONS_DATA.map((solution, idx) => (
+            <button
+              key={solution.id}
+              type="button"
+              onClick={() => setSelectedSolution(solution)}
+              aria-label={`Saiba mais sobre ${solution.title}`}
+              className={`fluid-hover group relative text-left rounded-[28px] bg-[#161617] hover:bg-[#1d1d1f] p-8 sm:p-10 min-h-[300px] sm:min-h-[340px] flex flex-col overflow-hidden ${
+                SPAN[idx] ?? 'lg:col-span-2'
+              } ${idx === 5 ? 'md:col-span-2 lg:min-h-[240px]' : ''}`}
+            >
+              <SolutionIcon name={solution.icon} className="w-9 h-9 text-[#f5f5f7]" />
 
-                <div>
-                  {/* Top Header */}
-                  <div className="flex items-center justify-between mb-6">
-                    <div className="fluid-hover p-3 rounded-xl bg-zinc-950 border border-white/10 group-hover:border-cyan-500/50 group-hover:scale-110">
-                      {getIcon(solution.icon)}
-                    </div>
-
-                    <div className="fluid-hover p-2 rounded-full bg-white/5 group-hover:bg-cyan-400 group-hover:text-black">
-                      <ArrowUpRight className="w-4 h-4" />
-                    </div>
-                  </div>
-
-                  <h3 className="fluid-hover text-xl font-bold text-white mb-2 group-hover:text-cyan-300">
-                    {solution.title}
-                  </h3>
-
-                  <p className="text-xs text-cyan-400 font-mono font-medium mb-3">
-                    {solution.subtitle}
-                  </p>
-
-                  <p className="text-zinc-400 text-xs sm:text-sm leading-relaxed mb-6 line-clamp-3">
-                    {solution.description}
-                  </p>
-                </div>
-
-                {/* Impact Metric Bar */}
-                <div className="pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-x-3 gap-y-1 text-xs font-mono">
-                  <span className="text-zinc-500">Resultado Estimado:</span>
-                  <span className="text-emerald-400 font-bold">{solution.metrics}</span>
-                </div>
+              <div className="mt-auto pt-14 pr-12 max-w-[34rem]">
+                <h3 className="text-[26px] sm:text-[30px] font-semibold tracking-[-0.025em] leading-[1.1] text-[#f5f5f7]">
+                  {SHORT_TITLE[solution.id] ?? solution.title}
+                </h3>
+                <p className="mt-3 text-[17px] leading-[1.45] text-[#a1a1a6]">{solution.subtitle}</p>
               </div>
-            );
-          })}
+
+              <span
+                aria-hidden="true"
+                className="fluid-hover absolute right-6 bottom-6 sm:right-8 sm:bottom-8 w-9 h-9 rounded-full bg-[#2c2c2e] text-[#f5f5f7] flex items-center justify-center group-hover:bg-[#f5f5f7] group-hover:text-black"
+              >
+                <Plus className="w-[18px] h-[18px]" strokeWidth={2} />
+              </span>
+            </button>
+          ))}
         </div>
 
-        {/* Modal Drawer for Detailed View */}
+        {/* Painel de detalhes */}
         {selectedSolution && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-xl animate-in fade-in duration-200">
-            <div className="bg-[#0b0e17] border border-cyan-500/40 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 shadow-2xl relative">
-              
+          <div
+            className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-6 bg-black/60 backdrop-blur-2xl"
+            onClick={() => setSelectedSolution(null)}
+            role="dialog"
+            aria-modal="true"
+            aria-label={selectedSolution.title}
+          >
+            <div
+              className="relative bg-[#1d1d1f] rounded-t-[28px] sm:rounded-[28px] w-full max-w-[640px] max-h-[92vh] overflow-y-auto p-8 sm:p-12"
+              onClick={(e) => e.stopPropagation()}
+            >
               <button
+                type="button"
                 onClick={() => setSelectedSolution(null)}
-                className="absolute top-5 right-5 p-2 rounded-full bg-zinc-900 border border-white/10 text-zinc-400 hover:text-white transition-colors"
+                aria-label="Fechar"
+                className="absolute top-5 right-5 w-9 h-9 rounded-full bg-[#2c2c2e] hover:bg-[#3a3a3c] text-[#a1a1a6] hover:text-white flex items-center justify-center transition-colors"
               >
-                <X className="w-5 h-5" />
+                <X className="w-[18px] h-[18px]" strokeWidth={2} />
               </button>
 
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-3 rounded-xl bg-zinc-900 border border-cyan-500/30">
-                  {getIcon(selectedSolution.icon)}
-                </div>
-                <div>
-                  <span className="text-xs uppercase font-mono text-cyan-400 font-bold">
-                    DETALHES DA SOLUÇÃO INFUSE
-                  </span>
-                  <h3 className="text-2xl font-bold text-white">{selectedSolution.title}</h3>
-                </div>
-              </div>
+              <SolutionIcon name={selectedSolution.icon} className="w-10 h-10 text-[#f5f5f7]" />
+              <h3 className="mt-6 text-[30px] sm:text-[36px] font-semibold tracking-[-0.03em] leading-[1.08] text-[#f5f5f7] pr-10">
+                {selectedSolution.title}
+              </h3>
+              <p className="mt-4 text-[17px] leading-[1.5] text-[#a1a1a6]">{selectedSolution.description}</p>
 
-              <p className="text-zinc-300 text-sm leading-relaxed mb-6">
-                {selectedSolution.description}
-              </p>
+              <ul className="mt-8 divide-y divide-white/10 border-y border-white/10">
+                {selectedSolution.features.map((feat) => (
+                  <li key={feat} className="flex items-start gap-3.5 py-4 text-[16px] leading-[1.45] text-[#d2d2d7]">
+                    <Check className="w-[18px] h-[18px] text-[#2997ff] shrink-0 mt-[3px]" strokeWidth={2.4} />
+                    <span>{feat}</span>
+                  </li>
+                ))}
+              </ul>
 
-              {/* Highlight Metrics */}
-              <div className="p-4 rounded-xl bg-cyan-950/40 border border-cyan-500/30 mb-6 flex items-center justify-between">
-                <div>
-                  <span className="text-[11px] uppercase font-mono text-cyan-400 block font-bold">
-                    Resultado Estimado
-                  </span>
-                  <span className="text-base font-extrabold text-white">{selectedSolution.metrics}</span>
-                </div>
-                <Terminal className="w-6 h-6 text-cyan-400" />
-              </div>
-
-              {/* Deliverables Checklist */}
-              <div className="mb-6">
-                <h4 className="text-xs font-mono uppercase text-zinc-400 font-bold mb-3">
-                  Recursos Inclusos & Funcionalidades:
-                </h4>
-                <div className="space-y-2.5">
-                  {selectedSolution.features.map((feat, fIdx) => (
-                    <div key={fIdx} className="flex items-center gap-2.5 text-xs text-zinc-200">
-                      <div className="w-4 h-4 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
-                        <Check className="w-3 h-3" />
-                      </div>
-                      <span>{feat}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Action Buttons */}
-              <div className="flex flex-col sm:flex-row gap-3 pt-6 border-t border-white/10">
-                <button
-                  onClick={() => {
-                    const title = selectedSolution.title;
-                    setSelectedSolution(null);
-                    onOpenContact(title);
-                  }}
-                  className="flex-1 py-3 px-6 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-white font-bold text-sm transition-colors flex items-center justify-center gap-2 text-center"
-                >
-                  <span>Solicitar Orçamento para {selectedSolution.title}</span>
-                  <ChevronRight className="w-4 h-4 shrink-0" />
-                </button>
-              </div>
-
+              <button
+                type="button"
+                onClick={() => {
+                  const title = selectedSolution.title;
+                  setSelectedSolution(null);
+                  onOpenContact(title);
+                }}
+                className="mt-9 w-full sm:w-auto px-8 py-3.5 rounded-full bg-[#1877f2] hover:bg-[#3b8cff] text-white font-medium text-[17px] transition-colors"
+              >
+                Solicitar orçamento
+              </button>
             </div>
           </div>
         )}
-
       </div>
     </section>
   );

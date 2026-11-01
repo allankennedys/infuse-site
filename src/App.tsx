@@ -10,6 +10,7 @@ import { SocialProof } from './components/SocialProof';
 import { Methodology } from './components/Methodology';
 import { FAQ } from './components/FAQ';
 import { FinalCTA } from './components/FinalCTA';
+import { TrustedClients } from './components/TrustedClients';
 import { Footer } from './components/Footer';
 import { ContactDrawerModal } from './components/ContactDrawerModal';
 
@@ -75,6 +76,9 @@ export function App() {
         <FinalCTA
           onOpenContact={() => handleOpenContact()}
         />
+
+        {/* Grayscale client logo marquee */}
+        <TrustedClients />
       </main>
 
       {/* Footer */}

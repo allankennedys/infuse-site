@@ -107,6 +107,18 @@ export const SOLUTIONS_DATA: Solution[] = [
   }
 ];
 
+// Real client logos for the "trusted by" marquee: white on transparent, in /public.
+export const TRUSTED_CLIENTS = [
+  { name: "Cliente da Infuse", logo: "/images/clients/logo-cliente-01.png" },
+  { name: "Cliente da Infuse", logo: "/images/clients/logo-cliente-02.png" },
+  { name: "Filmora", logo: "/images/clients/filmora.png" },
+  // Round emblem: rendered taller so it reads at the same visual weight as the wordmarks.
+  { name: "Escola Oliveira Lins", logo: "/images/clients/oliveira-lins.png", emblem: true },
+  { name: "Feira Conecta", logo: "/images/clients/feira-conecta.png", emblem: true },
+  { name: "Instituto da Mente", logo: "/images/clients/instituto-da-mente.png", emblem: true },
+  { name: "Cliente da Infuse", logo: "/images/clients/logo-cliente-03.png", emblem: true },
+];
+
 export const CLIENT_LOGOS = [
   { name: "Clínicas & Consultórios", value: "Agendamentos 24/7 sem faltas" },
   { name: "Lojas Virtuais & E-Commerce", value: "+180% em conversão" },

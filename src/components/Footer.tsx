@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, MapPin, Mail, Phone, ArrowUpRight, AtSign } from 'lucide-react';
+import { ShieldCheck, MapPin, Mail, Phone, ArrowUpRight, AtSign, Star } from 'lucide-react';
 import { BrandLogo } from './BrandLogo';
 
 /**
@@ -17,6 +17,27 @@ const MetaMark: React.FC<{ className?: string }> = ({ className }) => (
 const WHATSAPP_LINK =
   'https://wa.me/5575982938031?text=' +
   encodeURIComponent('Olá! Vim pelo site da Infuse e gostaria de mais informações.');
+
+/** Links internos para as páginas locais (estáticas, em public/) — a home é o principal sinal de descoberta para o Google. */
+const LOCAL_SERVICES: [string, string][] = [
+  ['criacao-de-sites', 'Criação de sites'],
+  ['loja-virtual', 'Loja virtual'],
+  ['automacao-de-processos', 'Automação de processos'],
+  ['inteligencia-artificial', 'Inteligência artificial'],
+  ['desenvolvimento-de-sistemas', 'Desenvolvimento de sistemas'],
+  ['gestao-de-trafego', 'Gestão de tráfego'],
+];
+
+const LOCAL_SEGMENTS: [string, string][] = [
+  ['academia', 'Academias'], ['advogado', 'Advogados'], ['arquiteto', 'Arquitetos'],
+  ['barbearia', 'Barbearias'], ['clinica', 'Clínicas'], ['clinica-de-estetica', 'Clínicas de estética'],
+  ['clinica-veterinaria', 'Clínicas veterinárias'], ['construtora', 'Construtoras'],
+  ['contabilidade', 'Contabilidade'], ['corretor-de-imoveis', 'Corretores de imóveis'],
+  ['cursos', 'Cursos'], ['dentista', 'Dentistas'], ['energia-solar', 'Energia solar'],
+  ['escola', 'Escolas'], ['imobiliaria', 'Imobiliárias'], ['medico', 'Médicos'],
+  ['oficina-mecanica', 'Oficinas mecânicas'], ['pet-shop', 'Pet shops'], ['psicologo', 'Psicólogos'],
+  ['restaurante', 'Restaurantes'], ['salao-de-beleza', 'Salões de beleza'],
+];
 
 interface FooterProps {
   onOpenContact: () => void;
@@ -112,6 +133,8 @@ export const Footer: React.FC<FooterProps> = ({ onOpenContact }) => {
               <li><a href="#casos" className="hover:text-cyan-400 transition-colors">Casos de Sucesso</a></li>
               <li><a href="#metodologia" className="hover:text-cyan-400 transition-colors">Metodologia</a></li>
               <li><a href="#hero" className="hover:text-cyan-400 transition-colors">Visão Geral</a></li>
+              <li><a href="/blog/" className="hover:text-cyan-400 transition-colors">Blog</a></li>
+              <li><a href="/ferramentas/" className="hover:text-cyan-400 transition-colors">Ferramentas gratuitas</a></li>
               <li><a href="/sobre/" className="hover:text-cyan-400 transition-colors">Sobre a Infuse</a></li>
               <li><a href="/contato/" className="hover:text-cyan-400 transition-colors">Contato</a></li>
             </ul>
@@ -154,6 +177,17 @@ export const Footer: React.FC<FooterProps> = ({ onOpenContact }) => {
                   <span>@infuse.software</span>
                 </a>
               </li>
+              <li>
+                <a
+                  href="https://share.google/yxzHF35a9ABS4xsvV"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="fluid-hover flex items-center gap-2 hover:text-cyan-400"
+                >
+                  <Star className="w-3.5 h-3.5 shrink-0 text-cyan-400" />
+                  <span>Avaliações no Google</span>
+                </a>
+              </li>
               <li className="flex items-start gap-2 pt-1">
                 <MapPin className="w-3.5 h-3.5 text-cyan-400 shrink-0 mt-0.5" />
                 <span>Atendimento Nacional • Feira de Santana, BA & Brasil</span>
@@ -161,6 +195,27 @@ export const Footer: React.FC<FooterProps> = ({ onOpenContact }) => {
             </ul>
           </div>
 
+        </div>
+
+        {/* Atendimento local — páginas por serviço e segmento */}
+        <div className="mb-12 pt-8 border-t border-white/10 space-y-4">
+          <span className="text-xs uppercase font-mono text-white font-bold tracking-wider block">
+            Atendemos em Feira de Santana
+          </span>
+          <ul className="flex flex-wrap gap-x-5 gap-y-2 text-zinc-400 font-medium">
+            {LOCAL_SERVICES.map(([slug, label]) => (
+              <li key={slug}>
+                <a href={`/${slug}-feira-de-santana/`} className="hover:text-cyan-400 transition-colors">{label}</a>
+              </li>
+            ))}
+          </ul>
+          <ul className="flex flex-wrap gap-x-5 gap-y-2 text-zinc-500">
+            {LOCAL_SEGMENTS.map(([slug, label]) => (
+              <li key={slug}>
+                <a href={`/site-para-${slug}-feira-de-santana/`} className="hover:text-cyan-400 transition-colors">Site para {label.toLowerCase()}</a>
+              </li>
+            ))}
+          </ul>
         </div>
 
         {/* Bottom Disclaimer */}
