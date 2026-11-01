@@ -143,23 +143,43 @@
       }
     </script>
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-28X808F553"></script>
+    <!-- Google tag (gtag.js): carregado depois da primeira pintura, para não competir com o conteúdo.
+         Os eventos ficam na fila (dataLayer) e são enviados assim que o script entra. -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-28X808F553');
+      (function () {
+        var started = false;
+        function start() {
+          if (started) return;
+          started = true;
+          var s = document.createElement('script');
+          s.async = true;
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=G-28X808F553';
+          document.head.appendChild(s);
+        }
+        window.addEventListener('load', function () { setTimeout(start, 2000); });
+        ['pointerdown', 'keydown', 'scroll', 'touchstart'].forEach(function (ev) {
+          window.addEventListener(ev, start, { once: true, passive: true });
+        });
+      })();
     </script>
 
     <style>
-      /* Conteúdo estático para buscadores e leitura sem JS; o React o substitui ao montar. */
-      .seo-static { max-width: 960px; margin: 0 auto; padding: 96px 20px 64px; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.6; }
-      .seo-static h1 { font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.1; letter-spacing: -0.03em; margin: 0 0 16px; }
-      .seo-static h2 { font-size: 1.3rem; margin: 40px 0 12px; }
-      .seo-static ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px 20px; }
+      /*
+       * Conteúdo estático para buscadores e leitores de tela. Fica no HTML, mas
+       * sem aparecer para quem enxerga a página: o visitante vê a tela de
+       * carregamento (.boot) até o React montar e substituir tudo.
+       * Sem JavaScript (<noscript> abaixo), o conteúdo volta a ficar visível.
+       */
+      .seo-static { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; border: 0; }
       .seo-static a { color: #8bbcff; }
+      .boot { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; background: #030305; }
+      .boot img { width: 52px; height: auto; opacity: 0.9; animation: boot-pulse 1.6s ease-in-out infinite; }
+      @keyframes boot-pulse { 0%, 100% { opacity: 0.35; transform: scale(0.96); } 50% { opacity: 1; transform: scale(1); } }
+      @media (prefers-reduced-motion: reduce) { .boot img { animation: none; } }
       html {
         scroll-behavior: smooth;
         background-color: #030305;
@@ -185,9 +205,10 @@
       }
     </style>
   <script defer src="/wa-track.js"></script>
+  <noscript><style>.boot { display: none; } .seo-static { position: static; width: auto; height: auto; margin: 0 auto; padding: 96px 20px 64px; overflow: visible; clip: auto; clip-path: none; white-space: normal; max-width: 960px; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.6; } .seo-static h1 { font-size: 2.4rem; line-height: 1.1; margin: 0 0 16px; } .seo-static h2 { font-size: 1.3rem; margin: 40px 0 12px; } .seo-static ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 20px; }</style></noscript>
 </head>
   <body>
-    <div id="root"><!--seo-static:start--><main class="seo-static">
+    <div id="root"><div class="boot" aria-hidden="true"><img src="/brand/infuse-symbol-white.webp" alt="" width="52" height="52"></div><!--seo-static:start--><main class="seo-static">
 <h1>Da Primeira Página ao Pós-Venda: Sua Empresa Vendendo 24h por Dia.</h1>
 <p>A Infuse Software, de Feira de Santana, na Bahia, constrói sites ultrarrápidos, lojas virtuais, sistemas, CRM e automações com inteligência artificial no WhatsApp para empresas que querem vender mais e operar sem esforço manual.</p>
 <p><a href="https://wa.me/5575982938031?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Infuse%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es." rel="noopener">Falar com a Infuse no WhatsApp</a></p>
