@@ -4,6 +4,16 @@
  * Os arquivos ficam em `public/images/` (otimizados em WebP).
  */
 export const IMAGENS = {
+  'postline-m-drawer': {
+    src: '/images/postline/postline-m-drawer.webp', w: 560, h: 1688,
+    legenda: 'Menu lateral do Postline no celular',
+    alt: '',
+  },
+  'postline-m-conversa': {
+    src: '/images/postline/postline-m-conversa.webp', w: 780, h: 1688,
+    legenda: 'Conversa com resposta automática no celular',
+    alt: '',
+  },
   'postline-m-calendario': {
     src: '/images/postline/postline-m-calendario.webp', w: 780, h: 1688,
     legenda: 'Calendário no celular',

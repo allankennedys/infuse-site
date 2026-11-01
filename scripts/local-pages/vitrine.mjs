@@ -13,13 +13,15 @@ import { IMAGENS } from './imagens.mjs';
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
 const I = {
+  chk: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>',
   zap: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg>',
 };
 
-const img = (key, { eager = false, cls = '' } = {}) => {
+const img = (key, { eager = false, cls = '', decorativa = false } = {}) => {
   const i = IMAGENS[key];
   if (!i) throw new Error(`imagem desconhecida: ${key}`);
-  return `<img${cls ? ` class="${cls}"` : ''} src="${i.src}" alt="${esc(i.alt)}" width="${i.w}" height="${i.h}" ${eager ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async">`;
+  const alt = decorativa ? 'alt="" aria-hidden="true"' : `alt="${esc(i.alt)}"`;
+  return `<img${cls ? ` class="${cls}"` : ''} src="${i.src}" ${alt} width="${i.w}" height="${i.h}" ${eager ? 'fetchpriority="high"' : decorativa ? 'loading="eager"' : 'loading="lazy"'} decoding="async">`;
 };
 
 /** Moldura de celular com a tela em modo claro. */
@@ -47,13 +49,19 @@ export const vitrineCss = `
 .phone-screen{position:relative;height:100%;border-radius:37px;overflow:hidden;background:#f7f7f8}
 .phone-screen img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .phone-sm{width:min(236px,68vw);border-radius:40px;padding:8px}.phone-sm .phone-screen{border-radius:32px}.phone-sm::before{top:15px;width:68px;height:19px;margin-left:-34px}
-.hero-phone .phone-screen img{opacity:0;animation:slide 12s infinite}
-.hero-phone .phone-screen img:nth-child(1){opacity:1;animation-delay:0s}
-.hero-phone .phone-screen img:nth-child(2){animation-delay:4s}
-.hero-phone .phone-screen img:nth-child(3){animation-delay:8s}
-@keyframes slide{0%{opacity:0}6%{opacity:1}30%{opacity:1}36%{opacity:0}100%{opacity:0}}
-.hero-phone .phone-screen img:nth-child(1){animation-name:slide1}
-@keyframes slide1{0%{opacity:1}30%{opacity:1}36%{opacity:0}94%{opacity:0}100%{opacity:1}}
+.app-demo .layer{position:absolute;inset:0;will-change:transform}
+.app-demo .layer img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.app-demo .l-inbox,.app-demo .l-conv{transform:translateX(100%)}
+.app-demo .l-compose{transform:translateY(100%)}
+.app-demo .dim{position:absolute;inset:0;background:#000;opacity:0;pointer-events:none}
+.app-demo .drawer{position:absolute;top:0;left:0;bottom:0;width:71.8%;transform:translateX(-104%);background:#fff;box-shadow:8px 0 30px -10px rgba(0,0,0,.35)}
+.app-demo .drawer img{width:100%;height:100%;object-fit:cover;display:block}
+.app-demo .toast{position:absolute;top:13%;left:50%;transform:translate(-50%,-26px);opacity:0;display:flex;align-items:center;gap:7px;white-space:nowrap;background:#141416;color:#fff;border-radius:999px;padding:8px 14px;font-size:.7rem;font-weight:600;box-shadow:0 10px 26px -10px rgba(0,0,0,.5)}
+.app-demo .toast svg{width:13px;height:13px;color:#4aa576}
+.app-demo .touch{position:absolute;left:50%;top:60%;width:30px;height:30px;margin:-15px 0 0 -15px;border-radius:50%;background:rgba(20,20,22,.24);border:1.5px solid rgba(255,255,255,.92);box-shadow:0 3px 10px rgba(0,0,0,.28);opacity:0;pointer-events:none;z-index:5}
+.app-demo .touch::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:1.5px solid rgba(20,20,22,.3);opacity:0}
+.app-demo .touch.press::after{animation:ripple .5s ease-out}
+@keyframes ripple{from{opacity:.9;transform:scale(.6)}to{opacity:0;transform:scale(1.7)}}
 .tabs-nav{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
 .tabs-nav button{font:inherit;font-weight:600;font-size:.95rem;color:var(--muted);background:transparent;border:1px solid var(--border);border-radius:999px;padding:10px 18px;cursor:pointer;transition:all .2s}
 .tabs-nav button:hover{color:var(--text);border-color:rgba(255,255,255,.3)}
@@ -105,14 +113,90 @@ export const vitrineCss = `
   .demo{grid-template-columns:1fr;gap:32px}
 }
 @media(prefers-reduced-motion:reduce){
-  .hero-phone .phone-screen img,.dm1,.dm2,.dm3,.dm4,.demo-chat .typing i,[data-js] .tab-panel.on{animation:none!important}
-  .hero-phone .phone-screen img{opacity:0}.hero-phone .phone-screen img:nth-child(1){opacity:1}
+  .dm1,.dm2,.dm3,.dm4,.demo-chat .typing i,[data-js] .tab-panel.on{animation:none!important}
   .dm1,.dm2,.dm4{opacity:1!important;transform:none!important}.dm3{display:none}
   .rv-on .rv{opacity:1;transform:none;transition:none}
 }
 `;
 
 export const vitrineJs = `
+
+  /* Simulação de uso do app na abertura (Web Animations API). */
+  (function(){
+    var root=document.querySelector('[data-demo]');
+    if(!root||!root.animate||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+    var q=function(s){return root.querySelector(s)};
+    var base=q('.base'),inbox=q('.l-inbox'),conv=q('.l-conv'),comp=q('.l-compose'),dim=q('.dim'),drawer=q('.drawer'),toast=q('.toast'),touch=q('.touch');
+    var running=false,cx=82,cy=104,E='cubic-bezier(.32,.72,0,1)',PUSH=26;
+    var sleep=function(ms){return new Promise(function(r){setTimeout(r,ms)})};
+    function gate(){return new Promise(function(r){(function w(){running?r():setTimeout(w,200)})()})}
+    function an(el,kf,o){o=o||{};o.fill='forwards';return el.animate(kf,o).finished}
+    function pos(x,y){return {left:(x/390*100)+'%',top:(y/844*100)+'%'}}
+    function reset(){[base,inbox,conv,comp,dim,drawer,toast,touch].forEach(function(e){e.getAnimations().forEach(function(a){a.cancel()})})}
+    async function tap(x,y){
+      await gate();
+      var a=pos(cx,cy),b=pos(x,y);
+      await an(touch,[{left:a.left,top:a.top,opacity:0},{left:a.left,top:a.top,opacity:1,offset:.001},{left:b.left,top:b.top,opacity:1}],{duration:700,easing:'cubic-bezier(.4,0,.2,1)'});
+      cx=x;cy=y;
+      touch.classList.remove('press');void touch.offsetWidth;touch.classList.add('press');
+      an(touch,[{transform:'scale(1)'},{transform:'scale(.7)'},{transform:'scale(1)'}],{duration:280});
+      an(touch,[{opacity:1},{opacity:0}],{duration:240,delay:320});
+      await sleep(150);
+    }
+    async function hideTouch(){await an(touch,[{opacity:1},{opacity:0}],{duration:220})}
+    async function run(){
+      while(true){
+        await gate();reset();cx=82;cy=104;
+        await sleep(1600);
+        /* 1) Criar publicação: a tela sobe de baixo */
+        await tap(336,128);
+        an(dim,[{opacity:0},{opacity:.35}],{duration:420});
+        await an(comp,[{transform:'translateY(100%)'},{transform:'translateY(0)'}],{duration:480,easing:E});
+        await sleep(1700);
+        /* 2) Agendar: a tela desce e aparece o aviso */
+        await tap(287,709);
+        an(dim,[{opacity:.35},{opacity:0}],{duration:360});
+        await an(comp,[{transform:'translateY(0)'},{transform:'translateY(100%)'}],{duration:380,easing:'cubic-bezier(.4,0,.6,1)'});
+        await an(toast,[{opacity:0,transform:'translate(-50%,-26px)'},{opacity:1,transform:'translate(-50%,0)'}],{duration:320,easing:E});
+        await sleep(1300);
+        an(toast,[{opacity:1},{opacity:0}],{duration:260});
+        /* 3) Menu lateral */
+        await tap(28,70);
+        an(dim,[{opacity:0},{opacity:.42}],{duration:380});
+        await an(drawer,[{transform:'translateX(-104%)'},{transform:'translateX(0)'}],{duration:400,easing:E});
+        await sleep(450);
+        await tap(140,332);
+        /* 4) Abre a caixa de entrada: a tela empurra a anterior */
+        an(dim,[{opacity:.42},{opacity:0}],{duration:340});
+        an(drawer,[{transform:'translateX(0)'},{transform:'translateX(-104%)'}],{duration:340,easing:'cubic-bezier(.4,0,.6,1)'});
+        an(base,[{transform:'translateX(0)'},{transform:'translateX(-'+PUSH+'%)'}],{duration:460,easing:E});
+        await an(inbox,[{transform:'translateX(100%)'},{transform:'translateX(0)'}],{duration:460,easing:E});
+        await sleep(1200);
+        /* 5) Abre a conversa */
+        await tap(200,245);
+        an(inbox,[{transform:'translateX(0)'},{transform:'translateX(-'+PUSH+'%)'}],{duration:460,easing:E});
+        await an(conv,[{transform:'translateX(100%)'},{transform:'translateX(0)'}],{duration:460,easing:E});
+        await hideTouch();
+        await sleep(2800);
+        /* 6) Volta com o gesto de voltar */
+        await tap(26,73);
+        an(inbox,[{transform:'translateX(-'+PUSH+'%)'},{transform:'translateX(0)'}],{duration:420,easing:E});
+        await an(conv,[{transform:'translateX(0)'},{transform:'translateX(100%)'}],{duration:420,easing:E});
+        await hideTouch();
+        await sleep(1100);
+        /* 7) Fecha o ciclo voltando ao calendário */
+        await an(base,[{transform:'translateX(0)'}],{duration:1});
+        await an(inbox,[{opacity:1},{opacity:0}],{duration:520});
+        await sleep(900);
+      }
+    }
+    if('IntersectionObserver' in window){
+      new IntersectionObserver(function(es){running=es[0].isIntersecting&&!document.hidden},{threshold:.25}).observe(root);
+      document.addEventListener('visibilitychange',function(){if(document.hidden)running=false});
+    }else{running=true}
+    run();
+  })();
+
 (function(){
   document.querySelectorAll('[data-tabs]').forEach(function(root){
     var btns=[].slice.call(root.querySelectorAll('[role=tab]')),panels=[].slice.call(root.querySelectorAll('.tab-panel'));
@@ -130,10 +214,26 @@ export const vitrineJs = `
 })();
 `;
 
-/** Celular da abertura: as telas do app (modo claro) trocam sozinhas. */
-export const vitrineHero = (v) => `<div class="hero-phone">
-        <div class="phone"><div class="phone-screen">${v.hero.telas.map((k, n) => img(k, { eager: n === 0 })).join('')}</div></div>
+/**
+ * Celular da abertura: simula o uso do app (toque, tela subindo, menu lateral,
+ * aviso e gesto de voltar). Sem JavaScript, fica só a tela do calendário.
+ */
+export const vitrineHero = (v) => {
+  const h = v.hero;
+  const layer = (cls, key) => `<div class="layer ${cls}">${img(key, { eager: cls === 'base' ? true : false, decorativa: cls !== 'base' })}</div>`;
+  return `<div class="hero-phone">
+        <div class="phone"><div class="phone-screen app-demo" data-demo>
+          ${layer('base', h.base)}
+          ${layer('l-inbox', h.inbox)}
+          ${layer('l-conv', h.conversa)}
+          ${layer('l-compose', h.compose)}
+          <div class="dim"></div>
+          <div class="drawer">${img(h.drawer, { decorativa: true })}</div>
+          <div class="toast">${I.chk} Publicação agendada</div>
+          <span class="touch"></span>
+        </div></div>
       </div>`;
+};
 
 /** Abas: cada recurso com tela e texto. Sem JS, todos os painéis aparecem empilhados. */
 export const vitrineAbas = (a) => `

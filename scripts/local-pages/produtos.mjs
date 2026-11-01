@@ -186,7 +186,11 @@ export const PRODUTOS = [
     selo: { img: '/images/postline/postline-logo.svg', alt: 'Logo do Postline', texto: 'Postline · da Infuse Software' },
     vitrine: {
       hero: {
-        telas: ['postline-m-calendario', 'postline-m-inbox', 'postline-m-composer'],
+        base: 'postline-m-calendario',
+        inbox: 'postline-m-inbox',
+        conversa: 'postline-m-conversa',
+        compose: 'postline-m-composer',
+        drawer: 'postline-m-drawer',
       },
       abas: {
         h2: 'O Postline por dentro',
