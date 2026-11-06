@@ -30,7 +30,7 @@ const SocialProof = lazy(load.SocialProof);
 const Methodology = lazy(load.Methodology);
 const FAQ = lazy(load.FAQ);
 const FinalCTA = lazy(load.FinalCTA);
-const TrustedClients = lazy(load.TrustedClients);
+// const TrustedClients = lazy(load.TrustedClients);
 const Footer = lazy(load.Footer);
 const ContactDrawerModal = lazy(load.ContactDrawerModal);
 
@@ -159,8 +159,8 @@ export function App() {
           onOpenContact={() => handleOpenContact()}
         />
 
-        {/* Grayscale client logo marquee */}
-        <TrustedClients />
+        {/* Grayscale client logo marquee (oculto temporariamente) */}
+        {/* <TrustedClients /> */}
           </Suspense>
           </ChunkGuard>
         ) : (
