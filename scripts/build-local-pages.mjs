@@ -351,15 +351,14 @@ function render(p) {
   if (p.produto) {
     schema.push({
       '@context': 'https://schema.org',
-      '@type': 'Product',
+      '@type': 'Service',
       '@id': `${url}#product`,
       name: p.produto.nome,
       description: p.produto.descricao,
-      category: p.produto.categoria,
+      serviceType: p.produto.categoria,
       url,
       image: (p.produto.imagens ?? []).map(imgUrl),
-      brand: { '@type': 'Brand', name: 'Infuse Software' },
-      manufacturer: { '@id': `${SITE}/#organization` },
+      provider: { '@id': `${SITE}/#organization` },
     });
   }
 
