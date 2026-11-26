@@ -16,6 +16,7 @@ import { IMAGENS } from './local-pages/imagens.mjs';
 import { AUTORES } from './local-pages/autores.mjs';
 import { temaCss, vitrineCss, vitrineJs, vitrineHero, vitrineAbas, vitrineDemo, vitrineCarrossel } from './local-pages/vitrine.mjs';
 import { FERRAMENTAS } from './local-pages/ferramentas.mjs';
+import { CRM_SEGMENTOS } from './local-pages/crm-segmentos.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SITE = 'https://www.infusesoftware.com';
@@ -525,7 +526,19 @@ ${p.guias ? `  <section class="sec sec-alt">
     </div>
   </section>
 
-${p.secoes.map(secao).join('\n\n')}
+${p.galeria ? `  <section class="sec">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>${esc(p.galeria.h2)}</h2>
+        ${p.galeria.sub ? `<p>${p.galeria.sub}</p>` : ''}
+      </div>
+      <div class="galeria${p.galeria.larga ? ' galeria-larga' : ''}">
+        ${p.galeria.imagens.map((k) => figure(k, { legenda: p.galeria.larga })).join('\n        ')}
+      </div>
+    </div>
+  </section>
+
+` : ''}${p.secoes.map(secao).join('\n\n')}
 
 ${p.faq ? `  <section class="sec" id="faq">
     <div class="wrap">
@@ -731,7 +744,10 @@ function renderPost(b) {
   const autor = AUTORES[b.autor];
   const [ctaHref, ctaLabel, ctaTema] = ctaDe(b);
   const waMeio = wa(`Olá! Li o artigo "${b.h1}" e quero saber mais sobre ${ctaTema}.`);
-  const inline = `<aside class="cta-inline"><p>Quer ajuda com ${ctaTema}? Conte o seu caso e receba uma proposta sem compromisso.</p><a class="btn btn-wa" data-cta="inline" href="${waMeio}" target="_blank" rel="noopener">${WA_ICON}<span>Falar no WhatsApp</span></a></aside>`;
+  const TESTE_URL = 'https://atendimento.infusesoftware.com/cadastro';
+  const inline = b.teste
+    ? `<aside class="cta-inline"><p>Quer ver isso funcionando no seu WhatsApp? Crie a conta e teste o Infuse CRM por 7 dias grátis.</p><a class="btn btn-blue" data-cta="crm-teste-inline" href="${TESTE_URL}" rel="noopener">Testar 7 dias grátis</a></aside>`
+    : `<aside class="cta-inline"><p>Quer ajuda com ${ctaTema}? Conte o seu caso e receba uma proposta sem compromisso.</p><a class="btn btn-wa" data-cta="inline" href="${waMeio}" target="_blank" rel="noopener">${WA_ICON}<span>Falar no WhatsApp</span></a></aside>`;
   const capaUrl = b.capa ? imgUrl(b.capa) : OG_IMAGE;
   const publicado = b.publicado ?? PUBLICADO_PADRAO;
   const atualizado = b.atualizado ?? publicado;
@@ -824,12 +840,18 @@ ${b.faq?.length ? `  <section class="sec" id="faq">
 
 ` : ''}  <section class="final">
     <div class="wrap">
-      <h2>Quer aplicar isso no seu negócio?</h2>
+      ${b.teste ? `<h2>Teste o Infuse CRM por 7 dias grátis</h2>
+      <p>Conecte o seu WhatsApp pelo QR Code, convide a equipe e veja conversas, funil e relatórios funcionando no seu negócio.</p>
+      <div class="cta-row">
+        <a class="btn btn-blue" data-cta="crm-teste-final" href="${TESTE_URL}" rel="noopener">Testar 7 dias grátis</a>
+        <a class="btn btn-ghost" href="/crm/">Conhecer o Infuse CRM</a>
+        <a class="btn btn-wa" data-cta="final" href="${waCta}" target="_blank" rel="noopener">${WA_ICON}<span>Tirar dúvidas no WhatsApp</span></a>
+      </div>` : `<h2>Quer aplicar isso no seu negócio?</h2>
       <p>Conte o seu cenário. A gente analisa e envia uma proposta para o seu caso, direto pelo WhatsApp, sem compromisso.</p>
       <div class="cta-row">
         <a class="btn btn-wa" data-cta="final" href="${waCta}" target="_blank" rel="noopener">${WA_ICON}<span>Falar com a Infuse</span></a>
         <a class="btn btn-ghost" href="${ctaHref}">${esc(ctaLabel)}</a>
-      </div>
+      </div>`}
     </div>
   </section>
 
@@ -1213,6 +1235,239 @@ ${FAB(waCta)}
 }
 
 
+/* ---------- Infuse CRM por segmento ---------- */
+const TESTE_CRM = 'https://atendimento.infusesoftware.com/cadastro';
+const CRM_SEG_DATA = '2026-11-16';
+const blogLink = (slug) => {
+  const b = BLOG.find((x) => x.slug === slug);
+  if (!b) throw new Error(`crm-segmento: artigo inexistente ${slug}`);
+  return b;
+};
+
+function renderCrmSegmento(g) {
+  const url = `${SITE}/crm-para-${g.seg}/`;
+  const waCta = wa(`Olá! Vi a página do Infuse CRM para ${g.nome} e quero tirar uma dúvida.`);
+  const cards = (itens) => `<ul class="grid">${itens.map((i) => `<li class="card"><h3>${esc(i.t)}</h3><p>${i.d}</p></li>`).join('')}</ul>`;
+  const schema = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      name: g.h1,
+      url,
+      description: g.description,
+      inLanguage: 'pt-BR',
+      about: { '@type': 'SoftwareApplication', name: 'Infuse CRM', applicationCategory: 'BusinessApplication', operatingSystem: 'Web', url: `${SITE}/crm/` },
+      publisher: ORG_REF,
+      dateModified: CRM_SEG_DATA,
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Início', item: `${SITE}/` },
+        { '@type': 'ListItem', position: 2, name: 'Infuse CRM', item: `${SITE}/crm/` },
+        { '@type': 'ListItem', position: 3, name: `CRM para ${g.nome}`, item: url },
+      ],
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: g.faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: stripTags(f.a) } })),
+    },
+  ];
+  const outros = CRM_SEGMENTOS.filter((o) => o.seg !== g.seg);
+  const i0 = CRM_SEGMENTOS.findIndex((o) => o.seg === g.seg);
+  const vizinhos = [1, 2, 3, 4].map((k) => CRM_SEGMENTOS[(i0 + k * 7) % CRM_SEGMENTOS.length]).filter((o, i, a) => o.seg !== g.seg && a.indexOf(o) === i);
+  void outros;
+  return `${head({ title: g.title, description: g.description, url, og: 'website', image: imgUrl('crm-funil'), extra: schema.map(jsonLd).join('\n') })}${siteHeader(waCta, BLOG_NAV)}
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Você está em">
+        <ol>
+          <li><a href="/">Início</a></li>
+          <li><a href="/crm/">Infuse CRM</a></li>
+          <li aria-current="page">Para ${esc(g.nome)}</li>
+        </ol>
+      </nav>
+      <p class="eyebrow" style="margin-top:36px">${esc(g.eyebrow)}</p>
+      <h1 style="max-width:24ch">${esc(g.h1)}</h1>
+      <p class="lede">${g.lede}</p>
+      <ul class="bul" style="margin:20px 0 28px">${g.destaques.map((d) => `<li>${d}</li>`).join('')}</ul>
+      <div class="cta-row">
+        <a class="btn btn-blue" data-cta="crm-seg-hero" href="${TESTE_CRM}" rel="noopener">Testar 7 dias grátis</a>
+        <a class="btn btn-ghost" href="/crm/">Conhecer o Infuse CRM</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec-alt">
+    <div class="wrap prose">
+      <h2>${esc(g.dor.h2)}</h2>
+      ${g.dor.p.map((t) => `<p>${t}</p>`).join('\n      ')}
+      ${figure('crm-atendimento', { eager: true })}
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap prose">
+      <h2>${esc(g.etapas.h2)}</h2>
+      <p>${g.etapas.intro}</p>
+      <ol class="num">${g.etapas.itens.map((e) => `<li><strong>${esc(e.t)}.</strong> ${e.d}</li>`).join('')}</ol>
+      <p><strong>Motivos de perda que vale registrar:</strong></p>
+      <ul class="bul">${g.etapas.perdas.map((e) => `<li>${e}</li>`).join('')}</ul>
+      ${figure('crm-funil')}
+    </div>
+  </section>
+
+  <section class="sec sec-alt">
+    <div class="wrap">
+      <div class="sec-head"><h2>${esc(g.recursos.h2)}</h2></div>
+      ${cards(g.recursos.itens)}
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec-head"><h2>${esc(g.relatorios.h2)}</h2></div>
+      ${cards(g.relatorios.itens)}
+    </div>
+  </section>
+
+  <section class="sec sec-alt">
+    <div class="wrap prose">
+      <h2>${esc(g.dia.h2)}</h2>
+      ${g.dia.p.map((t) => `<p>${t}</p>`).join('\n      ')}
+      ${g.limite ? `<p class="callout"><strong>O que o CRM não substitui:</strong> ${g.limite}</p>` : ''}
+    </div>
+  </section>
+
+  <section class="sec" id="faq">
+    <div class="wrap">
+      <div class="sec-head"><h2>Perguntas frequentes</h2></div>
+      <div class="faq">
+        ${g.faq.map((f) => `<details><summary><h3>${esc(f.q)}</h3></summary><p>${f.a}</p></details>`).join('\n        ')}
+      </div>
+    </div>
+  </section>
+
+  <section class="final">
+    <div class="wrap">
+      <h2>Teste o Infuse CRM por 7 dias grátis</h2>
+      <p>Conecte o WhatsApp do seu negócio pelo QR Code, convide a equipe e veja conversas, funil e relatórios funcionando com os seus contatos.</p>
+      <div class="cta-row">
+        <a class="btn btn-blue" data-cta="crm-seg-final" href="${TESTE_CRM}" rel="noopener">Testar 7 dias grátis</a>
+        <a class="btn btn-wa" data-cta="final" href="${waCta}" target="_blank" rel="noopener">${WA_ICON}<span>Tirar dúvidas no WhatsApp</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec-alt">
+    <div class="wrap">
+      <p class="links-title">Leia também</p>
+      <ul class="links">${g.blog.map((k) => blogLink(k)).map((b) => `<li><a href="/blog/${b.slug}/">${esc(b.h1)}</a></li>`).join('')}</ul>
+      <p class="links-title">Infuse CRM para outros segmentos</p>
+      <ul class="links">${vizinhos.map((o) => `<li><a href="/crm-para-${o.seg}/">CRM para ${esc(o.nome)}</a></li>`).join('')}<li><a href="/crm-por-segmento/">Ver todos os segmentos</a></li></ul>
+    </div>
+  </section>
+</main>
+
+${siteFooter()}
+
+${FAB(waCta)}
+</body>
+</html>
+`;
+}
+
+function renderCrmSegmentosHub() {
+  const url = `${SITE}/crm-por-segmento/`;
+  const waCta = wa('Olá! Vi a lista de segmentos do Infuse CRM e quero tirar uma dúvida.');
+  const title = 'Infuse CRM por Segmento: o CRM do seu negócio | Infuse';
+  const description = 'Veja como o Infuse CRM atende clínicas, lojas, escolas, imobiliárias, oficinas e outros segmentos, com WhatsApp, funil e relatórios.';
+  const schema = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'CollectionPage',
+      name: 'Infuse CRM por segmento',
+      url,
+      inLanguage: 'pt-BR',
+      hasPart: CRM_SEGMENTOS.map((g) => ({ '@type': 'WebPage', name: g.h1, url: `${SITE}/crm-para-${g.seg}/` })),
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Início', item: `${SITE}/` },
+        { '@type': 'ListItem', position: 2, name: 'Infuse CRM', item: `${SITE}/crm/` },
+        { '@type': 'ListItem', position: 3, name: 'Por segmento', item: url },
+      ],
+    },
+  ];
+  return `${head({ title, description, url, og: 'website', image: imgUrl('crm-funil'), extra: schema.map(jsonLd).join('\n') })}${siteHeader(waCta, BLOG_NAV)}
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Você está em">
+        <ol>
+          <li><a href="/">Início</a></li>
+          <li><a href="/crm/">Infuse CRM</a></li>
+          <li aria-current="page">Por segmento</li>
+        </ol>
+      </nav>
+      <p class="eyebrow" style="margin-top:36px">Infuse CRM</p>
+      <h1>Infuse CRM para o seu tipo de negócio</h1>
+      <p class="lede">Atendimento de WhatsApp em equipe, funil de vendas e relatórios, com exemplos do dia a dia de cada segmento. Escolha o seu e veja como o funil e os relatórios se aplicam.</p>
+      <div class="cta-row"><a class="btn btn-blue" data-cta="crm-seg-hub" href="${TESTE_CRM}" rel="noopener">Testar 7 dias grátis</a></div>
+    </div>
+  </section>
+  <section class="sec sec-alt">
+    <div class="wrap">
+      <ul class="grid">
+        ${CRM_SEGMENTOS.map((g) => `<li class="card"><h3><a href="/crm-para-${g.seg}/" style="text-decoration:none">CRM para ${esc(g.nome)}</a></h3><p>${g.lede}</p></li>`).join('\n        ')}
+      </ul>
+    </div>
+  </section>
+  <section class="final">
+    <div class="wrap">
+      <h2>Não achou o seu segmento?</h2>
+      <p>O Infuse CRM serve para qualquer negócio que vende e atende pelo WhatsApp. Teste por 7 dias grátis ou fale com a gente.</p>
+      <div class="cta-row">
+        <a class="btn btn-blue" data-cta="crm-seg-hub-final" href="${TESTE_CRM}" rel="noopener">Testar 7 dias grátis</a>
+        <a class="btn btn-wa" data-cta="final" href="${waCta}" target="_blank" rel="noopener">${WA_ICON}<span>Chamar no WhatsApp</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+${siteFooter()}
+
+${FAB(waCta)}
+</body>
+</html>
+`;
+}
+
+{
+  const vistos = new Set();
+  for (const g of CRM_SEGMENTOS) {
+    if (vistos.has(g.seg)) throw new Error(`crm-segmento duplicado: ${g.seg}`);
+    vistos.add(g.seg);
+    if (g.title.length > 60) console.warn(`[aviso] crm-seg title com ${g.title.length} caracteres: ${g.seg}`);
+    if (g.description.length > 160) console.warn(`[aviso] crm-seg description com ${g.description.length} caracteres: ${g.seg}`);
+    const dir = path.join(ROOT, 'public', `crm-para-${g.seg}`);
+    mkdirSync(dir, { recursive: true });
+    writeFileSync(path.join(dir, 'index.html'), renderCrmSegmento(g));
+  }
+  const hub = path.join(ROOT, 'public', 'crm-por-segmento');
+  mkdirSync(hub, { recursive: true });
+  writeFileSync(path.join(hub, 'index.html'), renderCrmSegmentosHub());
+  console.log(`✓ /crm-para-*/ (${CRM_SEGMENTOS.length} segmentos) + /crm-por-segmento/`);
+}
+
+
 /** Conteúdo estático da home: roda dentro de #root, e o React o substitui ao montar. */
 {
   const featured = [
@@ -1223,7 +1478,7 @@ ${FAB(waCta)}
   ];
   const li = (href, txt) => `<li><a href="${href}">${esc(txt)}</a></li>`;
   const svc = PAGES.filter((p) => p.kind === 'servico').map((p) => li(`/${p.slug}/`, `${p.nome} em Feira de Santana`));
-  const prod = [li('/crm/', 'Infuse CRM'), li('/agenda/', 'Infuse Agenda'), li('/placa-nfc/', 'Placas NFC'), li('/postline/', 'Postline'), li('/cardapio-digital/', 'Cardápio digital'), li('/gestao-de-trafego/', 'Gestão de tráfego')];
+  const prod = [li('/crm/', 'Infuse CRM'), li('/crm-por-segmento/', 'Infuse CRM por segmento'), li('/agenda/', 'Infuse Agenda'), li('/placa-nfc/', 'Placas NFC'), li('/postline/', 'Postline'), li('/cardapio-digital/', 'Cardápio digital'), li('/gestao-de-trafego/', 'Gestão de tráfego')];
   const seg = PAGES.filter((p) => p.kind === 'segmento').map((p) => li(`/${p.slug}/`, `${p.nome}`));
   const guias = featured.map((k) => BLOG.find((b) => b.slug === k)).filter(Boolean).map((b) => li(`/blog/${b.slug}/`, b.h1));
   const bloco = `<main class="seo-static">
@@ -1273,6 +1528,8 @@ ${[
   ['blog/', BLOG.map((b) => b.atualizado ?? b.publicado ?? PUBLICADO_PADRAO).sort().at(-1) ?? PUBLICADO_PADRAO, '0.70'],
   ...BLOG.map((b) => [`blog/${b.slug}/`, b.atualizado ?? b.publicado ?? PUBLICADO_PADRAO, '0.60']),
   ...Object.values(AUTORES).map((a) => [`autor/${a.slug}/`, PUBLICADO_PADRAO, '0.50']),
+  ['crm-por-segmento/', CRM_SEG_DATA, '0.80'],
+  ...CRM_SEGMENTOS.map((g) => [`crm-para-${g.seg}/`, CRM_SEG_DATA, '0.80']),
   ['ferramentas/', PUBLICADO_PADRAO, '0.80'],
   ...FERR.map((t) => [`ferramentas/${t.slug}/`, PUBLICADO_PADRAO, '0.80']),
 ]

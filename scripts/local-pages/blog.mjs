@@ -24,8 +24,13 @@ import { BLOG_19 } from './blog-19.mjs';
 import { BLOG_20 } from './blog-20.mjs';
 import { BLOG_21 } from './blog-21.mjs';
 import { BLOG_22 } from './blog-22.mjs';
+import { BLOG_23 } from './blog-23.mjs';
+import { BLOG_24 } from './blog-24.mjs';
+import { BLOG_25 } from './blog-25.mjs';
+import { BLOG_26 } from './blog-26.mjs';
+import { BLOG_27 } from './blog-27.mjs';
 
-const TODOS = [...BLOG_01, ...BLOG_02, ...BLOG_03, ...BLOG_04, ...BLOG_05, ...BLOG_06, ...BLOG_07, ...BLOG_08, ...BLOG_09, ...BLOG_10, ...BLOG_11, ...BLOG_12, ...BLOG_13, ...BLOG_14, ...BLOG_15, ...BLOG_16, ...BLOG_17, ...BLOG_18, ...BLOG_19, ...BLOG_20, ...BLOG_21, ...BLOG_22];
+const TODOS = [...BLOG_01, ...BLOG_02, ...BLOG_03, ...BLOG_04, ...BLOG_05, ...BLOG_06, ...BLOG_07, ...BLOG_08, ...BLOG_09, ...BLOG_10, ...BLOG_11, ...BLOG_12, ...BLOG_13, ...BLOG_14, ...BLOG_15, ...BLOG_16, ...BLOG_17, ...BLOG_18, ...BLOG_19, ...BLOG_20, ...BLOG_21, ...BLOG_22, ...BLOG_23, ...BLOG_24, ...BLOG_25, ...BLOG_26, ...BLOG_27];
 
 /** Allan: sites, sistemas, SEO local e marketing local. Breno: CRM, IA, automação, tráfego e placas. */
 const CATEGORIAS_ALLAN = new Set([

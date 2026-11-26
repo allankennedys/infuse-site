@@ -4,6 +4,10 @@
  * Os arquivos ficam em `public/images/` (otimizados em WebP).
  */
 export const IMAGENS = {
+  'crm-atendimento': { src: '/crm/assets/shots/atendimento-conversa.webp', w: 2400, h: 1500, legenda: 'Atendimento: conversas, chat e painel do cliente', alt: 'Tela de atendimento do Infuse CRM com lista de conversas, chat e painel do cliente' },
+  'crm-funil': { src: '/crm/assets/shots/funil.webp', w: 2400, h: 1320, legenda: 'Funil de vendas em kanban', alt: 'Funil de vendas do Infuse CRM com seis etapas e cartões de clientes' },
+  'crm-contatos': { src: '/crm/assets/shots/contatos.webp', w: 2400, h: 1500, legenda: 'Contatos com busca, filtros e etiquetas', alt: 'Lista de contatos do Infuse CRM' },
+  'crm-usuarios': { src: '/crm/assets/shots/config-usuarios.webp', w: 1680, h: 1442, legenda: 'Usuários e permissões por cargo', alt: 'Gestão de usuários e permissões do Infuse CRM' },
   'postline-m-drawer': {
     src: '/images/postline/postline-m-drawer.webp', w: 560, h: 1688,
     legenda: 'Menu lateral do Postline no celular',
