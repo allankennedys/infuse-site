@@ -50,7 +50,7 @@ export const APOIO = [
           { t: 'Contatos e vendas', d: 'Base de contatos com etiquetas, campos personalizados, importação e exportação de planilha, vendas, reembolsos e lembretes de retorno.' },
           { t: 'Relatórios', d: 'Atendimento, Vendas, Funil, Jornada, Recompra e Meta ADS, com filtro por período, canal e atendente.' },
           { t: 'Integração com a Meta', d: 'Reconhece cliente que veio de anúncio de clique para o WhatsApp, envia as vendas à Meta (Conversions API) e calcula ROAS e CAC.' },
-          { t: 'Equipe e permissões', d: 'Cargos de Admin e Atendente, com permissões ajustáveis por área, e mais de um número de WhatsApp conforme o plano.' },
+          { t: 'Equipe e permissões', d: 'Cargos de Admin e Atendente, com permissões ajustáveis por área, e até 2 números de WhatsApp e 5 atendentes no plano Profissional.' },
         ],
       },
       {

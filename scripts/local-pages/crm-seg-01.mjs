@@ -234,7 +234,7 @@ export const CRM_SEG_01 = [
       { q: 'Posso restringir o que cada funcionária enxerga?', a: 'Sim. Há cargos Admin e Atendente com permissões por área, para que cada pessoa acesse só o necessário.' },
       { q: 'O CRM substitui o sistema da clínica?', a: 'Não. Ele cuida das conversas de WhatsApp, do funil e dos registros de venda. Prontuário, agenda e faturamento ficam no sistema próprio.' },
       { q: 'Dá para guardar documentos que o paciente envia?', a: 'As fotos, áudios e documentos recebidos ficam guardados na conversa. Pense com cuidado no que deve ser trocado por WhatsApp e confira as normas aplicáveis.' },
-      { q: 'Quantos números de WhatsApp posso conectar?', a: 'Mais de um número, conforme o plano. Valores e limites dependem: fale com a Infuse pelo WhatsApp.' },
+      { q: 'Quantos números de WhatsApp posso conectar?', a: 'Até 2 números no plano Profissional (R$ 200/mês, com 5 atendentes). Para mais, fale com a Infuse pelo WhatsApp.' },
       { q: 'Como começar?', a: 'Com o teste grátis de 7 dias. Você conecta o número do consultório por QR Code e convida a equipe para experimentar.' },
     ],
     blog: ['atendimento-whatsapp-varios-atendentes-mesmo-numero', 'como-nao-perder-historico-de-conversas-whatsapp', 'tempo-de-primeira-resposta-whatsapp'],
