@@ -71,7 +71,7 @@ export const BLOG_25 = [
         h2: 'Como o Infuse CRM trata equipe e permissões',
         p: [
           'No <a href="/crm/">Infuse CRM</a>, os cargos básicos são Admin e Atendente, com permissões ajustáveis por área: quem vê só as próprias conversas, quem enxerga o funil, os relatórios ou as configurações. A gestão de usuários e as credenciais da Meta ficam restritas ao administrador.',
-          'Os atendentes são convidados por e-mail, cada um com o próprio acesso e a própria fila, e o histórico das conversas é compartilhado. Uma mesma pessoa pode participar de mais de uma empresa, com um papel diferente em cada uma. O plano Profissional inclui até 5 atendentes, e os administradores não contam nesse limite.',
+          'Os atendentes são convidados por e-mail, cada um com o próprio acesso e a própria fila, e o histórico das conversas é compartilhado. Uma mesma pessoa pode participar de mais de uma empresa, com um papel diferente em cada uma. O limite é de 2 atendentes no Essencial, 5 no Profissional e 15 no Avançado, e os administradores não contam.',
           'Para ver como a equipe se organiza na prática, leia também <a href="/blog/atendimento-whatsapp-varios-atendentes-mesmo-numero/">atendimento no WhatsApp com vários atendentes no mesmo número</a>. E o melhor teste é montar o seu time na ferramenta: são 7 dias grátis para convidar as pessoas e ver o desenho de permissões funcionando.',
         ],
       },
@@ -79,7 +79,7 @@ export const BLOG_25 = [
     faq: [
       {
         q: 'Posso ter mais de um usuário no CRM?',
-        a: 'Sim, a ideia de um CRM multiatendente é justamente essa. No Infuse CRM, o plano Profissional inclui até 5 atendentes, e os administradores não contam nesse limite.',
+        a: 'Sim, a ideia de um CRM multiatendente é justamente essa. No Infuse CRM, o limite é de 2 atendentes no Essencial, 5 no Profissional e 15 no Avançado, e os administradores não contam.',
       },
       {
         q: 'O atendente consegue ver as conversas dos colegas?',
@@ -459,14 +459,14 @@ export const BLOG_25 = [
         h2: 'Testando o Infuse CRM',
         p: [
           'O <a href="/crm/">Infuse CRM</a> tem 7 dias grátis para você seguir este roteiro. Em poucos minutos dá para conectar o número por QR Code, convidar a equipe, montar o funil e começar a atender, com relatórios de atendimento, vendas, funil, jornada, recompra e Meta ADS preenchidos a partir do seu próprio uso.',
-          'O plano Profissional do Infuse CRM custa R$ 200/mês e inclui até 2 números de WhatsApp e 5 atendentes (administradores não contam). Precisa de mais? Converse com a Infuse pelo WhatsApp.',
+          'O Infuse CRM tem três planos: Essencial (R$ 99/mês, 1 número e 2 atendentes), Profissional (R$ 200/mês, 2 números e 5 atendentes) e Avançado (R$ 400/mês, 5 números e 15 atendentes). Administradores não contam no limite de atendentes.',
         ],
       },
     ],
     faq: [
       {
         q: 'O teste do Infuse CRM é mesmo grátis?',
-        a: 'Sim, são 7 dias grátis para experimentar o sistema. Depois do teste, o plano Profissional do Infuse CRM custa R$ 200/mês e inclui até 2 números de WhatsApp e 5 atendentes (administradores não contam).',
+        a: 'Sim, são 7 dias grátis para experimentar o sistema. Depois do teste, o Infuse CRM tem três planos: Essencial (R$ 99/mês), Profissional (R$ 200/mês) e Avançado (R$ 400/mês), com 1, 2 e 5 números de WhatsApp.',
       },
       {
         q: 'Posso usar meu número real durante o teste?',

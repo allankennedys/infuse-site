@@ -75,7 +75,7 @@ export const BLOG_23 = [
           'Confira como exportar seus dados caso decida trocar de ferramenta.',
         ],
         depois: [
-          'O Infuse CRM tem 7 dias de teste grátis. É tempo suficiente para conectar o número, convidar a equipe e ver se a fila resolve o seu problema. O plano Profissional do Infuse CRM custa R$ 200/mês e inclui até 2 números de WhatsApp e 5 atendentes (administradores não contam).',
+          'O Infuse CRM tem 7 dias de teste grátis. É tempo suficiente para conectar o número, convidar a equipe e ver se a fila resolve o seu problema. O Infuse CRM tem três planos: Essencial (R$ 99/mês), Profissional (R$ 200/mês) e Avançado (R$ 400/mês), com 1, 2 e 5 números de WhatsApp.',
         ],
       },
       {
@@ -101,7 +101,7 @@ export const BLOG_23 = [
       },
       {
         q: 'Quanto custa uma plataforma de atendimento de WhatsApp?',
-        a: 'Depende do número de atendentes, de números conectados e dos recursos. No caso do Infuse CRM, o teste é grátis por 7 dias e o plano Profissional custa R$ 200/mês, com até 2 números e 5 atendentes.',
+        a: 'Depende do número de atendentes, de números conectados e dos recursos. No caso do Infuse CRM, o teste é grátis por 7 dias e os planos custam R$ 99, R$ 200 e R$ 400 por mês (Essencial, Profissional e Avançado), conforme o número de WhatsApps e atendentes.',
       },
     ],
     relacionados: ['crm'],
@@ -168,7 +168,7 @@ export const BLOG_23 = [
         p: [
           'No <a href="/crm/">Infuse CRM</a>, a equipe inteira atende no mesmo número, cada pessoa com o próprio acesso e a própria fila. Na tela de atendimento, as abas Minhas, Fila e Todas mostram o que é seu, o que ninguém assumiu ainda e, conforme a permissão, o que está com a equipe toda.',
           'Quando um atendente assume uma conversa, ela passa a ser dele. Se precisar, ele transfere para outra pessoa em um clique e deixa uma nota interna com o contexto, que o cliente não vê. A distribuição das conversas novas pode ser manual, aleatória, em rodízio ou fixa em uma pessoa, com limite de atendimentos simultâneos por atendente.',
-          'O plano Profissional inclui até 5 atendentes, e os administradores não contam nesse limite. Nos 7 dias de teste, dá para convidar a equipe e ver a rotina funcionando com conversas reais.',
+          'O limite é de 2 atendentes no Essencial, 5 no Profissional e 15 no Avançado, e os administradores não contam. Nos 7 dias de teste, dá para convidar a equipe e ver a rotina funcionando com conversas reais.',
         ],
       },
       {
@@ -214,7 +214,7 @@ export const BLOG_23 = [
       },
       {
         q: 'Quantos atendentes posso ter no Infuse CRM?',
-        a: 'No plano Profissional (R$ 200/mês), até 5 atendentes, sem contar os administradores. Para mais, fale com a equipe pelo WhatsApp.',
+        a: 'Até 2 atendentes no Essencial (R$ 99/mês), 5 no Profissional (R$ 200/mês) e 15 no Avançado (R$ 400/mês), sem contar os administradores.',
       },
     ],
     relacionados: ['crm'],
@@ -283,7 +283,7 @@ export const BLOG_23 = [
       {
         h2: 'E se a empresa tem mais de um número?',
         p: [
-          'É comum ter números diferentes por setor ou por unidade. No Infuse CRM, dá para conectar até 2 números no plano Profissional, e cada um segue o mesmo processo de QR Code. As regras de distribuição podem considerar o número, o que ajuda a mandar cada conversa para o atendente certo.',
+          'É comum ter números diferentes por setor ou por unidade. No Infuse CRM, dá para conectar 1 número no Essencial, 2 no Profissional e 5 no Avançado, e cada um segue o mesmo processo de QR Code. As regras de distribuição podem considerar o número, o que ajuda a mandar cada conversa para o atendente certo.',
           'Se você pretende organizar o atendimento por número, leia também <a href="/blog/fila-de-atendimento-whatsapp-como-organizar/">como organizar a fila de atendimento do WhatsApp</a>.',
         ],
       },
@@ -325,7 +325,7 @@ export const BLOG_23 = [
       },
       {
         q: 'Posso conectar mais de um número?',
-        a: 'No Infuse CRM, sim: o plano Profissional permite até 2 números, cada um conectado por QR Code. Para mais, fale pelo WhatsApp.',
+        a: 'No Infuse CRM, sim: 1 número no Essencial, 2 no Profissional e 5 no Avançado, cada um conectado por QR Code.',
       },
     ],
     relacionados: ['crm'],
